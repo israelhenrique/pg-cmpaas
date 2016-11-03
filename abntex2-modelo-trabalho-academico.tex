@@ -299,22 +299,7 @@
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-projeto abn\TeX\ foram extraídos de
-\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
 
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-novos voluntários do grupo
-\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
 
 \end{agradecimentos}
 % ---
@@ -424,43 +409,6 @@ contribuirão para a evolução do \abnTeX.
 \addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
 
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
-
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
-observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
-
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
-\citeonline{abntex2-wiki-como-customizar} par mais informações.
-
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{marina}. 
-
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-Equipe \abnTeX 
-
-Lauro César Araujo
 
 % ----------------------------------------------------------
 % PARTE
@@ -471,7 +419,7 @@ Lauro César Araujo
 % ---
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
 % ---
-\include{abntex2-modelo-include-comandos}
+%\include{abntex2-modelo-include-comandos}
 % ---
 
 % ----------------------------------------------------------
@@ -492,14 +440,13 @@ Lauro César Araujo
 Os mapas conceituais são uma ferramenta gráfica utilizada para representação do conhecimento, esta representação é constituida por relações entre conceitos na forma de proposições. Cada proposição é formada por dois ou mais conceitos interligados por uma palavra, que descreve a relação entre os conceitos. A \autoref{fig_mapconceitual} mostra um exemplo de mapa conceitual.
 
 \begin{figure}[htb]
-	\caption{\label{fig_mapconceitual}Um exemplo de mapa conceitual}
 	\begin{center}
 		\includegraphics[scale=0.3]{mapaconceitual.png}
 	\end{center}
-	\legend{Fonte: \cite[p. 28]{Perin2014}}
+	\caption{\label{fig_mapconceitual}Um exemplo de mapa conceitual Fonte: \cite[p. 28]{Perin2014}}
 \end{figure}
 
-\section{Mapas conceituais e educação}
+
 O mapas conceituais foram criados na década de 70 durante um estudo de Novak que buscava entender como crianças aprendiam conceitos científicos \cite{Novak2005}. Durante seu estudo, Novak observou uma evolução nas proposições utilizadas pelas crianças, porém teve dificuldade de entender como esta mudança congnitiva ocorreu. Para compreender as mudanças na estruturas cognitivas observadas no estudo a equipe de pesquisa de Novak se baseou nas três ideias de Ausubel sobre a teoria da aprendizagem \cite{ausubel1963}.
 \begin{citacao}[english]
 	First, Ausubel sees the development
@@ -510,6 +457,16 @@ O mapas conceituais foram criados na década de 70 durante um estudo de Novak qu
 	ingful learning occurs, relationships between concepts become more explicit, more
 	precise, and better integrated with other concepts and propositions\cite{Novak2005}.
 \end{citacao}
+Assim foi criada a ferramenta gráfica mapas conceituais, que consiste em conceitos interligados por uma palavra descritiva, formando proposições, e organizada de forma hierárquica, onde os conceitos mais gerais estão dispostos no topo do mapa e os mais específicos na parte inferior dele.
+\section{Mapas conceituais e educação}
+A confiabilidade da avaliação da aprendizagem tradicional,como textos dissertativos e questões de multipla escolha, tem sido questionada por pesquisadores e educadores. Nestes tipos de teste apenas os acertos são contabilizados e os erros são descartados, isto pode fazer com que informações importantes para a avaliação sejam deprezadas.
+As provas tradicionais não proporcionam a possibilidade do estudante apresentar como construiu o seu aprendizado. Elas conseguem avaliar somente a aprendizagem mecânica, não mostrando como que o aprendiz alterou suas estruturas cognitivas.
+Os mapas conceituais tem se destacado como alternativa a avaliação tradicional, pois conseguem demonstrar com facilidade as modificações cognitivas que ocorrem durante o processo de aprendizagem do estudante\cite{Dutra2002}.
+
+Os mapas conceituais podem ter diversas aplicações na educação, podem ser utilizados para representar o conhecimento adquirido em uma aula, ou então o conteúdo de um capítulo algum livro lido. Por se tratar de uma representação que é alimentada com novos conceitos conforme eles são adquiridos, pode ser utilizado pelo professor para acomapanhar a aprendizagem de um estudante durante todo o período de um curso.
+
+  
+
 %\lipsum[1]
 
 %\lipsum[2-3]
@@ -523,7 +480,7 @@ O mapas conceituais foram criados na década de 70 durante um estudo de Novak qu
 % ---
 % primeiro capitulo de Resultados
 % ---
-\chapter{Lectus lobortis condimentum}
+\chapter{Educação a distância}
 % ---
 
 % ---
@@ -536,8 +493,25 @@ posuere cubilia Curae}
 % ---
 % segundo capitulo de Resultados
 % ---
-\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
-elementum}
+\chapter{CMPAAS}
+% ---
+
+% ---
+\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
+% ---
+
+\lipsum[24]
+
+\chapter{Interoperabilidade de sistemas}
+% ---
+
+% ---
+\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
+% ---
+
+\lipsum[24]
+
+\chapter{Plugin}
 % ---
 
 % ---
