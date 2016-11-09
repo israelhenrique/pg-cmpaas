@@ -568,7 +568,37 @@ Um outro problema apontado por \citeonline{Perin2014} é a dificuldade que a soc
 
 Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma denominada CMPaaS, cujo objetivo é possibilitar que a comunidade em geral acesse o resultado de pesquisas acadêmicas e prover uma infraestrutura que permita que esta comunidade crie e estenda suas funcionalidades.
 
-\section{Arquitetura}
+\section{A plataforma CMaaS}
+
+\subsection{Computação em Nuvem}
+
+O termo computação em nuvem teve sua origem em 2006 durante uma palestra Eric Schmidt sobre como o Google gerenciava seus servidores\cite{taurion2009}. A palavra nuvem é uma abstração para a Internet e toda a sua complexidade de infraestrutura, arquiteturas e componentes. A computação em nuvem é um paradigma no qual o processamento, armazenamento e ferramentas computacionais são oferecidos como um serviço através da Internet. Aplicações baseadas nesta tecnologia possuem a caracteristica de serem extensíveis e facilmente incorporadas a outras que precisem consumir os seus serviços\cite{Perin2014}.
+
+A plataforma CMPaaS usa esta capacidade de expansão e integração da computação em nuvem para oferecer serviços de criação, edição e gestão de mapas conceituais que poderão ser acessados por qualquer usuário no mundo.
+
+\subsection{Arquitetura}
+
+O CMPaaS é uma plataforma orientada a serviços, ou seja, ela utiliza a arquitetura SOA. Isto significa que as funcionalidades oferecidas pela plataforma são facilmente extensíveis e aproveitadas por novas aplicações criadas por qualquer pessoa ao redor do mundo. 
+
+A plataforma foi implementada com a utilização de Web Services, que precisam de uma aplicação com interface para serem consumidos. Assim, o CMPaaS precisa estar associado a um portal que permitirá que o usuário final utilize as ferramentas oferecidas pela plataforma. Este portal foi nomeado como "Portal do Conhecimento"\cite{Perin2014}. 
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[scale=0.3]{cmpaas.png}
+	\end{center}
+	\caption{\label{fig_cmpaas}(a) Integração do Portal do Conhecimento com o CMPaaS. (b) Integração do CMPaaS com serviços externos.}
+\end{figure} 
+
+A \autoref{fig_cmpaas} ilustra a arquiterura do CMPaaS. Podemos observar como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um serviço que é oferecido por ela. Além disso, é ilutrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Ele trata-se de um editor de mapas conceituais que armazena os mapas, criados por ele, na plataforma. Assim ele utiliza dois serviços fornecidos pelo CMPaaS, o de armazenagem de mapas e o de autenticação. 
+
+A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014}, conforme mostra a \autoref{fig_cmpaas2}.
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[scale=0.3]{cmpaas2.png}
+	\end{center}
+	\caption{\label{fig_cmpaas2}(a) Integração do Portal do Conhecimento com o CMPaaS. (b) Integração do CMPaaS com serviços externos.}
+\end{figure}   
 
 
 \chapter{Interoperabilidade de sistemas}
@@ -581,7 +611,6 @@ Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma deno
 \section{Pellentesque sit amet pede ac sem eleifend consectetuer}
 % ---
 
-\lipsum[24]
 
 \chapter{Plugin}
 % ---
@@ -592,7 +621,6 @@ Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma deno
 \section{Pellentesque sit amet pede ac sem eleifend consectetuer}
 % ---
 
-\lipsum[24]
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
