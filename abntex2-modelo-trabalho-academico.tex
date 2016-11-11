@@ -613,7 +613,7 @@ A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014},
 % ---
 \section{Pellentesque sit amet pede ac sem eleifend consectetuer}
 % ---
-
+\lipsum[31-33]
 
 \chapter{Plugin}
 % ---
@@ -621,9 +621,74 @@ A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014},
 %Como é feito o plugin?
 %Como foi feito o plugin
 % ---
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-% ---
+\section{O projeto}
 
+O moodle, como vimos anteriormente, é composto por vários componentes, ou módulos, independentes que se relacionam entre si, como qualquer plataforma modular. O escopo deste trabalho é o desenvolvimento de um destes módulos. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
+
+Este tipo de plugin é divido em três partes:
+\begin{itemize}
+	\item configurações, que são opções de comportamento do módulo.
+	\item sumário de envio, que será visto pelo estudante e avaliadores na tela inicial da tarefa.
+	\item segundo Moore EAD é um método no qual os professores agem de forma independente das ações dos estudantes e a comunicação entre ambos deve ser feita através de meios impressos ou eletrônicos.
+	\item formulário de envio, que é onde o estudante responde a tarefa.  
+\end{itemize} 
+
+O foco deste trabalho é no desenvolvimento do formulário de envio, que é onde entra o editor de mapas conceituais, e no formato no qual o módulo salva o diagrama e o armazena. 
+
+\section{O editor de mapas}
+Na criação do formulário de envio, foi utilizado o editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
+
+Este editor foi desenvolvido de forma a salvar os mapas no formato Json, de forma a facilitar que outras aplicações utilizem os dados que ele produz. Ele foi feito desta forma devido a proposta do CMPaaS de permitir a interoperabilidade dos serviços oferecidos.
+
+A primeira parte do trabalho foi realizar um aprimoramento deste editor, adicionando funções para a formatação dos mapas criados por ele. Inicialmente não existia a possibilidade de alterar a fonte da letra dos conceitos ou a cor de fundo dos nós. Uma barra de ferramenta foi adicionada ao editor original para que funções de formatação estivessem disponíveis.
+% ---
+\subsection{Implementação das funções de formatação}
+O editor de mapas é dividido em dois componentes, um Model e um Diagram. O Model é o que contém os dados do mapa que está sendo criado, nele os nós e links são descritos por vetores de objetos JavaScript. Já o Diagram é usado para visualizar os dados contidos no modelo.
+\begin{figure}[htb]
+	\caption{\label{fig_gojs} Componentes do GoJS}
+	\begin{center}
+		\includegraphics[scale=0.7]{gojs.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+Cada nó do mapa criado pelo editor é representado por um objeto da classe Node, que por sua vez, é composto por blocos que determinam a sua aparência. Os blocos que o editor utiliza são o Shape e o TextBlock. A classe Shape é utilizada para mostrar uma forma geométrica colorida. Já a classe TextBlock tem como função mostrar um texto. Ambas as classes possuem diversas propriedades que servem para determinar a sua aparência e o seu comportamento no diagrama.
+
+Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A forma geométrica  desenhada é retângulo com largura de 40 pixels, altura de 60 pixels, com margem de 4 pixels e preenchimento na cor vermelha. Já o TextBlock criado é um texto “a Text Block” de cor vermelha.
+
+As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim a aparência deles. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma string  CSS. Já o botão que altera a cor do nó modifica a propriedade fill da Shape.
+
+\section{O plugin para o moodle} 
+Para a elaboração deste trabalho foi utilizado um plugin já existente no Moodle como modelo. Todos os plugins de envio de tarefa devem ter uma estrutura de arquivo padrão, esta estrutura será detalhada abaixo.
+\begin{itemize}
+	\item version.php: este arquivo contém informações sobre a versão do plugin, é utilizado para que o Moodle instale e atualize o plugin corretamente.
+	\item settings.php: este arquivo permite que se adicione opções personalizadas para a página configuração do plugin.
+	\item lang/en/submission\_nomedoplugin.php:  este é o arquivo de linguagem, ele é usado para internacionalização do plugin.
+	\item db/access.php: e utilizada para adicionar capacidades adicionais ao plugin. Este arquivo é opcional, não sendo necessário se o plugin não tiver capacidades adicionais.
+	\item db/upgrade.php: este arquivo define a rotina de atualização do plugin. 
+	\item db/install.xml: este arquivo define as tabelas de banco de dados que o plugin vai utilizar. 
+	\item db/install.php: contem o codigo de instalação do plugin.
+	\item db/locallib.php: eh o arquivo mais importante, é ele que define todas as funcionalidades do plugin.    
+\end{itemize} 
+
+\subsection{Implementação}
+O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma.
+
+O módulo de envio de texto online, no qual o plugin de edição de mapas se baseia pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa feita pelo aluno. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
+
+As alterações feitas no plugin de envio de texto online se concentraram no arquivo locallib.php, que é o que determina o comportamento e funcionalidades do módulo. Dentro deste arquivo, as mudanças ocorreram nas funções get\_form\_elements(), que constrói o formulário de envio de tarefa, e no arquivo save(), que realiza a submissão do conteúdo criado pelo estudante.
+
+A primeira parte do trabalho foi substituir o formulário de envio de texto pelo editor de mapas conceituais. Esta modificação foi realizada na função get\_form\_elements(). O código que realizava a inserção do editor de texto foi substituído por um outro, que insere um iframe contendo o editor de mapas do CMPaaS. 
+
+Feito isto, o plugin já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no editor no banco de dados do Moodle. Para realizar isto o json do editor de contido no iframe precisava ser salvo em algum campo de formulário. Para solucionar isto, foi criado um entrada de dados, oculta na página da tarefa, responsável por receber o json do mapa criado no editor.
+
+Assim, quando o estudante aciona o botão de submissão da tarefa, o json do mapa que ele criou e salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
+
+Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o mapa salvo pelo estudante, para caso ele tivesse interesse em editar um mapa já armazenado. A solução para isto foi realizar o caminho inverso que foi feito ao salvar o mapa criado. Ao carregar o formulário de edição de mapas o json armazenado no banco de dados e carregado em um campo oculto e um código JavaScript se encarrega se obter o conteúdo dele e carregar no mapa.
+
+Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Porém ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno e, além disso, proposta do trabalho era a criação de um plugin integrado com o CMPaaS,  portanto a segunda parte do trabalho e realizar esta integração e criar uma forma de o avaliador visualizar o mapa.
+
+\subsection{Integração com o CMPaaS}
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
