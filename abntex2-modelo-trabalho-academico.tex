@@ -604,6 +604,8 @@ A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014},
 	\legend{Fonte: \citeonline[p. 82]{Perin2014}}
 \end{figure}
 
+A camada de serviços externos tem como finalidade prover funcionalidades que serão utilizadas pela comunidade, ou seja, são as aplicações que serão utilizadas por instituições públicas e privadas ou qualquer indivíduo. Os processos de negócio são a camada cuja a responsabilidade é gerenciar todos os processos que ocorrem internamente na plataforma Já a camada de serviços de aplicações internas gerencia os serviços utilizados pelos processos de negócio, esta camada tem como responsabilidade tornar os componentes internos disponíveis para os processos da plataforma. A camada de componentes internos tem como função gerenciar os componentes que produzem todos os serviços da plataforma, é nesta camada que as aplicações de mapas conceituais funcionam. Por último, a camada de serviços de aplicações externas é compostas por serviços externos que são utilizados por componentes internnos\cite{Perin2014}.
+
 \chapter{Tecnologias utilizadas}
 
 \section{JavaScript}
@@ -683,13 +685,13 @@ Para a elaboração deste trabalho foi utilizado um plugin já existente no Mood
 \subsection{Implementação}
 O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este plugin, buscando entender a sua funcionalidade e assim descobrir como modifica-lo para tranforma-lo em um editor de mapas.
 
-O módulo de envio de texto online, no qual o plugin de edição de mapas se baseia pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa feita pelo aluno. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
+O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
 
 As alterações feitas no plugin de envio de texto online se concentraram no arquivo locallib.php, que é o que determina o comportamento e funcionalidades do módulo. Dentro deste arquivo, as mudanças ocorreram nas funções get\_form\_elements(), que constrói o formulário de envio de tarefa, e no arquivo save(), que realiza a submissão do conteúdo criado pelo estudante.
 
 A primeira parte do trabalho foi substituir o formulário de envio de texto pelo editor de mapas conceituais. Esta modificação foi realizada na função get\_form\_elements(). O código que realizava a inserção do editor de texto foi substituído por um outro, que insere um iframe contendo o editor de mapas do CMPaaS. 
 
-Feito isto, o plugin já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no editor no banco de dados do Moodle. Para realizar isto o json do editor de contido no iframe precisava ser salvo em algum campo de formulário. Para solucionar isto, foi criado um entrada de dados, oculta na página da tarefa, responsável por receber o json do mapa criado no editor.
+Feito isto, o plugin já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no banco de dados do Moodle. Para realizar isto o json do editor contido no iframe precisava ser salvo em algum campo de formulário. Para solucionar isto, foi criado um entrada de dados, oculta na página da tarefa, responsável por receber o json do mapa criado no editor.
 
 Assim, quando o estudante aciona o botão de submissão da tarefa, o json do mapa que ele criou e salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
 
