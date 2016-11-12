@@ -604,16 +604,25 @@ A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014},
 	\legend{Fonte: \citeonline[p. 82]{Perin2014}}
 \end{figure}
 
-\chapter{Interoperabilidade de sistemas}
+\chapter{Tecnologias utilizadas}
+
+\section{JavaScript}
+
+O JavaScript é uma linguagem orientada a objeto criada em 1995 por Brendan Eich que foi idealizada para permitir que pessoas que não são programadoras pudessem estender as funcionalidades de sites de Internet\cite{Richards2010}. Ela é uma linguagem interpratada, e apesar de ter sido criada para desenvolvimento web, ela é uma linguagem de proposito geral, e pode ser usada para o desenvolvimento de qualquer tipo de aplicação\cite{flanagan2006}.
+
+Ela foi escolhida para ser utilizada neste projeto pois o editor de mapas diponível no CMPaaS foi desenvolvido com esta tecnlogia e, além disso, trata-se de uma linguagem compatível com todos os navegadores modernos.  
+
+\section{Json}
+
+O JavaScript Object Notation (Json) é uma linguagem em formato de texto cuja função é a serialização de dados estruturados. A serialização é o processo de tranformar objetos em um fluxo de bytes para ser armazenado em um banco de dados ou disco. Ele pode ser utilizado para representar tipos primitivos, como cadeia de caracteres e numeros, ou tipos estruturados, como objetos e vetores\cite{crockford2006}. Ele é utilizado para intercambio de dados entre os serviços da plataforma CMPaaS.  
+
+\section{PHP}
 % ---
-%O que é?
-%Para que serve?
-%Como é implementada?
-%Json
-% ---
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-% ---
-\lipsum[31-33]
+PHP é um acrônimo recursivo para PHP: Hypertext Preprocessor, originalmente ele foi criado como uma linguagem de script estruturada cuja finalidade era o desenvolvimento de aplicações com a funcionalidade de geração de HTML dinâmico. Com o passar do tempo a linguagem evoluiu e passou a oferecer recursos para o desenvolvimento orientado a objeto\cite{minetto2007}.
+
+A plataforma Moodle e seus plugins são desenvolvidos em PHP, por isto esta linguagem foi utilizada neste projeto. 
+
+ 
 
 \chapter{Plugin}
 % ---
@@ -672,7 +681,7 @@ Para a elaboração deste trabalho foi utilizado um plugin já existente no Mood
 \end{itemize} 
 
 \subsection{Implementação}
-O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma.
+O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este plugin, buscando entender a sua funcionalidade e assim descobrir como modifica-lo para tranforma-lo em um editor de mapas.
 
 O módulo de envio de texto online, no qual o plugin de edição de mapas se baseia pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa feita pelo aluno. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
 
@@ -689,6 +698,13 @@ Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o 
 Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Porém ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno e, além disso, proposta do trabalho era a criação de um plugin integrado com o CMPaaS,  portanto a segunda parte do trabalho e realizar esta integração e criar uma forma de o avaliador visualizar o mapa.
 
 \subsection{Integração com o CMPaaS}
+
+\subsection{Instalação e uso}
+A pasta contendo os arquivos do plugin deve ser copiada para o diretório do moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de plugin, conforme a figura.
+
+Depois do plugin ser instalado é necessário realizar a configuração da tarefa para utiliza-lo. Para que a tarefa utilize o plugin para submissão de dados é necessário seleciona-lo na tela de configuração da atividade, conforme ilustrado na figura.
+
+A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome figura.
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
