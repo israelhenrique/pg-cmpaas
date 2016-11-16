@@ -627,17 +627,24 @@ A plataforma Moodle e seus plugins são desenvolvidos em PHP, por isto esta ling
 % ---
 \section{O projeto}
 
-O moodle, como vimos anteriormente, é composto por vários componentes, ou módulos, independentes que se relacionam entre si, como qualquer plataforma modular. O escopo deste trabalho é o desenvolvimento de um destes módulos. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
+O moodle, como vimos anteriormente, é composto por vários módulos, independentes que se relacionam entre si, como qualquer plataforma modular. O escopo deste trabalho é o desenvolvimento de um destes módulos. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
 
 Este tipo de plugin é divido em três partes:
 \begin{itemize}
 	\item configurações, que são opções de comportamento do módulo.
 	\item sumário de envio, que será visto pelo estudante e avaliadores na tela inicial da tarefa.
-	\item segundo Moore EAD é um método no qual os professores agem de forma independente das ações dos estudantes e a comunicação entre ambos deve ser feita através de meios impressos ou eletrônicos.
 	\item formulário de envio, que é onde o estudante responde a tarefa.  
 \end{itemize} 
 
-O foco deste trabalho é no desenvolvimento do formulário de envio, que é onde entra o editor de mapas conceituais, e no formato no qual o módulo salva o diagrama e o armazena. 
+O plugin desenvolvido neste trabalho permite que o estudante crie um mapa conceitual, modifique sua aparência e envie para avaliação. O estudante poderá também editar um mapa que já foi enviado, além de ter a possibilidade de salva-lo na plataforma CMPaaS. A \autoref{fig_casosuso} apresenta os casos de uso do plugin.
+
+\begin{figure}[htb]
+	\caption{\label{fig_casosuso} Casos de Uso}
+	\begin{center}
+		\includegraphics[scale=0.7]{casosuso.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure} 
 
 \section{O editor de mapas}
 Na criação do formulário de envio, foi utilizado o editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
