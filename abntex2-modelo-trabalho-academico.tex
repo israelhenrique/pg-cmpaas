@@ -652,6 +652,15 @@ Na criação do formulário de envio, foi utilizado o editor de mapas conceituai
 Este editor foi desenvolvido de forma a salvar os mapas no formato Json, de forma a facilitar que outras aplicações utilizem os dados que ele produz. Ele foi feito desta forma devido a proposta do CMPaaS de permitir a interoperabilidade dos serviços oferecidos.
 
 A primeira parte do trabalho foi realizar um aprimoramento deste editor, adicionando funções para a formatação dos mapas criados por ele. Inicialmente não existia a possibilidade de alterar a fonte da letra dos conceitos ou a cor de fundo dos nós. Uma barra de ferramenta foi adicionada ao editor original para que funções de formatação estivessem disponíveis.
+
+\begin{figure}[htb]
+	\caption{\label{fig_barraformacao} Editor com barra de formatação}
+	\begin{center}
+		\includegraphics[scale=0.5]{barraformacao.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
 % ---
 \subsection{Implementação das funções de formatação}
 O editor de mapas é dividido em dois componentes, um Model e um Diagram. O Model é o que contém os dados do mapa que está sendo criado, nele os nós e links são descritos por vetores de objetos JavaScript. Já o Diagram é usado para visualizar os dados contidos no modelo.
@@ -666,6 +675,14 @@ O editor de mapas é dividido em dois componentes, um Model e um Diagram. O Mode
 Cada nó do mapa criado pelo editor é representado por um objeto da classe Node, que por sua vez, é composto por blocos que determinam a sua aparência. Os blocos que o editor utiliza são o Shape e o TextBlock. A classe Shape é utilizada para mostrar uma forma geométrica colorida. Já a classe TextBlock tem como função mostrar um texto. Ambas as classes possuem diversas propriedades que servem para determinar a sua aparência e o seu comportamento no diagrama.
 
 Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A forma geométrica  desenhada é retângulo com largura de 40 pixels, altura de 60 pixels, com margem de 4 pixels e preenchimento na cor vermelha. Já o TextBlock criado é um texto “a Text Block” de cor vermelha.
+
+\begin{figure}[htb]
+	\caption{\label{fig_gojselements} Código dos elementos Shape e TextBlock}
+	\begin{center}
+		\includegraphics[scale=0.6]{gojselements.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
 
 As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim a aparência deles. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma string  CSS. Já o botão que altera a cor do nó modifica a propriedade fill da Shape.
 
@@ -702,11 +719,34 @@ Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante
 \subsection{Integração com o CMPaaS}
 
 \subsection{Instalação e uso}
-A pasta contendo os arquivos do plugin deve ser copiada para o diretório do moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de plugin, conforme a figura.
+A pasta contendo os arquivos do plugin deve ser copiada para o diretório do moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de plugin, conforme a \autoref{fig_installplugin}.
+\begin{figure}[htb]
+	\caption{\label{fig_installplugin} Configurando a tarefa para utilizar o plugin}
+	\begin{center}
+		\includegraphics[scale=0.4]{installplugin.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
 
-Depois do plugin ser instalado é necessário realizar a configuração da tarefa para utiliza-lo. Para que a tarefa utilize o plugin para submissão de dados é necessário seleciona-lo na tela de configuração da atividade, conforme ilustrado na figura.
+Depois do plugin ser instalado é necessário realizar a configuração da tarefa para utiliza-lo. Para que a tarefa utilize o plugin para submissão de dados é necessário seleciona-lo na tela de configuração da atividade, conforme ilustrado na \autoref{fig_configplugin}.
 
-A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome figura.
+\begin{figure}[htb]
+	\caption{\label{fig_configplugin} Configurando a tarefa para utilizar o plugin}
+	\begin{center}
+		\includegraphics[scale=0.4]{configplugin.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_sumario}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_sumario} Configurando a tarefa para utilizar o plugin}
+	\begin{center}
+		\includegraphics[scale=0.4]{sumario.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
@@ -721,7 +761,7 @@ A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve 
 \chapter{Conclusão}
 % ---
 
-\lipsum[31-33]
+%\lipsum[31-33]
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
