@@ -428,7 +428,7 @@
 % ---
 % Capitulo de revisão de literatura
 % ---
-\chapter{Mapas conceituais}
+\chapter{Mapas conceituais}\label{cap-maps}
 % ---
 %O que são? Quem criou? Quando surgiu? Quais os benefícios para a educação?
 % ---
@@ -474,7 +474,7 @@ Na seção 2.3 de sua dissertação de mestrado, \citeonline{Perin2014} realizou
 % ---
 % primeiro capitulo de Resultados
 % ---
-\chapter{Educação a distância}
+\chapter{Educação a distância}\label{cap-ead}
 % ---
 %O que é a educação a distância?
 %Qual é a origem da educação a distância?
@@ -494,7 +494,21 @@ Em síntese é possível definir a educação a distância como um método de en
 
 Atualmente a educação a distância está relacionada ao uso de um AVA, que nada mais é que um sistema computacional cuja finalidade é prover suporte a atividades mediadas pelas tecnologias de informação e comunicação\cite{Almeida2010}. É um ambiente que tem como objetivo integrar mídias e recursos, além de apresentar informações de forma organizada e permitir interação entre estudantes, tutores e professores\cite{Franciscato2008}. Um exemplo de um AVA são os cursos que podem ser criados e gerenciados no Moodle.
    
-O \begin{otherlanguage*}{english}\textit{Modular Object Oriented Distance Learning (Moodle)}\end{otherlanguage*} é sistema gerenciador de cursos que foi criado por Martin Dougiamas em 1999. Ele é uma aplicação \begin{otherlanguage*}{english}\textit{open-source}\end{otherlanguage*}, o que significa que ele é livre para ser instalado, utilizado, modificado e distribuído \cite{Dougiamas2003}. Ele é amplamente usado por instituições em todo o mundo, possuindo mais de 73 mil sites registrados em 232 países\cite{MoodleStat2016}, e possui uma grande comunidade que contribui para correção de erros e criação de novas ferramentas.
+O \begin{otherlanguage*}{english}\textit{Modular Object Oriented Distance Learning (Moodle)}\end{otherlanguage*} é sistema gerenciador de cursos que foi criado por Martin Dougiamas em 1999. Ele é uma aplicação \begin{otherlanguage*}{english}\textit{open-source}\end{otherlanguage*}, o que significa que ele é livre para ser instalado, utilizado, modificado e distribuído \cite{Dougiamas2003}. 
+
+O \begin{otherlanguage*}{english}\textit{Moodle}\end{otherlanguage*} trabalha por padrão com cinco perfis de usuário: administrador, criador de cursos, professor, aluno e visitante. O administrador é o responsável técnico, é ele quem realiza a instalação e configuração do ambiente, além de manter ele funcionando corretamente. Já o criador de cursos tem como responsabilidade a criação e configuração dos cursos disponíveis na plataforma. Por sua vez, o professor tem como função o acompanhamento dos estudantes e a inserção de recursos e tarefas nos cursos. O aluno é quem realiza o curso, é ele quem vai utilizar os recursos e tarefas disponíveis no AVA. Por fim, o visitante é um usuário que só tem acesso as informações disponíveis na tela inicial do sistema. A \autoref{fig_moodle} mostra a interface de um curso no Moodle.
+
+
+\begin{figure}[htb]
+	\caption{\label{fig_moodle}Interface de um curso no Moodle}
+	\begin{center}
+		\includegraphics[scale=0.2]{moodle.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+
+Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por instituições em todo o mundo, possuindo mais de 73 mil sites registrados em 232 países\cite{MoodleStat2016}, e possui uma grande comunidade que contribui para correção de erros e criação de novas ferramentas. Além disso ele é utilizado para gerenciar os AVAs da Universidade Federal do Espírito Santo, e é muito utilizado também em diversas instituições no país, sendo o Brasil o terceiro maior utilizador da plataforma, conforme pode ser visto na \autoref{tabela-moodle}.
 
 \begin{table}[htb]
 	\IBGEtab{%
@@ -531,16 +545,6 @@ O \begin{otherlanguage*}{english}\textit{Modular Object Oriented Distance Learni
 }
 \end{table}
 
-O \begin{otherlanguage*}{english}\textit{Moodle}\end{otherlanguage*} trabalha por padrão com cinco perfis de usuário: administrador, criador de cursos, professor, aluno e visitante. O administrador é o responsável técnico, é ele quem realiza a instalação e configuração do ambiente, além de manter ele funcionando corretamente. Já o criador de cursos tem como responsabilidade a criação e configuração dos cursos disponíveis na plataforma. Por sua vez, o professor tem como função o acompanhamento dos estudantes e a inserção de recursos e tarefas nos cursos. O aluno é quem realiza o curso, é ele quem vai utilizar os recursos e tarefas disponíveis no AVA. Por fim, o visitante é um usuário que só tem acesso as informações disponíveis na tela inicial do sistema. A \autoref{fig_moodle} mostra a interface de um curso no Moodle.
-
-
-\begin{figure}[htb]
-	\caption{\label{fig_moodle}Interface de um curso no Moodle}
-	\begin{center}
-		\includegraphics[scale=0.2]{moodle.png}
-	\end{center}
-	\legend{Fonte: Elaborada pelo autor}
-\end{figure}
 O fato do Moodle ser modular, ou seja, ser composto por módulos instaláveis, configuráveis e estendíveis,  permite que sejam desenvolvidos plugins e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
 
 % ---}
@@ -637,9 +641,21 @@ A plataforma Moodle e seus plugins são desenvolvidos em PHP, por isto esta ling
 %Como é feito o plugin?
 %Como foi feito o plugin
 % ---
+
+\section{O problema}
+
+Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Além disso, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs. Sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras.
+
+Ao buscar na lista de plugins no Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único plugin. Este plugin permite que questinários possam ser respondidos com uma mapa. Além disso, a última atualização foi no início de 2015 e ele não é compátivel com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
+
+
+\section{A solução proposta}
+
+Este trabalho propõe a criação de um plugin que adicione ao Moodle de resposta de uma tarefa com um mapa conceitual. Além disso, ele será integrado a plataforma CMPaaS, consumindo serviços oferecidos por ela.
+
 \section{O projeto}
 
-O moodle, como vimos anteriormente, é composto por vários módulos, independentes que se relacionam entre si, como qualquer plataforma modular. O escopo deste trabalho é o desenvolvimento de um destes módulos. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
+O Moodle é composto por vários módulos indepedentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo módulo. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
 
 Este tipo de plugin é divido em três partes:
 \begin{itemize}
@@ -648,7 +664,20 @@ Este tipo de plugin é divido em três partes:
 	\item formulário de envio, que é onde o estudante responde a tarefa.  
 \end{itemize} 
 
-O plugin desenvolvido neste trabalho permite que o estudante crie um mapa conceitual, modifique sua aparência e envie para avaliação. O estudante poderá também editar um mapa que já foi enviado, além de ter a possibilidade de salva-lo na plataforma CMPaaS. A \autoref{fig_casosuso} apresenta os casos de uso do plugin.
+%O plugin desenvolvido neste trabalho permite que o estudante crie um mapa conceitual, modifique sua aparência e envie para avaliação. O estudante poderá também editar um mapa que já foi enviado, além de ter a possibilidade de salva-lo na plataforma CMPaaS. A \autoref{fig_casosuso} apresenta os casos de uso do plugin.
+%
+Este plugin oferece as seguintes funcionalidades:
+
+\begin{itemize}
+	\item criação de um novo mapa conceitual utilizando um editor de mapas. Esta funcionalidade é representada pelo caso de uso Criar Mapa.
+	\item armazenagem do mapa criado no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
+	\item edição de um mapa préviamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
+	\item alteração da aparência de uma mapa que está sendo criado ou modificado no editor. Esta funcionalidade é representada pelo caso de uso Formatar Mapa.  
+	\item possibilidade de salvar o mapa que está sendo criado na plataforma CMPaaS. Esta funcionalidade é representada pelo caso de uso Salvar Mapa no CMPaaS.  
+	\item visualizar um mapa salvo para que possa ser avaliado. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.    
+\end{itemize} 
+
+Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avalia-los. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
 
 \begin{figure}[htb]
 	\caption{\label{fig_casosuso} Casos de Uso}
@@ -755,7 +784,7 @@ A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve 
 \begin{figure}[htb]
 	\caption{\label{fig_sumario} Configurando a tarefa para utilizar o plugin}
 	\begin{center}
-		\includegraphics[scale=0.4]{sumario.png}
+		\includegraphics[scale=0.3]{sumario.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
