@@ -705,10 +705,21 @@ A primeira parte do trabalho foi realizar um aprimoramento deste editor, adicion
 % ---
 \subsection{Implementação das funções de formatação}
 O editor de mapas é dividido em dois componentes, um Model e um Diagram. O Model é o que contém os dados do mapa que está sendo criado, nele os nós e links são descritos por vetores de objetos JavaScript. Já o Diagram é usado para visualizar os dados contidos no modelo.
+
+Na \autoref{fig_gojs} temos um trecho de código que gera um diagrama simples em GoJS. Nele é criado um Model que possui um vetor com três objetos JavaScripts, nomeados Alpha, Beta e Gamma. Este vetor de objetos da classe Node representa três nós que serão apresentados no diagrama. O Model nomeado myModel é então adicionado ao Diagram chamado myDiagram. Este trecho de código gera o diagrama ilustrado na \autoref{fig_diagram}.
+
 \begin{figure}[htb]
 	\caption{\label{fig_gojs} Componentes do GoJS}
 	\begin{center}
 		\includegraphics[scale=0.7]{gojs.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+\begin{figure}[htb]
+	\caption{\label{fig_diagram} Um diagrama gerado em GoJS}
+	\begin{center}
+		\includegraphics[scale=0.7]{diagram.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
@@ -726,6 +737,23 @@ Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A f
 \end{figure}
 
 As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim a aparência deles. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma string  CSS. Já o botão que altera a cor do nó modifica a propriedade fill da Shape.
+
+As funcionalidades de formatação foram implementadas em JavaScript no arquivo toolbar.js. Elas foram desenvolvidas de forma semelhante, utilizando eventos disparados pelos botões da barra de ferramenta.
+
+Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que aguardava um evento disparado por ele. Quando ele ocorre uma função é chamada e realiza a modificação referente ao botão que foi acionado. 
+
+A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um nó. Inicialmente é criada uma espera para o evento que será disparado pelo botão, no caso o evento input. Quando ele ocorre é chamada a função que altera a propriedade fill do objeto Shape de todos os nós selecionados, mudando assim a cor dos mesmos. As funcionalidades de estilo da fonte são implementadas com a mesma rotina, o que muda é a propriedade alterada, que passa a ser a font do objeto TextBlock de todos os nós selecionados.    
+
+\begin{figure}[htb]
+	\caption{\label{fig_listener} Rotina que altera a cor de preenchimento de um nó}
+	\begin{center}
+		\includegraphics[scale=0.6]{listener.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+
+
 
 \section{O plugin para o moodle} 
 Para a elaboração deste trabalho foi utilizado um plugin já existente no Moodle como modelo. Todos os plugins de envio de tarefa devem ter uma estrutura de arquivo padrão, esta estrutura será detalhada abaixo.
