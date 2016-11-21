@@ -587,9 +587,9 @@ A plataforma CMPaaS usa esta capacidade de expansão e integração da computaç
 
 \subsection{Arquitetura}
 
-O CMPaaS é uma plataforma orientada a serviços, ou seja, ela utiliza a arquitetura SOA. Isto significa que as funcionalidades oferecidas pela plataforma são facilmente extensíveis e aproveitadas por novas aplicações criadas por qualquer pessoa ao redor do mundo. 
+O CMPaaS é uma plataforma que tem como objetivo integrar ferramentas de mapas conceituais e permitir acesso a elas pela comunidade. Ele possui uma arquitetura orientada a serviços, isto é, uma arquitetura que vai oferecer serviços que podem ser consumidos por outras aplicações. Por exemplo, um editor de mapas conceituais pode gerar um mapa que vai ser usado por uma aplicação que avalia mapas de forma automatizada.
 
-A plataforma foi implementada com a utilização de Web Services, que precisam de uma aplicação com interface para serem consumidos. Assim, o CMPaaS precisa estar associado a um portal que permitirá que o usuário final utilize as ferramentas oferecidas pela plataforma. Este portal foi nomeado como "Portal do Conhecimento"\cite{Perin2014}. 
+Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessado de qualquer plataforma. Mas é necessário que exista um portal ou site associado a plataforma CMPaaS para que as ferramentas possam ser acessadas através de um navegador de Internet. Este portal foi nomeado como "Portal do Conhecimento"\cite{Perin2014}. 
 
 
 \begin{figure}[htb]
@@ -600,20 +600,9 @@ A plataforma foi implementada com a utilização de Web Services, que precisam d
 	\legend{Fonte: \citeonline[p. 81]{Perin2014}}
 \end{figure}
 
-A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS. Podemos observar como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um serviço que é oferecido por ela. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Ele trata-se de um editor de mapas conceituais que armazena os mapas, criados por ele, na plataforma. Assim ele utiliza dois serviços fornecidos pelo CMPaaS, o de armazenagem de mapas e o de autenticação. 
+A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um serviço que é oferecido por ela. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Ele trata-se de um editor de mapas conceituais que armazena os mapas, criados por ele, na plataforma. Assim ele utiliza dois serviços fornecidos pelo CMPaaS, o de armazenagem de mapas e o de autenticação.
 
-A estrutura interna da plataforma é composta por cinco camadas\cite{Perin2014}, conforme mostra a \autoref{fig_cmpaas2}.
-
-
-\begin{figure}[htb]
-	\caption{\label{fig_cmpaas2} Arquitetura do CMPaaS}
-	\begin{center}
-		\includegraphics[scale=0.3]{cmpaas2.png}
-	\end{center}
-	\legend{Fonte: \citeonline[p. 82]{Perin2014}}
-\end{figure}
-
-A camada de serviços externos tem como finalidade prover funcionalidades que serão utilizadas pela comunidade, ou seja, são as aplicações que serão utilizadas por instituições públicas e privadas ou qualquer indivíduo. Os processos de negócio são a camada cuja a responsabilidade é gerenciar todos os processos que ocorrem internamente na plataforma Já a camada de serviços de aplicações internas gerencia os serviços utilizados pelos processos de negócio, esta camada tem como responsabilidade tornar os componentes internos disponíveis para os processos da plataforma. A camada de componentes internos tem como função gerenciar os componentes que produzem todos os serviços da plataforma, é nesta camada que as aplicações de mapas conceituais funcionam. Por último, a camada de serviços de aplicações externas é compostas por serviços externos que são utilizados por componentes internnos\cite{Perin2014}.
+A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por ferramentas internas do CMPaaS e são consumidos por componentes do CMPaaS.
 
 \chapter{Tecnologias utilizadas}
 
