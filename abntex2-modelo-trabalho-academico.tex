@@ -628,7 +628,7 @@ A plataforma Moodle e seus plugins são desenvolvidos em PHP, por isto esta ling
 
  
 
-\chapter{Plugin}
+\chapter{O Projeto}
 % ---
 %O que é um plugin do moodle?
 %Como é feito o plugin?
@@ -646,7 +646,7 @@ No entanto, ao buscar na lista de plugins do Moodle alguma ferramenta que permit
 
 Este trabalho propõe a criação de um plugin que adicione ao Moodle de resposta de uma tarefa com um mapa conceitual. Além disso, ele será integrado a plataforma CMPaaS, consumindo serviços oferecidos por ela.
 
-\section{O projeto}
+\section{Arquitetura}
 
 O Moodle é composto por vários módulos indepedentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo módulo. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
 
@@ -679,6 +679,8 @@ Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar 
 	\end{center}
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
+
+\chapter{Desenvolvimento}
 
 \section{O editor de mapas}
 Na criação do formulário de envio, foi utilizado o editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
@@ -779,6 +781,9 @@ Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o 
 Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Porém ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno e, além disso, proposta do trabalho era a criação de um plugin integrado com o CMPaaS,  portanto a segunda parte do trabalho e realizar esta integração e criar uma forma de o avaliador visualizar o mapa.
 
 \subsection{Integração com o CMPaaS}
+
+
+\chapter{Implementação e Testes}
 
 \subsection{Instalação e uso}
 A pasta contendo os arquivos do plugin deve ser copiada para o diretório do moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de plugin, conforme a \autoref{fig_installplugin}.
