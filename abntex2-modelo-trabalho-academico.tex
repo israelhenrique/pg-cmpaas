@@ -666,6 +666,26 @@ Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar 
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
 
+O caso de uso Salvar Mapa é apresentado na \autoref{fig_seq1}. Quando o estudante solicita que o mapa seja salvo a interface do plugin chama a rotina da API do Moodle responsável por enviar os dados do formulário para serem armazenados. Após esta rotina ser executada e o mapa ser armazenado um sumário do envio é apresentado ao estudante.
+
+\begin{figure}[htb]
+	\caption{\label{fig_seq1} Diagrama de Sequencia do Caso de Uso Salvar Mapa}
+	\begin{center}
+		\includegraphics[scale=0.7]{SeqDiagramPlugin.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure} 
+
+O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este caso de uso que realiza a integração do plugin com a plataforma CMPaaS. Quando o estudante executa a ação de sincronização do mapa a interface do plugin apresenta um formulário de login para que seja feita autenticação no portal. Depois que o estudante é autenticado no CMPaaS os dados do mapa são enviados para serem armazenados na plataforma.
+
+\begin{figure}[htb]
+	\caption{\label{fig_seq2} Diagrama de Sequencia do Caso de Uso Sincronizar Mapa}
+	\begin{center}
+		\includegraphics[scale=0.5]{SeqDiagramCmpaas.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure} 
+
 \section{Tecnologias utilizadas}
 
 \subsection{JavaScript}
