@@ -614,7 +614,7 @@ A estrutura interna da plataforma é composta por cinco camadas: serviços exter
 
  
 
-\chapter{O Projeto}
+\chapter{O Projeto}\label{cap-projeto}
 % ---
 %O que é um plugin do moodle?
 %Como é feito o plugin?
@@ -706,8 +706,8 @@ A plataforma Moodle e seus plugins são desenvolvidos em PHP, por isto esta ling
 
 \chapter{Desenvolvimento}
 
-\section{O editor de mapas}
-Na criação do formulário de envio, foi utilizado o editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
+\section{Serviço de Edição de Mapas}
+O serviço de edição de mapas foi implementado com a utilização do editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
 
 Este editor foi desenvolvido de forma a salvar os mapas no formato Json, de forma a facilitar que outras aplicações utilizem os dados que ele produz. Ele foi feito desta forma devido a proposta do CMPaaS de permitir a interoperabilidade dos serviços oferecidos.
 
@@ -774,8 +774,8 @@ A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um
 
 
 
-\section{O plugin para o moodle} 
-Para a elaboração deste trabalho foi utilizado um plugin já existente no Moodle como modelo. Todos os plugins de envio de tarefa devem ter uma estrutura de arquivo padrão, esta estrutura será detalhada abaixo.
+\section{Implementação no Moodle} 
+Para implementar o serviço de edição de mapas no Moodle foi utilizado um plugin já existente na plataforma como modelo. Conforme visto no \autoref{cap-projeto} o módulo escolhido para a implementação da funcionalidade de edição de mapas foi o de envio de tarefa. Todos os plugins deste tipo possuem uma estrutura de arquivo padrão, que será detalhada abaixo.
 \begin{itemize}
 	\item version.php: este arquivo contém informações sobre a versão do plugin, é utilizado para que o Moodle instale e atualize o plugin corretamente.
 	\item settings.php: este arquivo permite que se adicione opções personalizadas para a página configuração do plugin.
@@ -787,7 +787,7 @@ Para a elaboração deste trabalho foi utilizado um plugin já existente no Mood
 	\item db/locallib.php: eh o arquivo mais importante, é ele que define todas as funcionalidades do plugin.    
 \end{itemize} 
 
-\subsection{Implementação}
+\subsection{Desenvolvimento do plugin}
 O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este plugin, buscando entender a sua funcionalidade e assim descobrir como modifica-lo para tranforma-lo em um editor de mapas.
 
 O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
