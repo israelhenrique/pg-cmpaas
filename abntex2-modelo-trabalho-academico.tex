@@ -809,12 +809,22 @@ Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante
 
 \chapter{Implementação e Testes}
 
-\subsection{Instalação e uso}
+\section{Como instalar}
 A pasta contendo os arquivos do plugin deve ser copiada para o diretório do moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de plugin, conforme a \autoref{fig_installplugin}.
 \begin{figure}[htb]
 	\caption{\label{fig_installplugin} Configurando a tarefa para utilizar o plugin}
 	\begin{center}
 		\includegraphics[scale=0.4]{installplugin.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+Ao clicar no botão de atualização do banco de dados do Moodle o plugin será instalado e poderá ser visto na lista de plugins, conforme \autoref{fig_listaplugin}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_listaplugin} Lista de plugins instalados}
+	\begin{center}
+		\includegraphics[scale=0.4]{listaplugin.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
@@ -829,15 +839,31 @@ Depois do plugin ser instalado é necessário realizar a configuração da taref
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_sumario}.
+
+
+\section{Como usar}
+
+A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na . Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_editor}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
 
 \begin{figure}[htb]
-	\caption{\label{fig_sumario} Configurando a tarefa para utilizar o plugin}
+	\caption{\label{fig_editor} Sumário da tarefa}
+	\begin{center}
+		\includegraphics[scale=0.3]{editor.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+\begin{figure}[htb]
+	\caption{\label{fig_sumario} Sumário da tarefa}
 	\begin{center}
 		\includegraphics[scale=0.3]{sumario.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
+
+\section{Provas de Conceitos}
+
+Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo plugin.
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
