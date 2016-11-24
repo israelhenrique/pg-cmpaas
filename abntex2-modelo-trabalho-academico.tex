@@ -627,7 +627,7 @@ A estrutura interna da plataforma é composta por cinco camadas: serviços exter
 
 Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Também, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs. Sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras. Sendo assim, o suporte do Moodle para a utilização de mapas conceituais em cursos gerenciados por ele permitiria que estudantes e professores pudessem ter acesso a esta ferramenta educacional tão versátil.    
 
-No entanto, ao buscar na lista de plugins do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único plugin. Este plugin permite que questinários possam ser respondidos com uma mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compativel com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
+No entanto, ao buscar na lista de plugins do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único plugin. Este plugin permite que questionários possam ser respondidos com uma mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compatível com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
 
 
 \section{A solução proposta}
@@ -636,7 +636,7 @@ Este trabalho propõe a criação de um plugin que adicione ao Moodle de respost
 
 \section{Arquitetura}
 
-O Moodle é composto por vários módulos indepedentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo módulo. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
+O Moodle é composto por vários módulos independentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo módulo. O plugin que foi criado neste trabalho é do tipo assignment submission plugin, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
 
 Este tipo de plugin é divido em três partes:
 \begin{itemize}
@@ -652,7 +652,7 @@ Este plugin oferece as seguintes funcionalidades:
 \begin{itemize}
 	\item criação de um novo mapa conceitual utilizando um editor de mapas. Esta funcionalidade é representada pelo caso de uso Criar Mapa.
 	\item armazenagem do mapa criado no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
-	\item edição de um mapa préviamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
+	\item edição de um mapa previamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
 	\item alteração da aparência de uma mapa que está sendo criado ou modificado no editor. Esta funcionalidade é representada pelo caso de uso Formatar Mapa.  
 	\item possibilidade de salvar o mapa que está sendo criado na plataforma CMPaaS. Esta funcionalidade é representada pelo caso de uso Salvar Mapa no CMPaaS.  
 	\item visualizar um mapa salvo para que possa ser avaliado. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.    
@@ -692,13 +692,13 @@ O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este cas
 
 \subsection{JavaScript}
 
-O JavaScript é uma linguagem orientada a objeto criada em 1995 por Brendan Eich que foi idealizada para permitir que pessoas que não são programadoras pudessem estender as funcionalidades de sites de Internet\cite{Richards2010}. Ela é uma linguagem interpratada, e apesar de ter sido criada para desenvolvimento web, ela é uma linguagem de proposito geral, e pode ser usada para o desenvolvimento de qualquer tipo de aplicação\cite{flanagan2006}.
+O JavaScript é uma linguagem orientada a objeto criada em 1995 por Brendan Eich que foi idealizada para permitir que pessoas que não são programadoras pudessem estender as funcionalidades de sites de Internet\cite{Richards2010}. Ela é uma linguagem interpretada, e apesar de ter sido criada para desenvolvimento web, ela é uma linguagem de proposito geral, e pode ser usada para o desenvolvimento de qualquer tipo de aplicação\cite{flanagan2006}.
 
-Ela foi escolhida para ser utilizada neste projeto pois o editor de mapas diponível no CMPaaS foi desenvolvido com esta tecnlogia e, além disso, trata-se de uma linguagem compatível com todos os navegadores modernos.  
+Ela foi escolhida para ser utilizada neste projeto pois o editor de mapas disponível no CMPaaS foi desenvolvido com esta tecnologia e, além disso, trata-se de uma linguagem compatível com todos os navegadores modernos.  
 
 \subsection{Json}
 
-O JavaScript Object Notation (Json) é uma linguagem em formato de texto cuja função é a serialização de dados estruturados. A serialização é o processo de tranformar objetos em um fluxo de bytes para ser armazenado em um banco de dados ou disco. Ele pode ser utilizado para representar tipos primitivos, como cadeia de caracteres e numeros, ou tipos estruturados, como objetos e vetores\cite{crockford2006}. Ele é utilizado para intercambio de dados entre os serviços da plataforma CMPaaS.  
+O JavaScript Object Notation (Json) é uma linguagem em formato de texto cuja função é a serialização de dados estruturados. A serialização é o processo de transformar objetos em um fluxo de bytes para ser armazenado em um banco de dados ou disco. Ele pode ser utilizado para representar tipos primitivos, como cadeia de caracteres e números, ou tipos estruturados, como objetos e vetores\cite{crockford2006}. Ele é utilizado para intercambio de dados entre os serviços da plataforma CMPaaS.  
 
 \subsection{PHP}
 % ---
@@ -785,12 +785,12 @@ Para implementar o serviço de edição de mapas no Moodle foi utilizado um plug
 	\item db/access.php: e utilizada para adicionar capacidades adicionais ao plugin. Este arquivo é opcional, não sendo necessário se o plugin não tiver capacidades adicionais.
 	\item db/upgrade.php: este arquivo define a rotina de atualização do plugin. 
 	\item db/install.xml: este arquivo define as tabelas de banco de dados que o plugin vai utilizar. 
-	\item db/install.php: contem o codigo de instalação do plugin.
-	\item db/locallib.php: eh o arquivo mais importante, é ele que define todas as funcionalidades do plugin.    
+	\item db/install.php: contem o código de instalação do plugin.
+	\item db/locallib.php: é o arquivo mais importante, é ele que define todas as funcionalidades do plugin.    
 \end{itemize} 
 
 \subsection{Desenvolvimento do plugin}
-O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este plugin, buscando entender a sua funcionalidade e assim descobrir como modifica-lo para tranforma-lo em um editor de mapas.
+O plugin utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este plugin, buscando entender a sua funcionalidade e assim descobrir como modificá-lo para transformá-lo em um editor de mapas.
 
 O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um json do mapa invés de um texto.
 
@@ -831,7 +831,7 @@ Ao clicar no botão de atualização do banco de dados do Moodle o plugin será 
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-Depois do plugin ser instalado é necessário realizar a configuração da tarefa para utiliza-lo. Para que a tarefa utilize o plugin para submissão de dados é necessário seleciona-lo na tela de configuração da atividade, conforme ilustrado na \autoref{fig_configplugin}.
+Depois do plugin ser instalado é necessário realizar a configuração da tarefa para utiliza-lo. Para que a tarefa utilize o plugin para submissão de dados é necessário selecioná-lo na tela de configuração da atividade, conforme ilustrado na \autoref{fig_configplugin}.
 
 \begin{figure}[htb]
 	\caption{\label{fig_configplugin} Configurando a tarefa para utilizar o plugin}
@@ -851,7 +851,7 @@ Depois do plugin ser instalado é necessário realizar a configuração da taref
 
 \section{Como usar}
 
-A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na \autoref{fig_editor}. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_sumario}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
+A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na \autoref{fig_editor}. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, conforme \autoref{fig_sumario}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
 
 
 \begin{figure}[htb]
@@ -866,7 +866,7 @@ A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve 
 
 Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo plugin. Elas podem ser dividas em dois grupos, o de recursos para elaboração e edição dos mapas e o de persistência dos diagramas.
 
-Os recursos para edição de mapas são as funções de formatação da aparencia do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções. Já a \autoref{fig_toolbar} apresenta o conteúdo dos menus dropdown de fonte e cor de preenchimento do nó.
+Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções. Já a \autoref{fig_toolbar} apresenta o conteúdo dos menus dropdown de fonte e cor de preenchimento do nó.
 
 Já a persistência do diagrama pode ser divida em duas, a gravação do mapa no Moodle e a sincronização com o CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Já a sincronia com o CMPaaS ocorre quando o estudante utiliza o botão Sincronizar Mapa, que pode ser visto na cor verde na \autoref{fig_mapa}.
 
@@ -896,10 +896,34 @@ Já a persistência do diagrama pode ser divida em duas, a gravação do mapa no
 % ---
 % Conclusão
 % ---
-\chapter{Conclusão}
+\chapter{Considerações finais}
+
+\section{Resultados}
+
+O objetivo deste trabalho foi a criação de uma ferramenta que permitisse a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle. Para realizar isto foi idealizado o desenvolvimento de um módulo de envio de tarefa que oferecesse a possibilidade do estudante responder uma atividade com a elaboração de um mapa conceitual. A ferramenta deveria prover também uma interface para um professor ou tutor visualizar o mapa criado pelo estudante e avaliar o mesmo. Adicionalmente o módulo ofereceria uma interface de integração com o plataforma CMPaaS.
+
+O protótipo desenvolvido neste trabalho alcançou o objetivo de oferecer uma ferramenta para o estudante reponder uma tarefa com mapas  conceituais. O módulo desenvolvido possui um editor de mapas que permite a elaboração de diagramas e modificação de sua aparencia, além de realizar a persistencia dos mapas criados. 
+
+A integração com o CMPaaS também foi implementada, assim o estudante tem a possibilidade de sincronizar o mapa criado no editor com o serviço de armazenamento na Nuvem oferecido pela plataforma. Já a interface para que o mapa seja visualizado para avaliação não foi implementada no protótipo, porém o módulo desenvolvido permite que este recurso seja adicionado em trabalhos futuros.  
+
+
+
+\section{Conclusão}
+
+Neste trabalho foi apresentada a definição de mapas conceituais e a sua importância para a educação. Neste contexto foi discutido como eles podem ser utilizados no ensino e foi levantado quais são as ferramentas disponíveis para criação e manipulação de mapas. Neste levantamento foi identificada uma carência de aplicações computacionais que proporcionam suporte a criação de mapas conceituais e a necessidade do desenvolvimento de novas ferramentas com esta finalidade.
+
+Foi pensado então no projeto de uma ferramenta que proporcionasse a aplicação de mapas conceituais na Educação a Distância. Escolhemos o Moodle como a plataforma onde seria realizada a implementação deste projeto. Ele foi escolhido por ser um gerenciador de cursos open-source amplamente utilizado em todo o mundo e por ser facilmente estensível através de inclusão de novos módulos.
+
+Um plugin que permite a aplicação de mapas conceituais em tarefas dos cursos do Moodle foi então desenvolvido. Este plugin possibilida que os estudantes respondam tarefas com a elaboração de mapas conceituais e oferece a possibilidade de sincronização do mapa na plataforma CMPaaS. 
+
+O módulo que foi criado neste trabalho trata-se de um protótipo, sendo assim, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de plugin do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
+
+\section{Trabalhos futuros}
 % ---
 
-%\lipsum[31-33]
+O protótipo desenvolvido neste trabalho teve foco na interface para o estudante criar mapas conceituais, não possuindo o recurso de apresentar o mapa elaborado nele para um avaliador. Assim a criação de uma forma visualizar o mapa submetido pelo estudante é uma proposta de trabalho futuro. 
+
+Ademais é sugerido o desenvolvimento de trabalhos que visam a melhoria da experiência do usuário que utiliza o editor de mapas. Visto que este trabalho não teve como foco a criação de uma interface otimizada.
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
