@@ -512,6 +512,12 @@ O \begin{otherlanguage*}{english}\textit{Moodle}\end{otherlanguage*} trabalha po
 
 Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por instituições em todo o mundo, possuindo mais de 73 mil sites registrados em 232 países\cite{MoodleStat2016}, e possui uma grande comunidade que contribui para correção de erros e criação de novas ferramentas. Além disso ele é utilizado para gerenciar os AVAs da Universidade Federal do Espírito Santo, e é muito utilizado também em diversas instituições no país, sendo o Brasil o terceiro maior utilizador da plataforma, conforme pode ser visto na \autoref{tabela-moodle}.
 
+
+
+O fato do Moodle ser modular, ou seja, ser composto por módulos instaláveis, configuráveis e estendíveis,  permite que sejam desenvolvidos plugins e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
+
+O que propomos neste projeto é, portanto, a criação de um novo módulo para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS. No capítulo a seguir será possível conhecer as características básicas do CMPaaS e os serviços oferecidos por esta plataforma.
+
 \begin{table}[htb]
 	\IBGEtab{%
 		\caption{Os 10 países que mais utilizam o Moodle.}%
@@ -546,10 +552,6 @@ Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por
 \fonte{\citeonline{MoodleStat2016}}%
 }
 \end{table}
-
-O fato do Moodle ser modular, ou seja, ser composto por módulos instaláveis, configuráveis e estendíveis,  permite que sejam desenvolvidos plugins e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
-
-O que propomos neste projeto é, portanto, a criação de um novo módulo para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS. No capítulo a seguir será possível conhecer as características básicas do CMPaaS e os serviços oferecidos por esta plataforma.
 
 % ---}
 
@@ -656,9 +658,7 @@ Este plugin oferece as seguintes funcionalidades:
 	\item visualizar um mapa salvo para que possa ser avaliado. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.    
 \end{itemize} 
 
-Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avalia-los. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
-
-\begin{figure}[htb]
+\begin{figure}[!h]
 	\caption{\label{fig_casosuso} Casos de Uso}
 	\begin{center}
 		\includegraphics[scale=0.7]{casosuso.png}
@@ -666,17 +666,17 @@ Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar 
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
 
+Os atores que irão utilizar o plugin são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avalia-los. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
+
 O caso de uso Salvar Mapa é apresentado na \autoref{fig_seq1}. Quando o estudante solicita que o mapa seja salvo a interface do plugin chama a rotina da API do Moodle responsável por enviar os dados do formulário para serem armazenados. Após esta rotina ser executada e o mapa ser armazenado um sumário do envio é apresentado ao estudante.
 
 \begin{figure}[htb]
 	\caption{\label{fig_seq1} Diagrama de Sequencia do Caso de Uso Salvar Mapa}
 	\begin{center}
-		\includegraphics[scale=0.7]{SeqDiagramPlugin.png}
+		\includegraphics[scale=0.5]{SeqDiagramPlugin.png}
 	\end{center}
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
-
-O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este caso de uso que realiza a integração do plugin com a plataforma CMPaaS. Quando o estudante executa a ação de sincronização do mapa a interface do plugin apresenta um formulário de login para que seja feita autenticação no portal. Depois que o estudante é autenticado no CMPaaS os dados do mapa são enviados para serem armazenados na plataforma.
 
 \begin{figure}[htb]
 	\caption{\label{fig_seq2} Diagrama de Sequencia do Caso de Uso Sincronizar Mapa}
@@ -685,6 +685,8 @@ O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este cas
 	\end{center}
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
+
+O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este caso de uso que realiza a integração do plugin com a plataforma CMPaaS. Quando o estudante executa a ação de sincronização do mapa a interface do plugin apresenta um formulário de login para que seja feita autenticação no portal. Depois que o estudante é autenticado no CMPaaS os dados do mapa são enviados para serem armazenados na plataforma.
 
 \section{Tecnologias utilizadas}
 
@@ -839,12 +841,6 @@ Depois do plugin ser instalado é necessário realizar a configuração da taref
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-
-
-\section{Como usar}
-
-A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na \autoref{fig_editor}. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_sumario}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
-
 \begin{figure}[htb]
 	\caption{\label{fig_editor} Editor de mapas}
 	\begin{center}
@@ -852,6 +848,11 @@ A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve 
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
+
+\section{Como usar}
+
+A utilização do plugin é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na \autoref{fig_editor}. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o json será salvo no banco de dados da plataforma e aparecerá no sumário, confome \autoref{fig_sumario}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
+
 
 \begin{figure}[htb]
 	\caption{\label{fig_sumario} Sumário da tarefa}
