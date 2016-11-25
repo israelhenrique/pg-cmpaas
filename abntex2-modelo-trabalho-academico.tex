@@ -836,6 +836,13 @@ Então a primeira parte do desenvolvimento do plugin foi concluída, o estudante
 
 \subsection{Integração com o CMPaaS}
 
+A integração do plugin com o CMPaaS é feita com a utilização de dois serviços oferecidos pela plataforma. Eles são o serviço de autenticação e o de persistência de mapas.
+
+O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Quando o botão de sincronização é acionado é enviado uma mensagem pedindo autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do plugin ao repositório de mapas.
+
+Após a rotina de autenticação ter sido realizada o editor de mapas envia um json com os dados do diagrama a ser sincronizado. Então o serviço de mapas do CMPaaS recebe o json e realiza a persistência do mesmo em sua base de dados.
+
+
 
 \chapter{Implementação e Testes}
 
