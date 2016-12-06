@@ -839,7 +839,7 @@ As novas funcionalidades de formatação adicionadas ao editor modificam as prop
 
 As funcionalidades de formatação foram implementadas em JavaScript no arquivo toolbar.js. Elas foram desenvolvidas de forma semelhante, utilizando eventos disparados pelos botões da barra de ferramenta.
 
-Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que aguardava um evento disparado por ele. Quando ele ocorre uma função é chamada e realiza a modificação referente ao botão que foi acionado. 
+Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que é executada quando o evento de clique é acionado.
 
 A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um nó. Inicialmente é criada uma espera para o evento que será disparado pelo botão, no caso o evento input. Quando ele ocorre é chamada a função que altera a propriedade fill do objeto Shape de todos os nós selecionados, mudando assim a cor dos mesmos. As funcionalidades de estilo da fonte são implementadas com a mesma rotina, o que muda é a propriedade alterada, que passa a ser a \textit{font} do objeto TextBlock de todos os nós selecionados.    
 
