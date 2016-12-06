@@ -876,9 +876,9 @@ As alterações feitas no \textit{plugin} de envio de texto online se concentrar
 
 A primeira parte do trabalho foi substituir o formulário de envio de texto pelo editor de mapas conceituais. Esta modificação foi realizada na função get\_form\_elements(). O código que realizava a inserção do editor de texto foi substituído por um outro, que insere um iframe contendo o editor de mapas do CMPaaS. 
 
-Feito isto, o \textit{plugin} já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no banco de dados do Moodle. Para realizar isto o Json do editor contido no iframe precisava ser salvo em algum campo de formulário. Para solucionar isto, foi criado um entrada de dados, oculta na página da tarefa, responsável por receber o Json do mapa criado no editor.
+Assim, o \textit{plugin} já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no banco de dados do Moodle. Para realizar isto, Json do editor contido no iframe precisava ser salvo em algum campo de formulário. Como solução, foi criado uma entrada de dados, oculta na página da tarefa, responsável por receber o Json do mapa criado no editor.
 
-Assim, quando o estudante aciona o botão de submissão da tarefa, o Json do mapa que ele criou e salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
+Quando o estudante aciona o botão de submissão da tarefa, o Json respectivo ao mapa que criado é salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
 
 Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o mapa salvo pelo estudante, para caso ele tivesse interesse em editar um mapa já armazenado. A solução para isto foi realizar o caminho inverso que foi feito ao salvar o mapa criado. Ao carregar o formulário de edição de mapas o Json armazenado no banco de dados e carregado em um campo oculto e um código JavaScript se encarrega se obter o conteúdo dele e carregar no mapa.
 
