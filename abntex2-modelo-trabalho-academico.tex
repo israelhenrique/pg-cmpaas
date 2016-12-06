@@ -306,7 +306,7 @@ Aos meus pais, pela educação, apoio emocional, financeiro e tempo dedicado a m
 
 Em especial a Jalany, pelo carinho, paciência e apoio durante todo o tempo e principalmente o desenvolvimento desta monografia.
 
-Ao meu orientador Wagner, por toda a ajuda oferecida no elaboração deste travalho.
+Ao meu orientador Wagner, por toda a ajuda oferecida no elaboração deste trabalho.
  
 Ao meu amigo Josmar, pelas longas conversas, orientações e broncas.
 
@@ -349,7 +349,7 @@ minha formação acadêmica e pessoal.
 \begin{resumo}[Abstract]
   \begin{otherlanguage*}{english}
     This work presents the development of a \textit{plugin}  that allows the application of concept
-    maps in courses managed by Moodle. Concept maps are a graphical tool whose function
+    maps in courses managed on Moodle. Concept maps are a graphical tool whose function
     is the representation of knowledge, they can have several applications in teaching, such as
     a method of learning evaluation. Moodle is an extensive platform used by institutions
     worldwide to manage distance learning courses. The \textit{plugin}  developed in this work is
@@ -422,13 +422,13 @@ minha formação acadêmica e pessoal.
 %\addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
 
-Os mapas conceituais são ferramenta gráfica criada na década de 70, com o objetivo de ser uma representação do conhecimento. Eles são muito fáceis de utilizar e possuem ampla aplicação na educação, podendo ser usados para apresentar o conteúdo de uma aula, de um livro ou capítulo ou ainda como método de avaliação. Por ser muito simples, ele pode ser elaborado com lápis e papel, porém pode se tornar muito mais poderoso com o apoio de ferramentas computacionais.
+Os mapas conceituais são ferramenta gráfica criada na década de 70, com o objetivo de ser uma representação do conhecimento. São muito fáceis de utilizar e possuem ampla aplicação na educação, podendo ser usados para apresentar o conteúdo de uma aula, de um livro ou capítulo ou ainda como método de avaliação. Por ser muito simples, podem ser elaborados com lápis e papel, porém é possível uma alcançar novas aplicações ao se utilizar de recursos computacionais.
 
 A proposta deste trabalho é justamente utilizar a computação para ampliar a aplicação dos mapas conceituais. Neste contexto foi pensado na criação de uma ferramenta que permita o uso dos mapas no ensina a distância. 
 
-O gerenciador de cursos \begin{otherlanguage*}{english}\textit{Modular Objected-Oriented Dynamic Learning Environment}\end{otherlanguage*} (Moodle) foi escolhido para ser a plataforma de implementação deste projeto. Este escolha se deu pois ele é uma plataforma open-source, ou seja, pode ser livremente modificada, e também é modular, permitindo que novas ferramentas sejam adicionadas a ela facilmente. Além é claro, de ser amplamente utilizada por instituições de ensino no mundo todo.
+O gerenciador de cursos \begin{otherlanguage*}{english}\textit{Modular Objected-Oriented Dynamic Learning Environment}\end{otherlanguage*} (Moodle) foi escolhido para ser a plataforma de implementação deste projeto, pois é uma plataforma open-source, ou seja, pode ser livremente modificada, e também é modular, permitindo que novas ferramentas sejam adicionadas a ela facilmente. Além é claro, de ser amplamente utilizada por instituições de ensino no mundo todo.
 
-O módulo que será desenvolvido neste trabalho permitirá que estudantes dos cursos gerenciados pelo Moodle realizem atividades com a elaboração de mapas conceituais. Adicionalmente, o editor de mapas que será implementado também irá possuir integração com o \begin{otherlanguage*}{english}\textit{Conceptual Maps as a Service}\end{otherlanguage*}  (CMPaaS), uma plataforma que oferece diversos serviços relacionados a mapas conceituais.
+O produto deste trabalho permitirá que estudantes dos cursos gerenciados pelo Moodle realizem atividades com a elaboração de mapas conceituais. Adicionado a isso, o editor de mapas que será implementado também irá possuir integração com o \begin{otherlanguage*}{english}\textit{Conceptual Maps as a Service}\end{otherlanguage*}  (CMPaaS), uma plataforma que oferece diversos serviços relacionados a mapas conceituais.
 
 
 \section{Objetivo}
@@ -454,17 +454,21 @@ O plugin desenvolvido neste trabalho será codificado em duas linguagens, JavaSc
 
 \section{Estrutura deste trabalho}
 
-Este trabalho será dividido nos capítulos descritos abaixo:
+Este trabalho será dividido em sete capítulos.
 
-\begin{itemize}
-	\item Capítulo 1: Apresenta a forma que o trabalho foi planejado e organizado. Este capítulo contém uma introdução sobre o projeto, seus objetivos e a metodologia de desenvolvimento.
-	\item Capítulo 2: Expõe o que são mapas conceituais e a sua importância no ensino. Também conceitua educação a distância e apresenta a plataforma Moodle.
-	\item Capítulo 3: Faz uma descrição sobre a  plataforma CMPaaS e a sua arquitetura.    
-	\item Capítulo 4: Descreve como foi planejado o desenvolvimento do \textit{plugin}, apresentando suas funcionalidades e como será implementado.
-	\item Capítulo 5: Detalha como o \textit{plugin} foi desenvolvido.
-	\item Capítulo 6: Apresenta o resultado final do projeto, demonstrando sua instalação, configuração e utilização.
-	\item Capítulo 7: Faz uma avaliação dos resultados obtidos no trabalho e propõe trabalhos futuros.
-\end{itemize} 
+O capítulo ``Introdução'' apresenta a forma que o trabalho foi planejado e organizado. Este capítulo contém uma introdução sobre o projeto, seus objetivos e a metodologia de desenvolvimento.
+
+O capítulo ``Mapas Conceituais e Educação'' expõe o que são mapas conceituais e a sua importância no ensino. Também conceitua educação a distância e apresenta a plataforma Moodle.
+
+O capítulo ``CMPAAS'' faz uma descrição sobre a  plataforma CMPaaS e a sua arquitetura.
+
+O capítulo ``O Projeto'' descreve como foi planejado o desenvolvimento do \textit{plugin}, apresentando suas funcionalidades e como será implementado.
+
+O capítulo ``Desenvolvimento'' detalha como o \textit{plugin} foi desenvolvido.
+
+O capítulo ``Implementação e Testes'' apresenta o resultado final do projeto, demonstrando sua instalação, configuração e utilização.
+
+O capítulo ``Considerações Finais'' faz uma avaliação dos resultados obtidos no trabalho e propõe trabalhos futuros.
 
 
 % ----------------------------------------------------------
@@ -493,7 +497,7 @@ Este trabalho será dividido nos capítulos descritos abaixo:
 % ---
 \section{Origem e definição de mapas conceituais}
 % ---
-O mapas conceituais foram criados na década de 70 durante um estudo de Novak que buscava entender como crianças aprendiam conceitos científicos \cite{Novak2005}. Durante seu estudo, Novak observou uma evolução nas proposições utilizadas pelas crianças, porém teve dificuldade de entender como esta mudança cognitiva ocorreu. Para compreender as mudanças na estruturas cognitivas observadas Novak desenvolveu um método baseado nas três ideias de Ausubel sobre a teoria da aprendizagem \cite{ausubel1963}. A primeira ideia é que novos significados são criados a partir de conceitos e proposições previamente conhecidos pelo aprendiz. A segunda, é que a estrutura cognitiva do indivíduo é organizada hierarquicamente, com conceitos mais gerais ocupando posições superiores, acima dos conceitos mais específicos e complexos. Já a terceira ideia é que durante o processo de aprendizagem os conceitos vão se tornando mais específicos e precisos.
+O mapas conceituais foram criados na década de 70 durante um estudo de Novak que buscava entender como crianças aprendiam conceitos científicos \cite{Novak2005}. Durante seu estudo, Novak observou uma evolução nas proposições utilizadas pelas crianças, porém teve dificuldade de entender como esta mudança cognitiva ocorreu. Para compreender tal mudança, Novak desenvolveu um método baseado nas três ideias de Ausubel sobre a teoria da aprendizagem \cite{ausubel1963}. A primeira ideia é que novos significados são criados a partir de conceitos e proposições previamente conhecidos pelo aprendiz. A segunda, é que a estrutura cognitiva do indivíduo é organizada hierarquicamente, com conceitos mais gerais ocupando posições superiores, acima dos conceitos mais específicos e complexos. Já a terceira ideia é que durante o processo de aprendizagem os conceitos vão se tornando mais específicos e precisos.
 
 Assim foi criada essa ferramenta gráfica, que tem como objetivo fazer uma representação do conhecimento. Um mapa conceitual é constituído por interligações entre dois ou mais conceitos através de uma palavra de forma a gerar um significado. Ele é construído ligando-se um conceito a outro, através de um arco que contém uma palavra descritiva, que é usada para criar uma relação significativa entre os conceitos. Além disso, os conceitos mais gerais estão dispostos no topo do mapa e os mais específicos na parte inferior dele. A \autoref{fig_mapconceitual} mostra um exemplo de mapa conceitual.
 \begin{figure}[htb]
@@ -505,9 +509,9 @@ Assim foi criada essa ferramenta gráfica, que tem como objetivo fazer uma repre
 \end{figure}
 \section{Mapas conceituais e educação}\label{sec-mapeduc}
 
-Os mapas conceituais podem ter diversas aplicações na educação, podem ser utilizados para representar o conhecimento adquirido em uma aula, ou então o conteúdo de um capítulo algum livro lido. Por se tratar de uma representação que é alimentada com novos conceitos conforme eles são adquiridos, pode ser utilizado pelo professor para acompanhar a aprendizagem de um estudante durante todo o período de um curso. Ademais, como os mapas conseguem representar a estrutura cognitiva de um indivíduo, eles podem ser utilizados também como método de avaliação de aprendizagem \cite{Perin2014}.
+Os mapas conceituais podem ter diversas aplicações na educação. Podem por exemplo ser utilizados para representar o conhecimento adquirido em uma aula, ou então o conteúdo de um capítulo de um livro. Por se tratar de uma representação que é alimentada com novos conceitos conforme eles são adquiridos, pode ser utilizado pelo professor para acompanhar a aprendizagem de um estudante durante todo o período de um curso. Ademais, como os mapas conseguem representar a estrutura cognitiva de um indivíduo, eles podem ser utilizados também como método de avaliação de aprendizagem \cite{Perin2014}.
 
-A confiabilidade da avaliação da aprendizagem tradicional,como textos dissertativos e questões de múltipla escolha, tem sido questionada por pesquisadores e educadores. Nestes tipos de teste apenas os acertos são contabilizados e os erros são descartados, isto pode fazer com que informações importantes para a avaliação sejam desprezadas.
+A confiabilidade da avaliação da aprendizagem tradicional, como textos dissertativos e questões de múltipla escolha, tem sido questionada por pesquisadores e educadores. Nestes tipos de teste apenas os acertos são contabilizados e os erros são descartados, implicando em importantes informações para a avaliação serem desprezadas.
 As provas tradicionais não proporcionam a possibilidade do estudante apresentar como construiu o seu aprendizado. Elas conseguem avaliar somente a aprendizagem mecânica, não mostrando como que o aprendiz alterou suas estruturas cognitivas.
 Os mapas conceituais tem se destacado como alternativa a avaliação tradicional, pois conseguem demonstrar com facilidade as modificações cognitivas que ocorrem durante o processo de aprendizagem do estudante \cite{Dutra2002}.
 
@@ -544,7 +548,7 @@ Percebendo esta carência, um grupo de pesquisadores do laboratório de Informá
 %O Moodle
 %Mapas conceituais e educação a distância.
 % ---
-\section{Moodle e EaD}\label{cap-ead}
+\section{Moodle e Educação à Distância (EaD)}\label{cap-ead}
 
 Segundo \citeonline{chaves1999} EAD é um ensino que ocorre quando há uma separação física entre mestre e aprendiz, sendo utilizadas tecnologias de transmissão de voz, dados e imagens para a comunicação entre ambos. A EAD também é definida no Decreto nº 5.622 de 19 de dezembro de 2005 \cite{BRASIL2005}.
  \begin{citacao}
@@ -573,7 +577,7 @@ Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por
 
 
 
-O fato do Moodle ser modular, ou seja, ser composto por módulos instaláveis, configuráveis e estendíveis,  permite que sejam desenvolvidos \textit{plugins} e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
+O Moodle é composto por módulos instaláveis, configuráveis e estendíveis. Assim, é possível desenvolver \textit{plugins} e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
 
 O que propomos neste projeto é, portanto, a criação de um novo módulo para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS. No capítulo a seguir será possível conhecer as características básicas do CMPaaS e os serviços oferecidos por esta plataforma.
 
@@ -665,7 +669,7 @@ Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessad
 	\legend{Fonte: \citeonline[p. 81]{Perin2014}}
 \end{figure}
 
-A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um serviço que é oferecido por ela. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Ele trata-se de um editor de mapas conceituais que armazena os mapas, criados por ele, na plataforma. Assim ele utiliza dois serviços fornecidos pelo CMPaaS, o de armazenagem de mapas e o de autenticação.
+A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um dos serviços oferecidos. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Trata-se de um editor de mapas conceituais que armazena os mapas na plataforma. Assim são utilizados dois serviços fornecidos pelo CMPaaS: o de armazenagem de mapas e o de autenticação.
 
 A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por ferramentas internas do CMPaaS e são consumidos por componentes do CMPaaS.
 
@@ -697,9 +701,11 @@ Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 
 \section{O problema}
 
-Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Também, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs. Sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras. Sendo assim, o suporte do Moodle para a utilização de mapas conceituais em cursos gerenciados por ele permitiria que estudantes e professores pudessem ter acesso a esta ferramenta educacional tão versátil.    
+Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Também, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs, sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras. Assim, o suporte do Moodle para a utilização de mapas conceituais em cursos gerenciados por ele permitiria que estudantes e professores pudessem ter acesso a esta ferramenta educacional tão versátil.    
 
-No entanto, ao buscar na lista de \textit{plugins} do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único \textit{plugin}. Este \textit{plugin} permite que questionários possam ser respondidos com uma mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compatível com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
+No entanto, ao buscar na lista de \textit{plugins} do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único \textit{plugin}. Este \textit{plugin} permite que questionários possam ser respondidos com um mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compatível com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
+
+%Josmar: só estar desatualizado é motivo suficiente para escrever um plugin do zero? Por que não apenas atualizar o plugin desatualizado? Faltou descrever aqui (talvez esse plugin desatualizado não é open source, ou então só mesmo atualizando ainda faltaria a integração com CMPaaS). Elabore melhor essa critica, pois ela aparentemente está tentando embasar a criação de um novo plugin (o seu).
 
 
 \section{A solução proposta}
@@ -724,8 +730,8 @@ Este \textit{plugin} oferece as seguintes funcionalidades:
 \begin{itemize}
 	\item criação de um novo mapa conceitual utilizando um editor de mapas. Esta funcionalidade é representada pelo caso de uso Criar Mapa.
 	\item armazenagem do mapa criado no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
-	\item edição de um mapa previamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
-	\item alteração da aparência de uma mapa que está sendo criado ou modificado no editor. Esta funcionalidade é representada pelo caso de uso Formatar Mapa.  
+	\item edição de um mapa previamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Editar Mapa.
+	\item alteração da aparência de um mapa que está sendo criado ou modificado no editor. Esta funcionalidade é representada pelo caso de uso Formatar Mapa.  
 	\item possibilidade de salvar o mapa que está sendo criado na plataforma CMPaaS. Esta funcionalidade é representada pelo caso de uso Salvar Mapa no CMPaaS.  
 	\item visualizar um mapa salvo para que possa ser avaliado. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.    
 \end{itemize} 
@@ -781,11 +787,11 @@ A plataforma Moodle e seus \textit{plugins} são desenvolvidos em PHP, por isto 
 \chapter{Desenvolvimento}
 
 \section{Serviço de Edição de Mapas}
-O serviço de edição de mapas foi implementado com a utilização do editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores de Internet.
+O serviço de edição de mapas foi implementado com a utilização do editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores \textit{Web}.
 
-Este editor foi desenvolvido de forma a salvar os mapas no formato Json, de forma a facilitar que outras aplicações utilizem os dados que ele produz. Ele foi feito desta forma devido a proposta do CMPaaS de permitir a interoperabilidade dos serviços oferecidos.
+Este editor salva os mapas no formato Json, possibilitando que outras aplicações utilizem os dados que ele produz. Foi concebido desta forma para acompanhar a proposta do CMPaaS de permitir a interoperabilidade dos serviços oferecidos.
 
-A primeira parte do trabalho foi realizar um aprimoramento deste editor, adicionando funções para a formatação dos mapas criados por ele. Inicialmente não existia a possibilidade de alterar a fonte da letra dos conceitos ou a cor de fundo dos nós. Uma barra de ferramenta foi adicionada ao editor original para que funções de formatação estivessem disponíveis.
+A primeira parte do trabalho foi realizar um aprimoramento deste editor, adicionando funções para a formatação dos mapas criados. Não existia por exemplo, a possibilidade de alterar a fonte da letra dos conceitos ou a cor de fundo dos nós. Uma barra de ferramenta foi adicionada ao editor original para que funções de formatação estivessem disponíveis.
 
 \begin{figure}[htb]
 	\caption{\label{fig_barraformacao} Editor com barra de formatação}
@@ -819,7 +825,7 @@ Na \autoref{fig_gojs} temos um trecho de código que gera um diagrama simples em
 
 Cada nó do mapa criado pelo editor é representado por um objeto da classe Node, que por sua vez, é composto por blocos que determinam a sua aparência. Os blocos que o editor utiliza são o Shape e o TextBlock. A classe Shape é utilizada para mostrar uma forma geométrica colorida. Já a classe TextBlock tem como função mostrar um texto. Ambas as classes possuem diversas propriedades que servem para determinar a sua aparência e o seu comportamento no diagrama.
 
-Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A forma geométrica  desenhada é retângulo com largura de 40 pixels, altura de 60 pixels, com margem de 4 pixels e preenchimento na cor vermelha. Já o TextBlock criado é um texto “a Text Block” de cor vermelha.
+Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A forma geométrica  desenhada é um retângulo com largura de 40 pixels, altura de 60 pixels, com margem de 4 pixels e preenchimento na cor vermelha. Já o TextBlock criado é um texto “a Text Block” de cor vermelha.
 
 \begin{figure}[htb]
 	\caption{\label{fig_gojselements} Código dos elementos Shape e TextBlock}
@@ -829,11 +835,11 @@ Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A f
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim a aparência deles. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma \textit{string Cascading Style Sheets} (CSS). Já o botão que altera a cor do nó modifica a propriedade \textit{fill} da Shape.
+As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim sua aparência. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma \textit{string Cascading Style Sheets} (CSS). Já o botão que altera a cor do nó modifica a propriedade \textit{fill} da Shape.
 
 As funcionalidades de formatação foram implementadas em JavaScript no arquivo toolbar.js. Elas foram desenvolvidas de forma semelhante, utilizando eventos disparados pelos botões da barra de ferramenta.
 
-Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que aguardava um evento disparado por ele. Quando ele ocorre uma função é chamada e realiza a modificação referente ao botão que foi acionado. 
+Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que é executada quando o evento de clique é acionado.
 
 A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um nó. Inicialmente é criada uma espera para o evento que será disparado pelo botão, no caso o evento input. Quando ele ocorre é chamada a função que altera a propriedade fill do objeto Shape de todos os nós selecionados, mudando assim a cor dos mesmos. As funcionalidades de estilo da fonte são implementadas com a mesma rotina, o que muda é a propriedade alterada, que passa a ser a \textit{font} do objeto TextBlock de todos os nós selecionados.    
 
@@ -864,25 +870,25 @@ Para implementar o serviço de edição de mapas no Moodle foi utilizado um \tex
 \subsection{Desenvolvimento do plugin}
 O \textit{plugin} utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este \textit{plugin}, buscando entender a sua funcionalidade e assim descobrir como modificá-lo para transformá-lo em um editor de mapas.
 
-O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um Json do mapa invés de um texto.
+O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um Json do mapa ao invés de um texto.
 
 As alterações feitas no \textit{plugin} de envio de texto online se concentraram no arquivo locallib.php, que é o que determina o comportamento e funcionalidades do módulo. Dentro deste arquivo, as mudanças ocorreram nas funções get\_form\_elements(), que constrói o formulário de envio de tarefa, e no arquivo save(), que realiza a submissão do conteúdo criado pelo estudante.
 
 A primeira parte do trabalho foi substituir o formulário de envio de texto pelo editor de mapas conceituais. Esta modificação foi realizada na função get\_form\_elements(). O código que realizava a inserção do editor de texto foi substituído por um outro, que insere um iframe contendo o editor de mapas do CMPaaS. 
 
-Feito isto, o \textit{plugin} já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no banco de dados do Moodle. Para realizar isto o Json do editor contido no iframe precisava ser salvo em algum campo de formulário. Para solucionar isto, foi criado um entrada de dados, oculta na página da tarefa, responsável por receber o Json do mapa criado no editor.
+Assim, o \textit{plugin} já apresentava o editor de mapas, porém ainda era necessário salvar o mapa criado no banco de dados do Moodle. Para realizar isto, Json do editor contido no iframe precisava ser salvo em algum campo de formulário. Como solução, foi criado uma entrada de dados, oculta na página da tarefa, responsável por receber o Json do mapa criado no editor.
 
-Assim, quando o estudante aciona o botão de submissão da tarefa, o Json do mapa que ele criou e salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
+Quando o estudante aciona o botão de submissão da tarefa, o Json respectivo ao mapa que criado é salvo em um campo de formulário e então armazenado no banco de dados do Moodle.
 
 Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o mapa salvo pelo estudante, para caso ele tivesse interesse em editar um mapa já armazenado. A solução para isto foi realizar o caminho inverso que foi feito ao salvar o mapa criado. Ao carregar o formulário de edição de mapas o Json armazenado no banco de dados e carregado em um campo oculto e um código JavaScript se encarrega se obter o conteúdo dele e carregar no mapa.
 
-Então a primeira parte do desenvolvimento do \textit{plugin} foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Porém ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno e, além disso, proposta do trabalho era a criação de um \textit{plugin} integrado com o CMPaaS,  portanto a segunda parte do trabalho e realizar esta integração e criar uma forma de o avaliador visualizar o mapa.
+A primeira parte do desenvolvimento do \textit{plugin} foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno. Além disso, falta a integração com o CMPaaS e utilização de seus recursos.
 
 \subsection{Integração com o CMPaaS}
 
-A integração do \textit{plugin} com o CMPaaS é feita com a utilização de dois serviços oferecidos pela plataforma. Eles são o serviço de autenticação e o de persistência de mapas.
+A integração do \textit{plugin} com o CMPaaS é feita com a utilização de dois serviços oferecidos pela plataforma: o serviço de autenticação e o de persistência de mapas.
 
-O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Quando o botão de sincronização é acionado é enviado uma mensagem pedindo autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do \textit{plugin} ao repositório de mapas.
+O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Ao acionar o botão de sincronização, é enviado uma mensagem requisitando autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do \textit{plugin} ao repositório de mapas.
 
 Após a rotina de autenticação ter sido realizada o editor de mapas envia um Json com os dados do diagrama a ser sincronizado. Então o serviço de mapas do CMPaaS recebe o Json e realiza a persistência do mesmo em sua base de dados.
 
@@ -943,11 +949,11 @@ A utilização do \textit{plugin} é bem simples. Ao acessar uma tarefa o estuda
 
 \section{Provas de Conceitos}
 
-Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo \textit{plugin}. Elas podem ser dividas em dois grupos, o de recursos para elaboração e edição dos mapas e o de persistência dos diagramas.
+Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo \textit{plugin}. Elas podem ser dividas em dois grupos: recursos para elaboração e edição dos mapas e persistência dos diagramas.
 
 Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções. Já a \autoref{fig_toolbar} apresenta o conteúdo dos menus \textit{dropdown} de fonte e cor de preenchimento do nó.
 
-Já a persistência do diagrama pode ser divida em duas, a gravação do mapa no Moodle e a sincronização com o CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Já a sincronia com o CMPaaS ocorre quando o estudante utiliza o botão Sincronizar Mapa, que pode ser visto na cor verde na \autoref{fig_mapa}.
+Já a persistência do diagrama pode ser divida em duas etapas: a gravação do mapa no Moodle e a sincronização com o CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Já a sincronia com o CMPaaS ocorre quando o estudante utiliza o botão Sincronizar Mapa, que pode ser visto na cor verde na \autoref{fig_mapa}.
 
 \begin{figure}[htb]
 	\caption{\label{fig_mapa} Mapa que utiliza os recursos de formação}
@@ -995,12 +1001,12 @@ Foi pensado então no projeto de uma ferramenta que proporcionasse a aplicação
 
 Um \textit{plugin} que permite a aplicação de mapas conceituais em tarefas dos cursos do Moodle foi então desenvolvido. Este \textit{plugin} possibilita que os estudantes respondam tarefas com a elaboração de mapas conceituais e oferece a possibilidade de sincronização do mapa na plataforma CMPaaS. 
 
-O módulo que foi criado neste trabalho trata-se de um protótipo, sendo assim, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
+O módulo que foi criado neste trabalho trata-se de um protótipo, ou seja, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
 
 \section{Trabalhos futuros}
 % ---
 
-O protótipo desenvolvido neste trabalho teve foco na interface para o estudante criar mapas conceituais, não possuindo o recurso de apresentar o mapa elaborado nele para um avaliador. Assim a criação de uma forma visualizar o mapa submetido pelo estudante é uma proposta de trabalho futuro. 
+O protótipo desenvolvido neste trabalho teve foco na interface para o estudante criar mapas conceituais, não possuindo o recurso de apresentar o mapa elaborado nele para um avaliador. Assim, uma proposta de trabalho futuro é a criação de uma forma de o avaliador visualizar o mapa submetido pelo estudante.
 
 Ademais é sugerido o desenvolvimento de trabalhos que visam a melhoria da experiência do usuário que utiliza o editor de mapas. Visto que este trabalho não teve como foco a criação de uma interface otimizada.
 
