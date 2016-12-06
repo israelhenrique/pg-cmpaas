@@ -888,7 +888,7 @@ A primeira parte do desenvolvimento do \textit{plugin} foi concluída, o estudan
 
 A integração do \textit{plugin} com o CMPaaS é feita com a utilização de dois serviços oferecidos pela plataforma: o serviço de autenticação e o de persistência de mapas.
 
-O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Quando o botão de sincronização é acionado é enviado uma mensagem pedindo autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do \textit{plugin} ao repositório de mapas.
+O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Ao acionar o botão de sincronização, é enviado uma mensagem requisitando autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do \textit{plugin} ao repositório de mapas.
 
 Após a rotina de autenticação ter sido realizada o editor de mapas envia um Json com os dados do diagrama a ser sincronizado. Então o serviço de mapas do CMPaaS recebe o Json e realiza a persistência do mesmo em sua base de dados.
 
