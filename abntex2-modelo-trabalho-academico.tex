@@ -686,7 +686,7 @@ Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 	\item Persistência e repositório de mapas.
 	\item Controle de versão de mapas conceituais.
 	\item Importação e exportação de mapas para o CmapTools
-	\item Serviço de inferência para mapas, que permite que o usuário elabore perguntas sobre os mapas em liguagem natural.
+	\item Serviço de inferência para mapas, que permite que o usuário elabore perguntas sobre os mapas em linguagem natural.
 	\item Criação de ontologias rasas a partir de um mapa.
 	\item Geração automática de mapas a partir de textos.
 	\item Serviço de mesclagem de mapas conceituais.
@@ -747,7 +747,7 @@ Este \textit{plugin} oferece as seguintes funcionalidades:
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
 
-Os atores que irão utilizar o \textit{plugin} são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avalia-los. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
+Os atores que irão utilizar o \textit{plugin} são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avaliá-lo. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
 
 O caso de uso Salvar Mapa é apresentado na \autoref{fig_seq1}. Quando o estudante solicita que o mapa seja salvo a interface do \textit{plugin} chama a rotina da API do Moodle responsável por enviar os dados do formulário para serem armazenados. Após esta rotina ser executada e o mapa ser armazenado um sumário do envio é apresentado ao estudante.
 
@@ -838,13 +838,13 @@ Os trechos de código abaixo são usados para criar um Shape e um TextBlock. A f
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim sua aparência. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade font da TextBlock, que deve ser uma \textit{string Cascading Style Sheets} (CSS). Já o botão que altera a cor do nó modifica a propriedade \textit{fill} da Shape.
+As novas funcionalidades de formatação adicionadas ao editor modificam as propriedades dos objetos das classes Shape e TextBlock, alterando assim sua aparência. Foram criados seis botões de formatação com as funções de alterar o tipo de fonte, aumentar o tamanho da fonte, alterar o estilo do texto para negrito, itálico e sublinhado, e para alterar a cor de preenchimento dos nós. Os botões de formatação de fonte alteram a propriedade \textit{font} da TextBlock, que deve ser uma \textit{string Cascading Style Sheets} (CSS). Já o botão que altera a cor do nó modifica a propriedade \textit{fill} da Shape.
 
 As funcionalidades de formatação foram implementadas em JavaScript no arquivo toolbar.js. Elas foram desenvolvidas de forma semelhante, utilizando eventos disparados pelos botões da barra de ferramenta.
 
 Para realizar alteração de estilo da fonte e de cor do nó foram implementadas funções que modificam os atributos dos nós. Para cada botão da barra de ferramenta foi criada uma rotina que é executada quando o evento de clique é acionado.
 
-A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um nó. Inicialmente é criada uma espera para o evento que será disparado pelo botão, no caso o evento input. Quando ele ocorre é chamada a função que altera a propriedade fill do objeto Shape de todos os nós selecionados, mudando assim a cor dos mesmos. As funcionalidades de estilo da fonte são implementadas com a mesma rotina, o que muda é a propriedade alterada, que passa a ser a \textit{font} do objeto TextBlock de todos os nós selecionados.    
+A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um nó. Inicialmente é criada uma espera para o evento que será disparado pelo botão, no caso o evento \textit{input}. Quando ele ocorre é chamada a função que altera a propriedade \textit{fill} do objeto Shape de todos os nós selecionados, mudando assim a cor dos mesmos. As funcionalidades de estilo da fonte são implementadas com a mesma rotina, o que muda é a propriedade alterada, que passa a ser a \textit{font} do objeto TextBlock de todos os nós selecionados.    
 
 \begin{figure}[htb]
 	\caption{\label{fig_listener} Rotina que altera a cor de preenchimento de um nó}
