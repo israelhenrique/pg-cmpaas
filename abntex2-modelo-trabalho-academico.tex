@@ -95,8 +95,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Uma Ferramenta de Mapeamento Conceitual para Moodle integrada
-	ao CMPaaS}
+\titulo{Um plugin de edição de Mapas Conceituais para Ambientes Moodle integrado ao CMPaaS}
 \autor{Israel Henrique Silva de Lima}
 \local{Vitória}
 \data{2016}
@@ -340,7 +339,7 @@ minha formação acadêmica e pessoal.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- Este trabalho apresenta o desenvolvimento de um \textit{plugin} que permite a aplicação de mapas conceituais em cursos gerenciados pelo Moodle. Os mapas conceituais são uma ferramenta gráfica cuja função é a representação do conhecimento, ela pode ser aplicada no ensino de diversas formas, como por exemplo um método de avaliação de aprendizagem. O Moodle é uma plataforma amplamente utilizada por instituições no mundo inteiro para gerenciar cursos de ensino a distância. O plugin desenvolvido neste trabalho é integrado ao CMPaaS, que trata-se de uma plataforma que integra diversas ferramentas de manipulação de mapas conceituais.
+ Este trabalho apresenta a concepção e o desenvolvimento de um \textit{plugin} de edição de mapas conceituais em cursos gerenciados pelo Moodle com integração à uma plataforma de serviços de mapas conceituais, o CMPaaS. Aborda a importância do Moodle na Educação a Distância e detalha os processos e tecnologias utilizadas na construção de um plugin para ele. Discute também como é possível integrar o Moodle com outras plataformas de serviços.
 
  \textbf{Palavras-chave}: Mapas Conceituais. Moodle. CMPaaS.
 \end{resumo}
@@ -436,7 +435,7 @@ O CMPaaS é uma plataforma que oferece serviços de manipulação de mapas conce
 
 \section{Objetivo}
 
-O objetivo deste trabalho é a criar uma ferramenta que permite a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle integrado ao CMPaaS.
+O produto final deste trabalho será um plugin que disponibiliza um editor de criação de mapas conceituais em cursos da plataforma Moodle. O plugin utilizará a plataforma CMPaaS como solução de armazenamento dos mapas conceituais na nuvem.
 
 Para alcançar o objetivo principal foram definidos os seguintes objetivos específicos:
 
@@ -451,9 +450,12 @@ Para alcançar o objetivo principal foram definidos os seguintes objetivos espec
 
 \section{Metodologia}
 
-A metodologia utilizada neste projeto consiste em uma pesquisa e revisão bibliográfica sobre mapas conceituais e sua aplicação no ensino. Inclui também o estudo da arquitetura do Moodle, de forma a entender o seu funcionamento e como podem ser desenvolvidos novos módulos para adicionar novos recursos à plataforma.
+Para alcançar o objetivo deste trabalho inicialmente foi feita uma revisão bibliográfica visando entender o que são mapas conceituais e a sua importância para a educação. Foi feito também um estudo da arquitetura do Moodle, de forma a entender o seu funcionamento e como podem ser desenvolvidos novos \textit{plugins} para adicionar novos recursos à plataforma. 
 
-O plugin desenvolvido neste trabalho será codificado em duas linguagens, JavaScript e PHP. A primeira será utilizada pois é a linguagem na qual o editor de mapas implementado no módulo utiliza. A segunda é a linguagem na qual o Moodle foi desenvolvido.  
+Após isto houve a realização de um estudo sobre quais tecnologias poderiam ser utilizadas no desenvolvimento de um \textit{plugin} para o Moodle com a funcionalidade de responder tarefas com a elaboração de mapas conceituais e que pudesse utilizar o repositório de mapas do CPMaaS.
+
+Para finalizar, o \textit{plugin} foi implementado no Moodle e foram realizados testes de suas funcionalidades. 
+
 
 \section{Estrutura deste trabalho}
 
@@ -518,6 +520,8 @@ A confiabilidade da avaliação da aprendizagem tradicional, como textos dissert
 As provas tradicionais não proporcionam a possibilidade do estudante apresentar como construiu o seu aprendizado. Elas conseguem avaliar somente a aprendizagem mecânica, não mostrando como que o aprendiz alterou suas estruturas cognitivas.
 Os mapas conceituais tem se destacado como alternativa a avaliação tradicional, pois conseguem demonstrar com facilidade as modificações cognitivas que ocorrem durante o processo de aprendizagem do estudante \cite{Dutra2002}.
 
+Neste contexto, o \textit{plugin} que será desenvolvido neste trabalho tem como finalidade permitir que estudantes de cursos gerenciados pelo Moodle respondam tarefas avaliativas com a elaboração de mapas conceituais. Assim poderá ampliar muito o uso de mapas como método de avaliação, já que o Moodle é uma plataforma utilizada por diversas instituições.
+
 \section{Mapas conceituais e tecnologia da informação}
 
 A construção de mapas conceituais é muito simples, uma caneta e um pedaço de papel são ferramentas suficientes para a confecção desse grafo. Porém a tarefa de revisá-lo, armazená-lo, e editá-lo a longo prazo  pode ser muito cansativa e complexa. A introdução do uso de computadores na confecção de mapas pode facilitar a tarefa \cite{Novak2006}.
@@ -527,7 +531,65 @@ Os primeiros programas de computadores criados com este objetivo se limitavam a 
 Na seção 2.3 de sua dissertação de mestrado, \citeonline{Perin2014} realizou uma pesquisa sobre o estado da prática em mapas conceituais. Nela foi feito um levantamento sobre softwares que permitem a criação de mapas conceituais e quais são as funcionalidades oferecidas por eles. Nesta pesquisa foram avaliadas 16 ferramentas de edição de mapas, das quais apenas o CMapTools foi desenvolvido com o objetivo de oferecer suporte específico para mapas conceituais.
 
 Percebendo esta carência, um grupo de pesquisadores do laboratório de Informática na Educação da Universidade Federal do Espírito Santo (Ufes) propôs uma plataforma de serviços para mapas conceituais, conhecida por CMPaaS \cite{Perin2016} cujo objetivo é fornecer serviços avançados para facilitar os processos e as aplicações dos mapas conceituais, tanto no ensino quanto no mercado. Neste trabalho, interessa-nos a criação de uma ferramenta integrada ao CMPaaS que proporcione a aplicação dos mapas conceituais na Educação a Distância. 
-  
+
+\subsection{CMPaaS}
+
+Na \autoref{sec-mapeduc} vimos como os mapas conceituais são importantes para educação, seja para auxiliar o estudante a aprender novos conceitos, ou como método de avaliação, além de algumas outras aplicações educacionais. 
+
+Apesar de haver este grande interesse acadêmico em ferramentas computacionais para criação e manipulação de mapas, a fragmentação das pesquisas nesta área impede que o desenvolvimento destas aplicações ocorra de forma acelerada. Assim, a integração de ferramentas já existentes facilitaria o progresso de novas pesquisas.
+
+Se houvesse uma infraestrutura de apoio a criação e manipulação de mapas conceituais o desenvolvimento de novas ferramentas seria facilitado. Um pesquisador poderia criar uma nova solução mais facilmente se não houvesse a necessidade dele se preocupar com toda uma estrutura de gestão de mapas. Por exemplo, alguém que queira desenvolver uma aplicação que avalie mapas conceituais poderia utilizar o conteúdo existente previamente em uma solução computacional de criação e armazenamento de mapas.
+
+Um outro problema apontado por \citeonline{Perin2014} é a dificuldade que a sociedade tem para acessar os resultados das pesquisas.
+\begin{citacao}
+	Consideramos importante a criação de um mecanismo de
+	acesso eficiente aos resultados das pesquisas científicas, para que a comunidade possa contribuir para a evolução delas. O que propomos, portanto, é o lançamento de bases para uma convivência mais estreita entre o mundo acadêmico e a sociedade em geral \cite{Perin2014}.
+\end{citacao}
+% ---
+
+Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma denominada CMPaaS, cujo objetivo é possibilitar que a comunidade em geral acesse o resultado de pesquisas acadêmicas e prover uma infraestrutura que permita que esta comunidade crie e estenda suas funcionalidades.
+
+\subsubsection{Computação em Nuvem}
+
+O termo computação em nuvem teve sua origem em 2006 durante uma palestra Eric Schmidt sobre como o Google gerenciava seus servidores \cite{taurion2009}. A palavra nuvem é uma abstração para a Internet e toda a sua complexidade de infraestrutura, arquiteturas e componentes. A computação em nuvem é um paradigma no qual o processamento, armazenamento e ferramentas computacionais são oferecidos como um serviço através da Internet. Aplicações baseadas nesta tecnologia possuem a característica de serem extensíveis e facilmente incorporadas a outras que precisem consumir os seus serviços \cite{Perin2014}.
+
+A plataforma CMPaaS usa esta capacidade de expansão e integração da computação em nuvem para oferecer serviços de criação, edição e gestão de mapas conceituais que poderão ser acessados por qualquer usuário no mundo.
+
+\subsubsection{Arquitetura}
+
+O CMPaaS é uma plataforma que tem como objetivo integrar ferramentas de mapas conceituais e permitir acesso a elas pela comunidade. Ele possui uma arquitetura orientada a serviços, isto é, uma arquitetura que vai oferecer serviços que podem ser consumidos por outras aplicações. Por exemplo, um editor de mapas conceituais pode gerar um mapa que vai ser usado por uma aplicação que avalia mapas de forma automatizada.
+
+Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessado de qualquer plataforma. Mas é necessário que exista um portal ou site associado a plataforma CMPaaS para que as ferramentas possam ser acessadas através de um navegador de Internet. Este portal foi nomeado como "Portal do Conhecimento" \cite{Perin2014}. 
+
+
+\begin{figure}[htb]
+	\caption{\label{fig_cmpaas}(a) Integração do Portal do Conhecimento com o CMPaaS. (b) Integração do CMPaaS com serviços externos}
+	\begin{center}
+		\includegraphics[scale=0.3]{cmpaas.png}
+	\end{center}
+	\legend{Fonte: \citeonline[p. 81]{Perin2014}}
+\end{figure}
+
+A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um dos serviços oferecidos. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Trata-se de um editor de mapas conceituais que armazena os mapas na plataforma. Assim são utilizados dois serviços fornecidos pelo CMPaaS: o de armazenagem de mapas e o de autenticação.
+
+A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por ferramentas internas do CMPaaS e são consumidos por componentes do CMPaaS.
+
+\subsubsection{Serviços oferecidos}
+
+Atualmente a plataforma CMPaaS oferece os seguintes serviços:
+
+\begin{itemize}
+	\item Criação, edição e formatação de mapas conceituais.
+	\item Serviço de cadastramento e autenticação de usuários.
+	\item Persistência e repositório de mapas.
+	\item Controle de versão de mapas conceituais.
+	\item Importação e exportação de mapas para o CmapTools
+	\item Serviço de inferência para mapas, que permite que o usuário elabore perguntas sobre os mapas em linguagem natural.
+	\item Criação de ontologias rasas a partir de um mapa.
+	\item Geração automática de mapas a partir de textos.
+	\item Serviço de mesclagem de mapas conceituais.
+	\item Validação estrutural de mapas.
+\end{itemize}   
 
 %\lipsum[1]
 
@@ -631,67 +693,7 @@ O que propomos neste projeto é, portanto, a criação de um novo módulo para o
 %Quando foi criado?
 %Porque foi criado? Qual é a sua importância?
 % ---
-\chapter{CMPaaS}
-\section{Origem}
 
-Na \autoref{sec-mapeduc} vimos como os mapas conceituais são importantes para educação, seja para auxiliar o estudante a aprender novos conceitos, ou como método de avaliação, além de algumas outras aplicações educacionais. 
-
-Apesar de haver este grande interesse acadêmico em ferramentas computacionais para criação e manipulação de mapas, a fragmentação das pesquisas nesta área impede que o desenvolvimento destas aplicações ocorra de forma acelerada. Assim, a integração de ferramentas já existentes facilitaria o progresso de novas pesquisas.
-
-Se houvesse uma infraestrutura de apoio a criação e manipulação de mapas conceituais o desenvolvimento de novas ferramentas seria facilitado. Um pesquisador poderia criar uma nova solução mais facilmente se não houvesse a necessidade dele se preocupar com toda uma estrutura de gestão de mapas. Por exemplo, alguém que queira desenvolver uma aplicação que avalie mapas conceituais poderia utilizar o conteúdo existente previamente em uma solução computacional de criação e armazenamento de mapas.
-
-Um outro problema apontado por \citeonline{Perin2014} é a dificuldade que a sociedade tem para acessar os resultados das pesquisas.
-\begin{citacao}
-	Consideramos importante a criação de um mecanismo de
-	acesso eficiente aos resultados das pesquisas científicas, para que a comunidade possa contribuir para a evolução delas. O que propomos, portanto, é o lançamento de bases para uma convivência mais estreita entre o mundo acadêmico e a sociedade em geral \cite{Perin2014}.
-\end{citacao}
-% ---
-
-Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma denominada CMPaaS, cujo objetivo é possibilitar que a comunidade em geral acesse o resultado de pesquisas acadêmicas e prover uma infraestrutura que permita que esta comunidade crie e estenda suas funcionalidades.
-
-\section{A plataforma CMPaaS}
-
-\subsection{Computação em Nuvem}
-
-O termo computação em nuvem teve sua origem em 2006 durante uma palestra Eric Schmidt sobre como o Google gerenciava seus servidores \cite{taurion2009}. A palavra nuvem é uma abstração para a Internet e toda a sua complexidade de infraestrutura, arquiteturas e componentes. A computação em nuvem é um paradigma no qual o processamento, armazenamento e ferramentas computacionais são oferecidos como um serviço através da Internet. Aplicações baseadas nesta tecnologia possuem a característica de serem extensíveis e facilmente incorporadas a outras que precisem consumir os seus serviços \cite{Perin2014}.
-
-A plataforma CMPaaS usa esta capacidade de expansão e integração da computação em nuvem para oferecer serviços de criação, edição e gestão de mapas conceituais que poderão ser acessados por qualquer usuário no mundo.
-
-\subsection{Arquitetura}
-
-O CMPaaS é uma plataforma que tem como objetivo integrar ferramentas de mapas conceituais e permitir acesso a elas pela comunidade. Ele possui uma arquitetura orientada a serviços, isto é, uma arquitetura que vai oferecer serviços que podem ser consumidos por outras aplicações. Por exemplo, um editor de mapas conceituais pode gerar um mapa que vai ser usado por uma aplicação que avalia mapas de forma automatizada.
-
-Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessado de qualquer plataforma. Mas é necessário que exista um portal ou site associado a plataforma CMPaaS para que as ferramentas possam ser acessadas através de um navegador de Internet. Este portal foi nomeado como "Portal do Conhecimento" \cite{Perin2014}. 
-
-
-\begin{figure}[htb]
-	\caption{\label{fig_cmpaas}(a) Integração do Portal do Conhecimento com o CMPaaS. (b) Integração do CMPaaS com serviços externos}
-	\begin{center}
-		\includegraphics[scale=0.3]{cmpaas.png}
-	\end{center}
-	\legend{Fonte: \citeonline[p. 81]{Perin2014}}
-\end{figure}
-
-A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um dos serviços oferecidos. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Trata-se de um editor de mapas conceituais que armazena os mapas na plataforma. Assim são utilizados dois serviços fornecidos pelo CMPaaS: o de armazenagem de mapas e o de autenticação.
-
-A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por ferramentas internas do CMPaaS e são consumidos por componentes do CMPaaS.
-
-\subsection{Serviços oferecidos}
-
-Atualmente a plataforma CMPaaS oferece os seguintes serviços:
-
-\begin{itemize}
-	\item Criação, edição e formatação de mapas conceituais.
-	\item Serviço de cadastramento e autenticação de usuários.
-	\item Persistência e repositório de mapas.
-	\item Controle de versão de mapas conceituais.
-	\item Importação e exportação de mapas para o CmapTools
-	\item Serviço de inferência para mapas, que permite que o usuário elabore perguntas sobre os mapas em linguagem natural.
-	\item Criação de ontologias rasas a partir de um mapa.
-	\item Geração automática de mapas a partir de textos.
-	\item Serviço de mesclagem de mapas conceituais.
-	\item Validação estrutural de mapas.
-\end{itemize} 
 
  
 
