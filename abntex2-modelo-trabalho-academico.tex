@@ -427,7 +427,12 @@ A proposta deste trabalho é justamente utilizar a computação para ampliar a a
 
 O produto deste trabalho permitirá que estudantes dos cursos gerenciados pelo Moodle realizem atividades com a elaboração de mapas conceituais. Adicionado a isso, o editor de mapas que será implementado também irá possuir integração com o \begin{otherlanguage*}{english}\textit{Conceptual Maps as a Service}\end{otherlanguage*}  (CMPaaS), uma plataforma que oferece diversos serviços relacionados a mapas conceituais.
 
+
 \section{Motivação}
+
+Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Também, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs, sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras. Assim, o suporte do Moodle para a utilização de mapas conceituais em cursos gerenciados por ele permitiria que estudantes e professores pudessem ter acesso a esta ferramenta educacional tão versátil.    
+
+No entanto, ao buscar na lista de \textit{plugins} do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único \textit{plugin}. Este \textit{plugin} permite que questionários possam ser respondidos com um mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compatível com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
 
 O Moodle foi escolhido para ser a plataforma de implementação deste projeto, pois é uma plataforma open-source, ou seja, pode ser livremente modificada, e também é modular, permitindo que novas ferramentas sejam adicionadas a ela facilmente. Além é claro, de ser amplamente utilizada por instituições de ensino no mundo todo.
 
@@ -549,16 +554,6 @@ Um outro problema apontado por \citeonline{Perin2014} é a dificuldade que a soc
 
 Assim foi proposto por \citeonline{Perin2014} a criação de uma plataforma denominada CMPaaS, cujo objetivo é possibilitar que a comunidade em geral acesse o resultado de pesquisas acadêmicas e prover uma infraestrutura que permita que esta comunidade crie e estenda suas funcionalidades.
 
-\subsubsection{Computação em Nuvem}
-
-O termo computação em nuvem teve sua origem em 2006 durante uma palestra Eric Schmidt sobre como o Google gerenciava seus servidores \cite{taurion2009}. A palavra nuvem é uma abstração para a Internet e toda a sua complexidade de infraestrutura, arquiteturas e componentes. A computação em nuvem é um paradigma no qual o processamento, armazenamento e ferramentas computacionais são oferecidos como um serviço através da Internet. Aplicações baseadas nesta tecnologia possuem a característica de serem extensíveis e facilmente incorporadas a outras que precisem consumir os seus serviços \cite{Perin2014}.
-
-A plataforma CMPaaS usa esta capacidade de expansão e integração da computação em nuvem para oferecer serviços de criação, edição e gestão de mapas conceituais que poderão ser acessados por qualquer usuário no mundo.
-
-\subsubsection{Arquitetura}
-
-O CMPaaS é uma plataforma que tem como objetivo integrar ferramentas de mapas conceituais e permitir acesso a elas pela comunidade. Ele possui uma arquitetura orientada a serviços, isto é, uma arquitetura que vai oferecer serviços que podem ser consumidos por outras aplicações. Por exemplo, um editor de mapas conceituais pode gerar um mapa que vai ser usado por uma aplicação que avalia mapas de forma automatizada.
-
 Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessado de qualquer plataforma. Mas é necessário que exista um portal ou site associado a plataforma CMPaaS para que as ferramentas possam ser acessadas através de um navegador de Internet. Este portal foi nomeado como "Portal do Conhecimento" \cite{Perin2014}. 
 
 
@@ -572,9 +567,7 @@ Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessad
 
 A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um dos serviços oferecidos. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Trata-se de um editor de mapas conceituais que armazena os mapas na plataforma. Assim são utilizados dois serviços fornecidos pelo CMPaaS: o de armazenagem de mapas e o de autenticação.
 
-A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por ferramentas internas do CMPaaS e são consumidos por componentes do CMPaaS.
-
-\subsubsection{Serviços oferecidos}
+A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por 
 
 Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 
@@ -704,18 +697,8 @@ O que propomos neste projeto é, portanto, a criação de um novo módulo para o
 %Como foi feito o plugin
 % ---
 
-\section{O problema}
-
-Vimos no \autoref{cap-maps} que os mapas conceituais são muito importantes para a educação, principalmente como alternativa para os métodos de avaliação tradicionais. Também, no \autoref{cap-ead} foi apresentado o conceito de educação a distância e como ela é oferecida através do uso de AVAs, sendo o Moodle apontado como um gerenciador de cursos amplamente utilizado por instituições brasileiras. Assim, o suporte do Moodle para a utilização de mapas conceituais em cursos gerenciados por ele permitiria que estudantes e professores pudessem ter acesso a esta ferramenta educacional tão versátil.    
-
-No entanto, ao buscar na lista de \textit{plugins} do Moodle alguma ferramenta que permite o uso de mapas conceituais como resposta de atividades avaliativas, só foi encontrado um único \textit{plugin}. Este \textit{plugin} permite que questionários possam ser respondidos com um mapa. Porém, a última atualização desta ferramenta foi no início de 2015 e ele não é compatível com as novas versões da plataforma. Portanto, não há nenhuma ferramenta que permita o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas versões mais recentes.
-
 %Josmar: só estar desatualizado é motivo suficiente para escrever um plugin do zero? Por que não apenas atualizar o plugin desatualizado? Faltou descrever aqui (talvez esse plugin desatualizado não é open source, ou então só mesmo atualizando ainda faltaria a integração com CMPaaS). Elabore melhor essa critica, pois ela aparentemente está tentando embasar a criação de um novo plugin (o seu).
 
-
-\section{A solução proposta}
-
-Este trabalho propõe a criação de um \textit{plugin} que adicione ao Moodle de resposta de uma tarefa com um mapa conceitual. Além disso, ele será integrado a plataforma CMPaaS, consumindo serviços oferecidos por ela.
 
 \section{Arquitetura}
 
