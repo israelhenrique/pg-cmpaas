@@ -774,6 +774,18 @@ PHP é um acrônimo recursivo para \begin{otherlanguage*}{english}\textit{PHP: H
 
 A plataforma Moodle e seus \textit{plugins} são desenvolvidos em PHP, por isto esta linguagem foi utilizada neste projeto. 
 
+\section{Trabalhos correlatos}
+
+Existe um \textit{plugin} semelhante ao desenvolvido neste trabalho no repositório do Moodle. Este \textit{plugin} possibilita que estudantes respondam questionários com a elaboração de um mapa conceitual. As principais funcionalidades dele são a possibilidade de criar um número ilimitado de conceitos e relacionamentos, compatibilidade com padrões de internacionalização e persistência de mapas com a utilização de XML. Infelizmente a última versão dele foi lançada em fevereiro de 2015 e não é compatível com as versões mais atuais do Moodle. A \autoref{fig_outroplugin} mostra um mapa criado neste \textit{plugin}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_outroplugin} Um plugin de elaboração de mapas conceituais}
+	\begin{center}
+		\includegraphics[scale=0.4]{outroplugin.png}
+	\end{center}
+	\legend{Fonte: \citeonline{MoodlePlugin2016}}
+\end{figure} 
+
 \chapter{Desenvolvimento}
 
 \section{Serviço de Edição de Mapas}
@@ -840,9 +852,6 @@ A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
-
-
-
 
 \section{Implementação no Moodle} 
 Para implementar o serviço de edição de mapas no Moodle foi utilizado um \textit{plugin} já existente na plataforma como modelo. Conforme visto no \autoref{cap-projeto} o \textit{plugin} escolhido para a implementação da funcionalidade de edição de mapas foi o de envio de tarefa. Todos os \textit{plugins} deste tipo possuem uma estrutura de arquivo padrão, que será detalhada abaixo.
