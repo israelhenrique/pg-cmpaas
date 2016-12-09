@@ -428,7 +428,7 @@ utilizar recursos computacionais.
 A proposta deste trabalho é justamente utilizar a computação para ampliar a apli-
 cação dos mapas conceituais. Neste contexto foi pensado na criação de uma ferramenta que
 permita o uso dos mapas no ensino a distância. Assim, este projeto visa o desenvolvimento
-de um componente para o gerenciador de cursos \textit{Modular Objected-Oriented Dynamic Learning Environment} (Moodle) que introduza os mapas conceituais nos cursos existentes
+de um \textit{plugin} para o gerenciador de cursos \textit{Modular Objected-Oriented Dynamic Learning Environment} (Moodle) que introduza os mapas conceituais nos cursos existentes
 nesta plataforma.
 
 O Moodle foi escolhido para ser a plataforma de implementação deste projeto,
@@ -456,7 +456,7 @@ Para alcançar o objetivo principal foram definidos os seguintes objetivos espec
 	\item Estudar o que são mapas conceituais e suas aplicações na educação.
 	\item Estudar a arquitetura do Moodle e seus \textit{plugins} .
 	\item Entender a plataforma CMPaaS.
-	\item Desenvolver um novo módulo para o Moodle segundo a arquitetura da plataforma e de seus \textit{plugins} .   
+	\item Desenvolver um novo \textit{plugin} para o Moodle segundo a arquitetura da plataforma.   
 \end{itemize} 
 
 
@@ -645,7 +645,7 @@ Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por
 
 O Moodle é composto por módulos instaláveis, configuráveis e estendíveis. Assim, é possível desenvolver \textit{plugins} e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
 
-O que propomos neste projeto é, portanto, a criação de um novo módulo para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS. No capítulo a seguir será possível conhecer as características básicas do CMPaaS e os serviços oferecidos por esta plataforma.
+O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin} para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS. No capítulo a seguir será possível conhecer as características básicas do CMPaaS e os serviços oferecidos por esta plataforma.
 
 \begin{table}[htb]
 	\IBGEtab{%
@@ -710,11 +710,11 @@ O que propomos neste projeto é, portanto, a criação de um novo módulo para o
 
 \section{Arquitetura}
 
-O Moodle é composto por vários módulos independentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo módulo. O \textit{plugin} que foi criado neste trabalho é do tipo \textit{assignment submission plugin}, ou seja, é um módulo de submissão de tarefa. O módulo de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
+O Moodle é composto por vários \textit{plugins} independentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo \textit{plugin}. Neste projeto foi criado \textit{plugin} do tipo \textit{assignment submission plugin},que tem com função a submissão de uma tarefa. O \textit{plugin} de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
 
 Este tipo de \textit{plugin} é divido em três partes:
 \begin{itemize}
-	\item configurações, que são opções de comportamento do módulo.
+	\item configurações, que são opções de comportamento do \textit{plugin}.
 	\item sumário de envio, que será visto pelo estudante e avaliadores na tela inicial da tarefa.
 	\item formulário de envio, que é onde o estudante responde a tarefa.  
 \end{itemize} 
@@ -851,7 +851,7 @@ A \autoref{fig_listener} mostra a rotina que altera a cor de preenchimento de um
 
 
 \section{Implementação no Moodle} 
-Para implementar o serviço de edição de mapas no Moodle foi utilizado um \textit{plugin} já existente na plataforma como modelo. Conforme visto no \autoref{cap-projeto} o módulo escolhido para a implementação da funcionalidade de edição de mapas foi o de envio de tarefa. Todos os \textit{plugins} deste tipo possuem uma estrutura de arquivo padrão, que será detalhada abaixo.
+Para implementar o serviço de edição de mapas no Moodle foi utilizado um \textit{plugin} já existente na plataforma como modelo. Conforme visto no \autoref{cap-projeto} o \textit{plugin} escolhido para a implementação da funcionalidade de edição de mapas foi o de envio de tarefa. Todos os \textit{plugins} deste tipo possuem uma estrutura de arquivo padrão, que será detalhada abaixo.
 \begin{itemize}
 	\item version.php: este arquivo contém informações sobre a versão do \textit{plugin}, é utilizado para que o Moodle instale e atualize o \textit{plugins} corretamente.
 	\item settings.php: este arquivo permite que se adicione opções personalizadas para a página configuração do \textit{plugins}.
@@ -866,9 +866,9 @@ Para implementar o serviço de edição de mapas no Moodle foi utilizado um \tex
 \subsection{Desenvolvimento do plugin}
 O \textit{plugin} utilizado como base para o desenvolvimento deste trabalho foi o de envio de texto online, nele o estudante tem a possibilidade responder uma tarefa por meio de um texto escrito diretamente na plataforma. Este projeto foi desenvolvido aplicando engenharia reversa a este \textit{plugin}, buscando entender a sua funcionalidade e assim descobrir como modificá-lo para transformá-lo em um editor de mapas.
 
-O módulo de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O módulo desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um Json do mapa ao invés de um texto.
+O \textit{plugin} de envio de texto online pode ser dividido em duas partes, uma é o editor de textos onde o estudante realiza a sua tarefa e a outra e o sumário da atividade onde tanto o estudante quanto o avaliador tem acesso ao conteúdo da tarefa enviada. O \textit{plugin} desenvolvido neste trabalho mantém esta estrutura, alterando o editor de textos por um de mapas conceituais e alterando o sumário de forma que o conteúdo apresentado nele passa a ser um Json do mapa ao invés de um texto.
 
-As alterações feitas no \textit{plugin} de envio de texto online se concentraram no arquivo locallib.php, que é o que determina o comportamento e funcionalidades do módulo. Dentro deste arquivo, as mudanças ocorreram nas funções get\_form\_elements(), que constrói o formulário de envio de tarefa, e no arquivo save(), que realiza a submissão do conteúdo criado pelo estudante.
+As alterações feitas no \textit{plugin} de envio de texto online se concentraram no arquivo locallib.php, que é o que determina o seu comportamento e funcionalidades. Dentro deste arquivo, as mudanças ocorreram nas funções get\_form\_elements(), que constrói o formulário de envio de tarefa, e no arquivo save(), que realiza a submissão do conteúdo criado pelo estudante.
 
 A primeira parte do trabalho foi substituir o formulário de envio de texto pelo editor de mapas conceituais. Esta modificação foi realizada na função get\_form\_elements(). O código que realizava a inserção do editor de texto foi substituído por um outro, que insere um iframe contendo o editor de mapas do CMPaaS. 
 
@@ -981,11 +981,11 @@ Já a persistência do diagrama pode ser divida em duas etapas: a gravação do 
 
 \section{Resultados}
 
-O objetivo deste trabalho foi a criação de uma ferramenta que permitisse a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle. Para realizar isto foi idealizado o desenvolvimento de um módulo de envio de tarefa que oferecesse a possibilidade do estudante responder uma atividade com a elaboração de um mapa conceitual. A ferramenta deveria prover também uma interface para um professor ou tutor visualizar o mapa criado pelo estudante e avaliar o mesmo. Adicionalmente o módulo ofereceria uma interface de integração com o plataforma CMPaaS.
+O objetivo deste trabalho foi a criação de uma ferramenta que permitisse a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle. Para realizar isto foi idealizado o desenvolvimento de um \textit{plugin} de envio de tarefa que oferecesse a possibilidade do estudante responder uma atividade com a elaboração de um mapa conceitual. O \textit{plugin} deveria prover também uma interface para um professor ou tutor visualizar o mapa criado pelo estudante e avaliar o mesmo. Adicionalmente ofereceria também uma interface de integração com o plataforma CMPaaS.
 
-O protótipo desenvolvido neste trabalho alcançou o objetivo de oferecer uma ferramenta para o estudante responder uma tarefa com mapas  conceituais. O módulo desenvolvido possui um editor de mapas que permite a elaboração de diagramas e modificação de sua aparência, além de realizar a persistência dos mapas criados. 
+O protótipo desenvolvido neste trabalho alcançou o objetivo de oferecer uma ferramenta para o estudante responder uma tarefa com mapas conceituais. O \textit{plugin} desenvolvido possui um editor de mapas que permite a elaboração de diagramas e modificação de sua aparência, além de realizar a persistência dos mapas criados. 
 
-A integração com o CMPaaS também foi implementada, assim o estudante tem a possibilidade de sincronizar o mapa criado no editor com o serviço de armazenamento na Nuvem oferecido pela plataforma. Já a interface para que o mapa seja visualizado para avaliação não foi implementada no protótipo, porém o módulo desenvolvido permite que este recurso seja adicionado em trabalhos futuros.  
+A integração com o CMPaaS também foi implementada, assim o estudante tem a possibilidade de sincronizar o mapa criado no editor com o serviço de armazenamento na Nuvem oferecido pela plataforma. Já a interface para que o mapa seja visualizado para avaliação não foi implementada no protótipo, porém o \textit{plugin} desenvolvido permite que este recurso seja adicionado em trabalhos futuros.  
 
 
 
@@ -997,7 +997,7 @@ Foi pensado então no projeto de uma ferramenta que proporcionasse a aplicação
 
 Um \textit{plugin} que permite a aplicação de mapas conceituais em tarefas dos cursos do Moodle foi então desenvolvido. Este \textit{plugin} possibilita que os estudantes respondam tarefas com a elaboração de mapas conceituais e oferece a possibilidade de sincronização do mapa na plataforma CMPaaS. 
 
-O módulo que foi criado neste trabalho trata-se de um protótipo, ou seja, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
+O \textit{plugin} que foi criado neste trabalho trata-se de um protótipo, ou seja, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
 
 \section{Trabalhos futuros}
 % ---
