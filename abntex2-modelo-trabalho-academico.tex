@@ -410,32 +410,22 @@ minha formação acadêmica e pessoal.
 %\addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
 
-Os mapas conceituais são uma ferramenta gráfica criada na década de 70, com o
-objetivo de ser uma representação do conhecimento. São muito fáceis de utilizar e possuem
-ampla aplicação na educação, podendo ser usados para apresentar o conteúdo de uma
-aula, de um livro ou capítulo ou ainda como método de avaliação. Por ser muito simples,
-podem ser elaborados com lápis e papel, porém é possível alcançar novas aplicações ao se
-utilizar recursos computacionais.
+Mapas conceituais são uma ferramenta gráfica muito utilizada na representação de conhecimento acerca de um dado domínio de problema. São fáceis de utilizar e possuem ampla aplicação na educação, podendo ser usados para apresentar o conteúdo de uma aula, de um livro, capítulo ou utilizado como método de avaliação.
 
-A proposta deste trabalho é justamente utilizar a computação para ampliar a aplicação dos mapas conceituais. Neste contexto foi pensado na criação de uma ferramenta que
-permita o uso dos mapas no ensino a distância. Assim, este projeto visa o desenvolvimento
-de um \textit{plugin} para o gerenciador de cursos \textit{Modular Objected-Oriented Dynamic Learning Environment} (Moodle) que introduza os mapas conceituais nos cursos existentes
-nesta plataforma.
+\begin{citacao}
+	Por ser considerada uma ferramenta “aberta”, já que não traz informações prévias em excesso aos estudantes além de apenas um pequeno conjunto de regras para sua utilização, os mapas conceituais deixam os professores e estudantes livres para explorar o conhecimento dentro do campo de estudo de seus interesses \cite{santos2005}.
+\end{citacao}
 
-O Moodle foi escolhido para ser a plataforma de implementação deste projeto,
-pois é uma plataforma \textit{open-source}, ou seja, pode ser livremente modificada, e também é
-modular, permitindo que novas ferramentas sejam adicionadas a ela facilmente. Além é
-claro, de ser amplamente utilizada por instituições de ensino no mundo todo. Avaliando a lista de \textit{plugins} do Moodle, foi constatado que não há nenhuma ferramenta que permita
-o uso de mapas conceituais em tarefas de cursos gerenciados pela plataforma em suas
-versões mais recentes.
+Por sua simplicidade no processo de elaboração, mapas podem ser elaborados com lápis e papel, porém é possível alcançar novas aplicações quando da utilização de recursos computacionais, tais como a utilização de recursos dotados de inteligência artificial para análise de mapas (Perin e Cury, 2012) e mineração de dados (Yoo e Cho, 2012).
 
-O produto deste trabalho permitirá que estudantes dos cursos gerenciados pelo
-Moodle realizem atividades com a elaboração de mapas conceituais. Adicionado a isso, o
-editor de mapas que será implementado também irá possuir integração com o \textit{Conceptual Maps as a Service} (CMPaaS), uma plataforma que oferece diversos serviços de manipulação de mapas. Alguns desses serviços necessitam de conteúdo previamente existente para funcionar, como por exemplo o serviço de inferência de mapas.
-Devido ao Moodle ser muito utilizado, um \textit{plugin} de elaboração de mapas conceituais implementado nele poderia gerar uma grande quantidade de conteúdo, que  os serviços da plataforma CMPaaS poderiam utilizar, por exemplo, o serviço de geração de inferências. Por esse motivo o \textit{plugin} desenvolvido nesse trabalho também será integrado ao CMPaaS.
+Pensando nisso, pesquisadores da Universidade Federal do Espírito Santo especificaram e desenvolveram uma plataforma denominada CMPaaS. Esta plataforma possui a finalidade de fornecer um ambiente favorável à disposição e integração de coleções de ferramentas voltadas para a gestão e uso inteligente de mapas conceituais que são frutos de pesquisas desenvolvidas por diversos estudantes deste grupo, além de pessoas externas ao projeto.
 
+Nesta linha, este trabalho acredita que uma forma efetiva de ampliar as fontes de dados para a plataforma do CMPaaS é favorecer a integração com sistemas que já possuam base de usuários consolidadas. Assim, propõe-se a criação de uma ferramenta que permita o uso dos mapas nas plataformas utilizadas no ensino a distância, já que estes são nichos grandes e, a julgar pelos avanços na utilização de recursos computacionais na educação, tendem a se ampliar nos próximos anos (Ribeiro et al., 2007).
 
-
+Assim, este projeto visa o desenvolvimento de um plugin para construção de mapas conceituais dentro do gerenciador de cursos Modular Objected-Oriented Dynamic Learning Environment (Moodle) que permita o compartilhamento dos mapas produzidos com a plataforma CMPaaS.
+ 
+Para alcançar esses objetivos, foi realizada uma revisão bibliográfica aprofundada sobre mapas conceituais e a sua importância para a educação; também um  estudo do funcionamento e arquitetura do Moodle para entender como podem ser desenvolvidos plugins para adicionar novos recursos à plataforma; foi preciso também uma pesquisa sobre integração de sistemas heterogêneos para entender como seria possível a realização da interoperabilidade desses dois sistemas. Para finalizar, o plugin foi implementado no Moodle e foram realizados testes de suas funcionalidades.
+ 
 
 \section{Objetivo}
 
@@ -679,6 +669,14 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 % ---
 % segundo capitulo de Resultados
 % ---
+
+\chapter{Integração de Sistemas}
+
+\section{Soap}
+
+\section{HTTP}
+
+\section{REST}
 
 % ---
 %O que é o CMPAAS?
