@@ -529,8 +529,6 @@ Os serviços do CMPaaS são oferecidos através da Internet, podendo ser acessad
 
 A \autoref{fig_cmpaas} ilustra a arquitetura do CMPaaS e como as aplicações fornecidas pelo portal utilizam os serviços da plataforma, muitas vezes consumindo mais de um dos serviços oferecidos. Além disso, é ilustrado também como um portal externo pode aproveitar os serviços disponíveis no CMPaaS, como é o caso do plugin que será apresentado posteriormente neste trabalho. Trata-se de um editor de mapas conceituais que armazena os mapas na plataforma. Assim são utilizados dois serviços fornecidos pelo CMPaaS: o de armazenagem de mapas e o de autenticação.
 
-A estrutura interna da plataforma é composta por cinco camadas: serviços externos são os serviços oferecidos pelo CMPaaS aos usuários (é o que aparece no site para o usuário); processos de negócio são as rotinas que ocorrem internamente no CMPaaS; componentes internos são as aplicações internas da plataforma; serviços de aplicações externas são serviços produzidos por ferramentas externas e são consumidos por componentes do CMPaaS; e os serviços de aplicações internas são serviços produzidos por 
-
 Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 
 \begin{itemize}
@@ -544,7 +542,9 @@ Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 	\item Geração automática de mapas a partir de textos.
 	\item Serviço de mesclagem de mapas conceituais.
 	\item Validação estrutural de mapas.
-\end{itemize}   
+\end{itemize}
+
+ Como um dos objetivos do CMPaaS é oferecer um banco de dados de mapas conceituais para ser utilizado como base para pesquisas e criação de novas ferramentas, é desejável que seu serviço de repositório de mapas seja constantemente utilizado e incrementado com novos conteúdos. Pensando nisto este trabalho visa realizar a integração do Moodle com o CMPaaS, abrindo a possibilidade deste utilizar a ampla base de usuários do Moodle para alimentar o seu repositório de mapas. 
 
 %\lipsum[1]
 
