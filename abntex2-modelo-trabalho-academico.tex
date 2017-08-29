@@ -660,7 +660,7 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 
  
 
-\chapter{O Projeto}\label{cap-projeto}
+\chapter{Projeto}\label{cap-projeto}
 % ---
 %O que é um plugin do moodle?
 %Como é feito o plugin?
@@ -672,26 +672,17 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 
 \section{Arquitetura}
 
-O Moodle é composto por vários \textit{plugins} independentes, sendo cada um deles responsável por uma funcionalidade que a plataforma oferece. O escopo deste trabalho é o desenvolvimento de um novo \textit{plugin}. Neste projeto foi criado \textit{plugin} do tipo \textit{assignment submission plugin},que tem com função a submissão de uma tarefa. O \textit{plugin} de tarefa permite que um professor crie uma atividade, avaliativa ou não, para os estudantes realizarem.
-
-Este tipo de \textit{plugin} é divido em três partes:
-\begin{itemize}
-	\item configurações, que são opções de comportamento do \textit{plugin}.
-	\item sumário de envio, que será visto pelo estudante e avaliadores na tela inicial da tarefa.
-	\item formulário de envio, que é onde o estudante responde a tarefa.  
-\end{itemize} 
+O \textit{plugin} que será desenvolvido é divido em três partes: configurações, sumário de envio e formulário de envio. Nas configurações é onde será definido o comportamento do \textit{plugin}. O sumário de envio será visto pelo estudante e avaliadores na tela inicial da tarefam, e contém um resumo da tarefa. Já o formulário de envio, que é onde o estudante responde a tarefa.
 
 %O plugin desenvolvido neste trabalho permite que o estudante crie um mapa conceitual, modifique sua aparência e envie para avaliação. O estudante poderá também editar um mapa que já foi enviado, além de ter a possibilidade de salva-lo na plataforma CMPaaS. A \autoref{fig_casosuso} apresenta os casos de uso do plugin.
 %
-Este \textit{plugin} oferece as seguintes funcionalidades:
+Este \textit{plugin} vai oferecer as seguintes funcionalidades:
 
 \begin{itemize}
 	\item criação de um novo mapa conceitual utilizando um editor de mapas. Esta funcionalidade é representada pelo caso de uso Criar Mapa.
-	\item armazenagem do mapa criado no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
-	\item edição de um mapa previamente salvo no banco de dados do Moodle. Esta funcionalidade é representada pelo caso de uso Editar Mapa.
-	\item alteração da aparência de um mapa que está sendo criado ou modificado no editor. Esta funcionalidade é representada pelo caso de uso Formatar Mapa.  
-	\item possibilidade de salvar o mapa que está sendo criado na plataforma CMPaaS. Esta funcionalidade é representada pelo caso de uso Salvar Mapa no CMPaaS.  
-	\item visualizar um mapa salvo para que possa ser avaliado. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.    
+	\item persistencia do mapa criado no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Salvar Mapa.
+	\item edição de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Editar Mapa.
+	\item visualização de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.      
 \end{itemize} 
 
 \begin{figure}[!h]
