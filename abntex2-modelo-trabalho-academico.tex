@@ -842,15 +842,22 @@ Para finalizar, foi necessário criar uma forma de o editor de mapas carregar o 
 
 A primeira parte do desenvolvimento do \textit{plugin} foi concluída, o estudante conseguia criar um mapa no editor, salvar o seu conteúdo na plataforma e editar novamente caso fosse necessário. Ainda havia a necessidade de permitir que o avaliador tivesse acesso ao conteúdo gerado pelo aluno. Além disso, falta a integração com o CMPaaS e utilização de seus recursos.
 
-\subsection{Integração com o CMPaaS}
+\section{Integração com o CMPaaS}
 
-A integração do \textit{plugin} com o CMPaaS é feita com a utilização de dois serviços oferecidos pela plataforma: o serviço de autenticação e o de persistência de mapas.
+A integração com o CMPaaS é funcionalidade mais importante do \textit{plugin}, visto que o objetivo do trabalho é aumentar a base de usuários e o conteúdo do CMPaaS.
 
-O serviço de autenticação é responsável por autorizar o acesso do usuário do Moodle ao CMPaaS. Ao acionar o botão de sincronização, é enviado uma mensagem requisitando autorização para que o usuário do Moodle tenha acesso ao serviço de mapas da plataforma. A API de autenticação do CMPaaS então responde concedendo acesso ao usuário do \textit{plugin} ao repositório de mapas.
+O \textit{plugin} utiliza a API Rest do CMPaaS para guardar mapas no repositório da plataforma e também para recuperar mapas que foram previamente armazenados nela pelo usuário. 
 
-Após a rotina de autenticação ter sido realizada o editor de mapas envia um Json com os dados do diagrama a ser sincronizado. Então o serviço de mapas do CMPaaS recebe o Json e realiza a persistência do mesmo em sua base de dados.
+\subsection{Lista de mapas do usuário}
 
+Para obter a lista de mapas do usuário o \textit{plugin} envia um request para o CMPaaS com o formato mostrado na figura. A API então responde com um JSON com os dados do usuário, conforme visto na figura. Este JSON contém a URI do usuário, seu username e também a lista de urls dos mapas que o usuário possui na plataforma.
 
+A partir deste JSON o plugin elabora novas requests que serão enviadas para a API do CMPaaS, para que sejam obtidas as informações dos mapas do usuário. Estas requests possuem o formato ilustrado na figura.
+
+O \textit{plugin} então recebe do CMPaaS um JSON contendo os metadados do mapa, que são a sua URI, o autor, o título, a questão e a sua descrição. Conforme pode ser visto na figura.
+Com estas informações é criada a interface que mostra a listagem de mapas do usuário, conforme figura. Nesta interface o usuário pode visualizar as versões de um mapa listado ou apagar este mapa.
+
+\subsection{Lista de versões de um mapa}      
 
 \chapter{Implementação e Testes}
 
