@@ -645,11 +645,27 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 
 \chapter{Integração de Sistemas}
 
+Nos últimos anos muitas organizações têm utilizado aplicações para dar suporte aos seus negócios e por esse motivo sistemas de informação têm se tornado um de seus pilares de funcionamento. O aumento do uso da tecnologia de informação juntamente com a busca pelo controle e flexibilização de informações fez crescer a demanda por soluções que viabilizassem a partilha de informações e de funcionalidades de aplicações. Aplicações estas, que em grande parte dos casos, foram desenvolvidas de forma customizada e sem a capacidade de integração com outros sistemas. Neste contexto, as organizações seguiram diversas abordagens para a integração dos seus sistemas de informação, criando então soluções sem nenhuma norma técnica, devido a inexistência das mesmas. O crescimento da necessidade de soluções de integração de sistemas levou ao desenvolvimento de normas técnicas e protocolos direcionados a interoperabilidade de sistemas, surgindo então um cenário desafiador onde as instituições precisam escolher entre diversas normas e técnicas de integração de sistemas, muitas delas incompatíveis entre si. Dentre estas tecnologias se destacam Simple Object Access Protocol (SOAP) e Representational State Transfer (REST), que obtiveram ampla aceitação no mercado pois conseguem se aproveitar do protocolo Hypertext Transfer Protocol (HTTP).
+
+O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, sendo utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, além de modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet. 
+
+O protocolo SOAP e a arquitetura REST se tornaram uma excelente soluçao para interoperabilidade de aplicaçoes que utilizam a Web pois podem utilizar o HTTP como protocolo de comunicaçao.
+
+
 \section{Soap}
+
+SOAP é um protocolo para troca de mensagens estruturadas em sistemas distribuídos. Um sistema distribuído consiste em um conjunto de computadores independentes, dispostos em uma rede, que se comunicam e coordenam suas ações através de mensagens. SOAP é baseado em XML e precisa de um protocolo da camada de aplicação de rede para realizar a comunicação, como o SMTP ou HTTP.  Devido ao HTTP ser um protocolo amplamente utilizado na Web ele é o que teve maior aceitação para ser utilizado com SOAP. Uma mensagem deste protocolo consiste em um envelope que é anexado a um cabeçalho HTTP. Este envelope é composto por dois componentes, o Header e o Body, como mostra figura x que mostra  a estrutura de uma mensagem SOAP enviada com a utilização do protocolo HTTP. 
+O envelope é um elemento obrigatório da mensagem, ele pode conter declarações de namespace e também atributos adicionais que definem como os dados serão representados no documento XML. O header compoe o envelope e é opcional e, quando utilizado deve ser o primeiro elemento do envelope. Ja o Body é um elemento obrigatório e contém a informação que deve ser transmitida, que também é conhecida com payload.
+
 
 \section{HTTP}
 
 \section{REST}
+
+REST é um estilo de arquitetura que representa a idealização de um modelo de interações de aplicações web (porque?). É um conjunto de restrições de arquitetura que busca minimizar o tempo de resposta na comunicação entre aplicações e ao mesmo tempo aumentar a independência na implementação de componentes. O REST foi criado por Roy T. Fielding em sua tese de doutorado e faz uso de tecnologias amplamente utilizadas, como o protocolo HTTP, para orientar a criação de aplicações baseadas nos fundamentos da Web.
+
+A arquitetura REST pode ser dividida em três elementos: elementos de dados, elementos de conexão e elementos de processamento.
+
 
 % ---
 %O que é o CMPAAS?
@@ -850,14 +866,61 @@ O \textit{plugin} utiliza a API Rest do CMPaaS para guardar mapas no repositóri
 
 \subsection{Lista de mapas do usuário}
 
-Para obter a lista de mapas do usuário o \textit{plugin} envia um request para o CMPaaS com o formato mostrado na figura. A API então responde com um JSON com os dados do usuário, conforme visto na figura. Este JSON contém a URI do usuário, seu username e também a lista de urls dos mapas que o usuário possui na plataforma.
+Para obter a lista de mapas do usuário o \textit{plugin} envia um request de método GET com URI /api/users/. A API então responde com um JSON com os dados do usuário e sua lista de mapas, conforme visto na \autoref{fig_user_maps}. Este JSON contém a URI do usuário, seu \textit{username} e também a lista de URIs dos mapas que o usuário possui na plataforma.
 
-A partir deste JSON o plugin elabora novas requests que serão enviadas para a API do CMPaaS, para que sejam obtidas as informações dos mapas do usuário. Estas requests possuem o formato ilustrado na figura.
+\begin{figure}[htb]
+	\caption{\label{fig_user_maps} Json com dados do usuário}
+	\begin{center}
+		\includegraphics[scale=0.6]{user_maps.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
 
-O \textit{plugin} então recebe do CMPaaS um JSON contendo os metadados do mapa, que são a sua URI, o autor, o título, a questão e a sua descrição. Conforme pode ser visto na figura.
-Com estas informações é criada a interface que mostra a listagem de mapas do usuário, conforme figura. Nesta interface o usuário pode visualizar as versões de um mapa listado ou apagar este mapa.
+A partir deste JSON o plugin elabora novas requests que serão enviadas para a API do CMPaaS, para que sejam obtidas as informações dos mapas do usuário. Para cada URI de mapa que o usuário possui no repositório é feita uma nova request GET para URI com formato /api/maps/id de forma a ser obtida uma resposta contendo um JSON com metadados de cada mapa. Este JSON de resposta é representada na \autoref{fig_map_data}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_map_data} Json com os metadados de uma mapa}
+	\begin{center}
+		\includegraphics[scale=0.6]{map_data.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+Os metadados do maps contidos neste JSON são a sua URI, o autor, o título, a questão e a sua descrição. Com estas informações é criada a interface que mostra a listagem de mapas do usuário, conforme \autoref{fig_map_list}. Nesta interface o usuário pode visualizar as versões de um mapa listado ou apagar este mapa.
+
+\begin{figure}[htb]
+	\caption{\label{fig_map_list} Lista de mapas de um usuário}
+	\begin{center}
+		\includegraphics[scale=0.6]{map_list.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
 
 \subsection{Lista de versões de um mapa}      
+
+O repositório de mapas do CMPaaS possui a funcionalidade de controle de versão, assim sempre que um mapa é editado uma nova versão é criada e a antiga é mantida. O \textit{plugin} utiliza esta funcionalidade de versionamento, permitindo que o usuário visualize as versões de um mapa e as manipule. Esta interface pode ser vista na \autoref{fig_map_versions}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_map_versions} Versões de um mapa}
+	\begin{center}
+		\includegraphics[scale=0.4]{map_versions.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+O conteúdo desta interface é obtido através de uma request GET enviada para a URI /api/maps/id/version. A API responde a esta request com um JSON contendo as versões do mapa solicitado, além dos metadados e conteúdo do mapa conceitual de cada versão. A resposta obtida pode ser vista na \autoref{fig_version_list}. 
+
+\begin{figure}[htb]
+	\caption{\label{fig_version_list} Json com as versões de um mapa}
+	\begin{center}
+		\includegraphics[scale=0.6]{version_list.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure} 
+
+Este Json contém a lista de versões de um mapa e o conteúdo de cada uma. Os dados de cada versão são seu identificador, a data e horário de criação, a URI do mapa a qual ela pertence, seu autor e o conteúdo da versão, que é a representação do diagrama do mapa conceitual criado pelo usuário. Este conteúdo da versão é o Json que será utilizado pelo editor de mapas para desenhar o diagrama criado pelo usuário.
+
+\subsection{O editor de mapas}
 
 \chapter{Implementação e Testes}
 
