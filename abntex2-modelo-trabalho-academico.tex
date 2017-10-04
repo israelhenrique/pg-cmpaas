@@ -922,7 +922,21 @@ Este Json contém a lista de versões de um mapa e o conteúdo de cada uma. Os d
 
 \subsection{O editor de mapas}
 
-\chapter{Implementação e Testes}
+Quando o usuário aciona o botão de editar uma versão de um mapa a função loadMapVersionContent() é chamada. Esta função armazena no localStorage do browser a URI do mapa e o Json do conteúdo que representa o diagrama do mapa conceitual. Após os dados serem salvos no localStorage a função carrega a interface do editor de mapas. A URI do mapa então é utilizada em uma request GET, a mesma da \autoref{fig_map_data}, para carregar metadados na interface do editor e o diagrama é finalmente carregado e plotado para o usuário editar. O resultado final pode ser visto na \autoref{fig_editor}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_editor} Editor de mapas}
+	\begin{center}
+		\includegraphics[scale=0.3]{editor.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+\subsection{Exclusão de mapas} 
+
+O \textit{plugin} também possui a funcionalidade de exclusão de um mapa  de suas versões. As exclusões são realizadas através do envio de requests do tipo DELETE para a API do CMPaaS. Uma versão é apagada com o envio de uma request DELETE para a URI api/maps/id/versions/id/. Já para excluir um mapa é necessário enviar a mesma request para a URI api/maps/id/versions/id/.   
+
+\chapter{Instalação e Testes}
 
 \section{Como instalar}
 A pasta contendo os arquivos do \textit{plugin} deve ser copiada para o diretório do Moodle mod/assign/submission/. Após copiar os arquivos para este local é necessário acessar o Moodle com um usuário com perfil de administrador. Assim que efetuar login irá aparecer uma mensagem de instalação de \textit{plugin}, conforme a \autoref{fig_installplugin}.
@@ -955,7 +969,7 @@ Depois do \textit{plugin} ser instalado é necessário realizar a configuração
 \end{figure}
 
 \begin{figure}[htb]
-	\caption{\label{fig_editor} Editor de mapas}
+	\caption{\label{fig_editor2} Editor de mapas}
 	\begin{center}
 		\includegraphics[scale=0.3]{editor.png}
 	\end{center}
@@ -964,8 +978,17 @@ Depois do \textit{plugin} ser instalado é necessário realizar a configuração
 
 \section{Como usar}
 
-A utilização do \textit{plugin} é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto o editor de mapas ira ser mostrado na tela, como na \autoref{fig_editor}. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o Json será salvo no banco de dados da plataforma e aparecerá no sumário, conforme \autoref{fig_sumario}. Ao clicar no botão Sincronizar Mapa o diagrama será sincronizado na Nuvem da plataforma CMPaaS.
+A utilização do \textit{plugin} é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto será mostrada uma tela de login, onde o usuário deverar realizar autenticação no CMPaaS. Esta tela é mostrada na \autoref{fig_login}. Após o login ser realizado o usuário é redirecionado para a interface que contém a lista de mapas que ele possui armazenado no CMPaaS. Esta lista foi apresentada anteriormenta na \autoref{fig_map_list}. 
 
+\begin{figure}[htb]
+	\caption{\label{fig_login} Interface de login}
+	\begin{center}
+		\includegraphics[scale=0.5]{login.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+O estudante então pode criar um novo mapa ou então editar mapas já existentes. Após criar ou editar o mapa o aluno deve clicar no botão “Salvar alterações” e o Json será salvo no banco de dados da plataforma e aparecerá no sumário, conforme \autoref{fig_sumario}. 
 
 \begin{figure}[htb]
 	\caption{\label{fig_sumario} Sumário da tarefa}
@@ -979,9 +1002,11 @@ A utilização do \textit{plugin} é bem simples. Ao acessar uma tarefa o estuda
 
 Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo \textit{plugin}. Elas podem ser dividas em dois grupos: recursos para elaboração e edição dos mapas e persistência dos diagramas.
 
-Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções. Já a \autoref{fig_toolbar} apresenta o conteúdo dos menus \textit{dropdown} de fonte e cor de preenchimento do nó.
+Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções.
 
-Já a persistência do diagrama pode ser divida em duas etapas: a gravação do mapa no Moodle e a sincronização com o CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Já a sincronia com o CMPaaS ocorre quando o estudante utiliza o botão Sincronizar Mapa, que pode ser visto na cor verde na \autoref{fig_mapa}.
+Já a persistência do diagrama pode ser dividida em duas etapas: a gravação do mapa no Moodle e a persistencia dos mapas no repositório do CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Ao fazer isto, o Json so mapa que está sendo editado é salvo no banco de dados do Moodle.
+ 
+Já a persistencia no CMPaaS ocorre quando o estudante utiliza o botão Salvar Mapa Conceitual, que pode ser visto na cor azul na \autoref{fig_mapa}.
 
 \begin{figure}[htb]
 	\caption{\label{fig_mapa} Mapa que utiliza os recursos de formação}
@@ -991,13 +1016,6 @@ Já a persistência do diagrama pode ser divida em duas etapas: a gravação do 
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-\begin{figure}[htb]
-	\caption{\label{fig_toolbar} Menus dropdown da barra de ferramentas}
-	\begin{center}
-		\includegraphics[scale=0.3]{toolbar.png}
-	\end{center}
-	\legend{Fonte: Elaborada pelo autor}
-\end{figure}
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
