@@ -645,20 +645,43 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 
 \chapter{Integração de Sistemas}
 
-Nos últimos anos muitas organizações têm utilizado aplicações para dar suporte aos seus negócios e por esse motivo sistemas de informação têm se tornado um de seus pilares de funcionamento. O aumento do uso da tecnologia de informação juntamente com a busca pelo controle e flexibilização de informações fez crescer a demanda por soluções que viabilizassem a partilha de informações e de funcionalidades de aplicações. Aplicações estas, que em grande parte dos casos, foram desenvolvidas de forma customizada e sem a capacidade de integração com outros sistemas. Neste contexto, as organizações seguiram diversas abordagens para a integração dos seus sistemas de informação, criando então soluções sem nenhuma norma técnica, devido a inexistência das mesmas. O crescimento da necessidade de soluções de integração de sistemas levou ao desenvolvimento de normas técnicas e protocolos direcionados a interoperabilidade de sistemas, surgindo então um cenário desafiador onde as instituições precisam escolher entre diversas normas e técnicas de integração de sistemas, muitas delas incompatíveis entre si. Dentre estas tecnologias se destacam Simple Object Access Protocol (SOAP) e Representational State Transfer (REST), que obtiveram ampla aceitação no mercado pois conseguem se aproveitar do protocolo Hypertext Transfer Protocol (HTTP).
+Nos últimos anos muitas organizações têm utilizado aplicações para dar suporte aos seus negócios e por esse motivo sistemas de informação têm se tornado um de seus pilares de funcionamento \cite{earl1989management}. O aumento do uso da tecnologia de informação juntamente com a busca pelo controle e flexibilização de informações fez crescer a demanda por soluções que viabilizassem a partilha de informações e de funcionalidades de aplicações \cite{edwards2000application}. Aplicações estas, que em grande parte dos casos, foram desenvolvidas de forma customizada e sem a capacidade de integração com outros sistemas. Neste contexto, as organizações seguiram diversas abordagens para a integração dos seus sistemas de informação, criando então soluções sem nenhuma norma técnica, devido a inexistência das mesmas. 
 
-O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, sendo utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, além de modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet. 
+O crescimento da necessidade de soluções de integração de sistemas levou ao desenvolvimento de normas técnicas e protocolos direcionados a interoperabilidade de sistemas, surgindo então um cenário desafiador onde as instituições precisam escolher entre diversas normas e técnicas de integração de sistemas, muitas delas incompatíveis entre si \cite{martins2006integraccao}. Dentre estas tecnologias se destacam Simple Object Access Protocol (SOAP) e Representational State Transfer (REST), que obtiveram ampla aceitação no mercado pois conseguem se aproveitar do protocolo Hypertext Transfer Protocol (HTTP).
 
-O protocolo SOAP e a arquitetura REST se tornaram uma excelente soluçao para interoperabilidade de aplicaçoes que utilizam a Web pois podem utilizar o HTTP como protocolo de comunicaçao.
+\section{HTTP}
 
+O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, sendo utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, além de modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet \cite{fielding1999hypertext} . 
+
+No HTTP a comunicação é realizada através de requisiçoes e respostas entre clientes e servidores. Um cliente, que pode ser um navegador web, requisita um recurso a um servidor enviando uma mensagem contendo um cabeçalho. Esta mensagem deve ser enviada para uma URI e o servidor então responde com um recurso ou com um outro cabeçalho.
+
+
+**Descrever uma troca de mensagens e cabeçalhos. Colocar figuras.**
+
+Os cabeçalhos de resposta possuem códigos que servem para identificar se uma requisição foi concluida com sucesso. Por exemplo,um código de resposta 200 indica que uma requisição foi concluida com sucesso, já um código 401 indica que URI acessada exige autenticação do usuário.
+
+**Listar os códigos?**
+
+O HTTP é um protocolo stateless, ou seja, sem estado. Isto significa que ele não guarda informações entre requisiçoes diferentes. Caso seja necessário armazenar dados é preciso utilizar alguma outra tecnologia em conjunto com o HTTP, como cookies ou variáveis de sessão.
+
+O protocolo possui métodos para identificar o tipo de requisição está sendo realizada. Estes métodos são GET, POST, DELETE, PUT, HEAD, OPTIONS, TRACE e CONNECT. 
+
+**Como explicar os métodos?**
+
+Métodos HTTP:
+GET - Requitar informações sobre um recurso,
+POST - Criar um novo recurso, processamento de informações 
+DELETE - Remover um recurso,
+PUT - Atualziar um novo recurso, ou criar um novo, 
+HEAD - Retornar informações sobre um recurso, sem body
+OPTIONS
+TRACE
+CONNECT
 
 \section{Soap}
 
 SOAP é um protocolo para troca de mensagens estruturadas em sistemas distribuídos. Um sistema distribuído consiste em um conjunto de computadores independentes, dispostos em uma rede, que se comunicam e coordenam suas ações através de mensagens. SOAP é baseado em XML e precisa de um protocolo da camada de aplicação de rede para realizar a comunicação, como o SMTP ou HTTP.  Devido ao HTTP ser um protocolo amplamente utilizado na Web ele é o que teve maior aceitação para ser utilizado com SOAP. Uma mensagem deste protocolo consiste em um envelope que é anexado a um cabeçalho HTTP. Este envelope é composto por dois componentes, o Header e o Body, como mostra figura x que mostra  a estrutura de uma mensagem SOAP enviada com a utilização do protocolo HTTP. 
-O envelope é um elemento obrigatório da mensagem, ele pode conter declarações de namespace e também atributos adicionais que definem como os dados serão representados no documento XML. O header compoe o envelope e é opcional e, quando utilizado deve ser o primeiro elemento do envelope. Ja o Body é um elemento obrigatório e contém a informação que deve ser transmitida, que também é conhecida com payload.
-
-
-\section{HTTP}
+O envelope é um elemento obrigatório da mensagem, ele pode conter declarações de namespace e também atributos adicionais que definem como os dados serão representados no documento XML. O header compoe o envelope e é opcional e, quando utilizado deve ser o primeiro elemento do envelope. Ja o Body é um elemento obrigatório e contém a informação que deve ser transmitida, que também é conhecida com payload. 
 
 \section{REST}
 
