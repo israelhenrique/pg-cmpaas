@@ -653,30 +653,40 @@ O crescimento da necessidade de soluções de integração de sistemas levou ao 
 
 O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, sendo utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, além de modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet \cite{fielding1999hypertext} . 
 
-No HTTP a comunicação é realizada através de requisiçoes e respostas entre clientes e servidores. Um cliente, que pode ser um navegador web, requisita um recurso a um servidor enviando uma mensagem contendo um cabeçalho. Esta mensagem deve ser enviada para uma URI e o servidor então responde com um recurso ou com um outro cabeçalho.
+No HTTP a comunicação é realizada através de requisiçoes e respostas entre clientes e servidores. Um cliente, que pode ser um navegador web, requisita um recurso a um servidor enviando uma mensagem contendo um cabeçalho. Esta mensagem deve ser enviada para uma URI e o servidor então responde com um recurso ou com um outro cabeçalho. 
 
+A \autoref{fig_http_header} mostra o cabeçalho de uma requisição http. Nele é possível observar a URI, no caso /api/users/, e o metódo da requisição, que no exemplo é GET. O servidor responde a esta requisição como um outro cabeçalho e tamém um conteúdo, que no caso é uma lista de usuários. O cabeçalho da resposta do servidor pode ser visto na \autoref{fig_http_response}.
 
-**Descrever uma troca de mensagens e cabeçalhos. Colocar figuras.**
+\begin{figure}[htb]
+	\caption{\label{fig_http_header} Cabeçalho de uma requisição HTTP}
+	\begin{center}
+		\includegraphics[scale=0.7]{http_header.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
 
-Os cabeçalhos de resposta possuem códigos que servem para identificar se uma requisição foi concluida com sucesso. Por exemplo,um código de resposta 200 indica que uma requisição foi concluida com sucesso, já um código 401 indica que URI acessada exige autenticação do usuário.
+\begin{figure}[htb]
+	\caption{\label{fig_http_response} Cabeçalho de uma resposta HTTP}
+	\begin{center}
+		\includegraphics[scale=0.7]{http_response.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
 
-**Listar os códigos?**
+Os cabeçalhos de resposta possuem códigos que servem para identificar se uma requisição foi concluida com sucesso. Por exemplo,um código de resposta 200 indica que uma requisição foi concluida com sucesso, como foi apresentado na \autoref{fig_http_response}. Já um código 401 indicaria que URI acessada exige autenticação do usuário.
 
 O HTTP é um protocolo stateless, ou seja, sem estado. Isto significa que ele não guarda informações entre requisiçoes diferentes. Caso seja necessário armazenar dados é preciso utilizar alguma outra tecnologia em conjunto com o HTTP, como cookies ou variáveis de sessão.
 
 O protocolo possui métodos para identificar o tipo de requisição está sendo realizada. Estes métodos são GET, POST, DELETE, PUT, HEAD, OPTIONS, TRACE e CONNECT. 
 
-**Como explicar os métodos?**
+Neste trabalho os métodos utilizados são os que explicarei abaixo:
 
-Métodos HTTP:
-GET - Requitar informações sobre um recurso,
-POST - Criar um novo recurso, processamento de informações 
-DELETE - Remover um recurso,
-PUT - Atualziar um novo recurso, ou criar um novo, 
-HEAD - Retornar informações sobre um recurso, sem body
-OPTIONS
-TRACE
-CONNECT
+\begin{itemize}
+	\item GET: utilizado para requisitar informações sobre um recurso.
+	\item POST: tem como funcionalidade a criação de um novo recuro ou o processamento de informações. 
+	\item PUT: é utilizado para atualizar um recurso já existente ou para criar um novo.
+	\item DELETE: apaga um recurso.     
+\end{itemize} 
 
 \section{Soap}
 
