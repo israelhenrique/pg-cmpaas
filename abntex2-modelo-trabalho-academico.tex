@@ -651,9 +651,9 @@ O crescimento da necessidade de soluções de integração de sistemas levou ao 
 
 \section{HTTP}
 
-O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, sendo utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, além de modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet \cite{fielding1999hypertext} . 
+O HTTP é o protocolo base de comunicação de aplicações Web e vem sendo utilizado na World-Wide Web desde 1990. Na sua versão inicial ele se tratava de um protocolo simples, utilizado para transmitir apenas dados brutos, mas foi aprimorado de forma a permitir a transmissão de mensagens contendo metadados sobre a informação transmitida, e também modificadores para semânticas de requisições e respostas. Assim, hoje ele é o protocolo padrão dos navegadores Web, sendo utilizado por diversas aplicações na Internet \cite{fielding1999hypertext} . 
 
-No HTTP a comunicação é realizada através de requisiçoes e respostas entre clientes e servidores. Um cliente, que pode ser um navegador web, requisita um recurso a um servidor enviando uma mensagem contendo um cabeçalho. Esta mensagem deve ser enviada para uma URI e o servidor então responde com um recurso ou com um outro cabeçalho. 
+No HTTP a comunicação é realizada através de requisições e respostas entre clientes e servidores. Um cliente, que pode ser um navegador web, requisita um recurso a um servidor enviando uma mensagem contendo um cabeçalho. Esta mensagem deve ser enviada para uma URI e o servidor então responde com um recurso ou com um outro cabeçalho. 
 
 A \autoref{fig_http_header} mostra o cabeçalho de uma requisição http. Nele é possível observar a URI, no caso /api/users/, e o metódo da requisição, que no exemplo é GET. O servidor responde a esta requisição como um outro cabeçalho e tamém um conteúdo, que no caso é uma lista de usuários. O cabeçalho da resposta do servidor pode ser visto na \autoref{fig_http_response}.
 
@@ -673,17 +673,17 @@ A \autoref{fig_http_header} mostra o cabeçalho de uma requisição http. Nele �
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure}
 
-Os cabeçalhos de resposta possuem códigos que servem para identificar se uma requisição foi concluida com sucesso. Por exemplo,um código de resposta 200 indica que uma requisição foi concluida com sucesso, como foi apresentado na \autoref{fig_http_response}. Já um código 401 indicaria que URI acessada exige autenticação do usuário.
+Os cabeçalhos de resposta possuem códigos que servem para identificar se uma requisição foi concluida com sucesso. Por exemplo, um código de resposta 200 indica que uma requisição foi concluida com sucesso, como foi apresentado na \autoref{fig_http_response}. Já um código 401 indicaria que URI acessada exige autenticação do usuário.
 
 O HTTP é um protocolo stateless, ou seja, sem estado. Isto significa que ele não guarda informações entre requisiçoes diferentes. Caso seja necessário armazenar dados é preciso utilizar alguma outra tecnologia em conjunto com o HTTP, como cookies ou variáveis de sessão.
 
-O protocolo possui métodos para identificar o tipo de requisição está sendo realizada. Estes métodos são GET, POST, DELETE, PUT, HEAD, OPTIONS, TRACE e CONNECT. 
+O protocolo possui métodos para identificar o tipo de requisição que está sendo realizada. Estes métodos são GET, POST, DELETE, PUT, HEAD, OPTIONS, TRACE e CONNECT. 
 
 Neste trabalho os métodos utilizados são os que explicarei abaixo:
 
 \begin{itemize}
 	\item GET: utilizado para requisitar informações sobre um recurso.
-	\item POST: tem como funcionalidade a criação de um novo recuro ou o processamento de informações. 
+	\item POST: tem como funcionalidade a criação de um novo recurso ou o processamento de informações. 
 	\item PUT: é utilizado para atualizar um recurso já existente ou para criar um novo.
 	\item DELETE: apaga um recurso.     
 \end{itemize} 
@@ -955,7 +955,7 @@ Este Json contém a lista de versões de um mapa e o conteúdo de cada uma. Os d
 
 \subsection{O editor de mapas}
 
-Quando o usuário aciona o botão de editar uma versão de um mapa a função loadMapVersionContent() é chamada. Esta função armazena no localStorage do browser a URI do mapa e o Json do conteúdo que representa o diagrama do mapa conceitual. Após os dados serem salvos no localStorage a função carrega a interface do editor de mapas. A URI do mapa então é utilizada em uma request GET, a mesma da \autoref{fig_map_data}, para carregar metadados na interface do editor e o diagrama é finalmente carregado e plotado para o usuário editar. O resultado final pode ser visto na \autoref{fig_editor}.
+Quando o usuário aciona o botão de editar uma versão de um mapa a função loadMapVersionContent() é chamada. Esta função armazena no localStorage do browser a URI do mapa e o Json do conteúdo que representa o diagrama do mapa conceitual. Após os dados serem salvos no localStorage a função carrega a interface do editor de mapas. A URI do mapa então é utilizada em uma request GET, ilustrado na \autoref{fig_map_data}, para carregar metadados na interface do editor e o diagrama é finalmente carregado e plotado para o usuário editar. O resultado final pode ser visto na \autoref{fig_editor}.
 
 \begin{figure}[htb]
 	\caption{\label{fig_editor} Editor de mapas}
@@ -967,7 +967,7 @@ Quando o usuário aciona o botão de editar uma versão de um mapa a função lo
 
 \subsection{Exclusão de mapas} 
 
-O \textit{plugin} também possui a funcionalidade de exclusão de um mapa  de suas versões. As exclusões são realizadas através do envio de requests do tipo DELETE para a API do CMPaaS. Uma versão é apagada com o envio de uma request DELETE para a URI api/maps/id/versions/id/. Já para excluir um mapa é necessário enviar a mesma request para a URI api/maps/id/versions/id/.   
+O \textit{plugin} também possui a funcionalidade de exclusão de um mapa e as suas versões. As exclusões são realizadas através do envio de requests do tipo DELETE para a API do CMPaaS. Uma versão é apagada com o envio de uma request DELETE para a URI api/maps/id/versions/id/. Já para excluir um mapa é necessário enviar a mesma request para a URI api/maps/id/versions/id/.   
 
 \chapter{Instalação e Testes}
 
