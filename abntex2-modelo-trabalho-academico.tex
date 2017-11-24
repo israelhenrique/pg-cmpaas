@@ -688,16 +688,27 @@ Neste trabalho os métodos utilizados são os que explicarei abaixo:
 	\item DELETE: apaga um recurso.     
 \end{itemize} 
 
-\section{Soap}
-
-SOAP é um protocolo para troca de mensagens estruturadas em sistemas distribuídos. Um sistema distribuído consiste em um conjunto de computadores independentes, dispostos em uma rede, que se comunicam e coordenam suas ações através de mensagens. SOAP é baseado em XML e precisa de um protocolo da camada de aplicação de rede para realizar a comunicação, como o SMTP ou HTTP.  Devido ao HTTP ser um protocolo amplamente utilizado na Web ele é o que teve maior aceitação para ser utilizado com SOAP. Uma mensagem deste protocolo consiste em um envelope que é anexado a um cabeçalho HTTP. Este envelope é composto por dois componentes, o Header e o Body, como mostra figura x que mostra  a estrutura de uma mensagem SOAP enviada com a utilização do protocolo HTTP. 
-O envelope é um elemento obrigatório da mensagem, ele pode conter declarações de namespace e também atributos adicionais que definem como os dados serão representados no documento XML. O header compoe o envelope e é opcional e, quando utilizado deve ser o primeiro elemento do envelope. Ja o Body é um elemento obrigatório e contém a informação que deve ser transmitida, que também é conhecida com payload. 
+%\section{Soap}
+%
+%SOAP é um protocolo para troca de mensagens estruturadas em sistemas distribuídos. Um sistema distribuído consiste em um conjunto de computadores independentes, dispostos em uma rede, que se comunicam e coordenam suas ações através de mensagens. SOAP é baseado em XML e precisa de um protocolo da camada de aplicação de rede para realizar a comunicação, como o SMTP ou HTTP.  Devido ao HTTP ser um protocolo amplamente utilizado na Web ele é o que teve maior aceitação para ser utilizado com SOAP. Uma mensagem deste protocolo consiste em um envelope que é anexado a um cabeçalho HTTP. Este envelope é composto por dois componentes, o Header e o Body, como mostra figura x que mostra  a estrutura de uma mensagem SOAP enviada com a utilização do protocolo HTTP. 
+%O envelope é um elemento obrigatório da mensagem, ele pode conter declarações de namespace e também atributos adicionais que definem como os dados serão representados no documento XML. O header compoe o envelope e é opcional e, quando utilizado deve ser o primeiro elemento do envelope. Ja o Body é um elemento obrigatório e contém a informação que deve ser transmitida, que também é conhecida com payload. 
 
 \section{REST}
 
-REST é um estilo de arquitetura que representa a idealização de um modelo de interações de aplicações web (porque?). É um conjunto de restrições de arquitetura que busca minimizar o tempo de resposta na comunicação entre aplicações e ao mesmo tempo aumentar a independência na implementação de componentes. O REST foi criado por Roy T. Fielding em sua tese de doutorado e faz uso de tecnologias amplamente utilizadas, como o protocolo HTTP, para orientar a criação de aplicações baseadas nos fundamentos da Web.
+% O que é?
+% Relação com o HTTP
+% Recursos e caracteristicas
 
-A arquitetura REST pode ser dividida em três elementos: elementos de dados, elementos de conexão e elementos de processamento.
+REST é um estilo de arquitetura que representa a abstração da interações de aplicações web. É um conjunto de restrições de arquitetura que busca minimizar o tempo de resposta na comunicação entre aplicações e ao mesmo tempo aumentar a independência na implementação de componentes. O REST foi criado por Roy T. \citeonline{fielding2000rest} em sua tese de doutorado e faz uso de tecnologias amplamente utilizadas, como o protocolo HTTP, para orientar a criação de aplicações baseadas nos fundamentos da Web.
+
+Apesar de não ser obrigatório o uso do protocolo HTTP, ele é o único protocolo conhecido que é  totalmente compatível com a tecnologia. Sendo o REST orientado às boas práticas de uso do HTTP, como o  uso correto de seus métodos, a criação de URL’s e códigos de resposta padronizados e o uso adequado de cabeçalhos.  Como o HTTP é um dos protocolos mais utilizados na web a adoção do REST pela comunidade de desenvolvedores foi grande e rápida. 	
+
+Ao se navegar na web todo documento acessível é chamado de recurso e isto não é diferente no REST. Este estilo de arquitetura é orientado a recursos, que são os conjuntos de dados que estarão disponível em uma aplicação web que implementa o REST. Cada recurso necessita de uma identificação única ou URI, que irá nomea-lo e fornecer um caminho para acessa-lo.
+
+A interação com as URIs é realizada através dos métodos HTTP. Esta interação é guiada por uma regra na qual as URIs são substantivos e os métodos são verbos. E portanto os metodos sao aqueles que realizam alteraçoes nos recusrsos identificados pelas URIs. O método GET, por exemplo, é utilizado para se obter dados de um recurso, já o método DELETE é tem como funcionalidade apagar um recurso. 
+
+O REST também padroniza também o uso dos códigos de respostas do HTTP. Estes códigos são divididos em cinco grupos, e cada grupo possui um significado. Códigos 1xx são informacionais, códigos 2xx indicam sucesso, codigos 3xx informam um redirecionamento, 4xx indicam erros do cliente e 5xx erros de servidor.
+
 
 
 % ---
