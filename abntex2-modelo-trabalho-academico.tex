@@ -708,9 +708,9 @@ Neste trabalho os métodos utilizados são os que explicarei abaixo:
 % Relação com o HTTP
 % Recursos e caracteristicas
 
-REST é um estilo de arquitetura que representa a abstração da interações de aplicações web. É um conjunto de restrições de arquitetura que busca minimizar o tempo de resposta na comunicação entre aplicações e ao mesmo tempo aumentar a independência na implementação de componentes. O REST foi criado por Roy T. \citeonline{fielding2000rest} em sua tese de doutorado e faz uso de tecnologias amplamente utilizadas, como o protocolo HTTP, para orientar a criação de aplicações baseadas nos fundamentos da Web.
+REST é um estilo de arquitetura que representa a abstração da interações de aplicações web. É um conjunto de restrições de arquitetura que busca minimizar o tempo de resposta na comunicação entre aplicações e ao mesmo tempo aumentar a independência na implementação de componentes. O REST foi criado por Roy T. \citeonline{fielding2000rest} em sua tese de doutorado e faz uso de tecnologias amplamente utilizadas, como o protocolo HTTP, para orientar a criação de aplicações baseadas nos fundamentos da Web. A arquitetura REST descreve interfaces que utilizam o HTTP para transmissão de dados sem a utilização de mensagens adicionais como ocorre com SOAP \cite{dal2009web}.
 
-Apesar de não ser obrigatório o uso do protocolo HTTP, ele é o único protocolo conhecido que é  totalmente compatível com a tecnologia. Sendo o REST orientado às boas práticas de uso do HTTP, como o  uso correto de seus métodos, a criação de URL’s e códigos de resposta padronizados e o uso adequado de cabeçalhos.  Como o HTTP é um dos protocolos mais utilizados na web a adoção do REST pela comunidade de desenvolvedores foi grande e rápida. 	
+Apesar de não ser obrigatório o uso do protocolo HTTP, ele é o único protocolo conhecido que é  totalmente compatível com a tecnologia. Sendo o REST orientado às boas práticas de uso do HTTP, como o  uso correto de seus métodos, a criação de URL’s e códigos de resposta padronizados e o uso adequado de cabeçalhos.  Como o HTTP é um dos protocolos mais utilizados na web a adoção do REST pela comunidade de desenvolvedores foi grande e rápida.	
 
 Ao se navegar na web todo documento acessível é chamado de recurso e isto não é diferente no REST. Este estilo de arquitetura é orientado a recursos, que são os conjuntos de dados que estarão disponível em uma aplicação web que implementa o REST. Cada recurso necessita de uma identificação única ou URI, que irá nomea-lo e fornecer um caminho para acessa-lo.
 
@@ -718,7 +718,18 @@ A interação com as URIs é realizada através dos métodos HTTP. Esta interaç
 
 O REST também padroniza também o uso dos códigos de respostas do HTTP. Estes códigos são divididos em cinco grupos, e cada grupo possui um significado. Códigos 1xx são informacionais, códigos 2xx indicam sucesso, codigos 3xx informam um redirecionamento, 4xx indicam erros do cliente e 5xx erros de servidor.
 
+\subsection{Princípios da arquitetura REST}
 
+Em sua tese de doutorado \citeonline{fielding2000rest} estabeleceu príncipios que devem ser repeitados na implementação da arquitetura REST. E com isto as seguintes características devem ser respeitadas:
+
+\begin{itemize}
+	\item \textbf{Arquitetura cliente-servidor:} é um caracterísica comum em serviços Web. O cliente inicia a comunicação requisitando um serviço ou recurso a um servidor. O servidor escuta e processa a requisição feita pelo cliente e então o envia uma resposta. Esta resposta pode ser o serviço ou recurso que o cliente requisitou, ou então pode ser uma rejeição à requisição realizada pelo cliente.  
+	\item \textbf{Stateless:} a comunicação entre cliente e o servidor é sem estado. Isto significa que a interação entre ambos é feita sem que seja armazenado qualquer tipo de estado no servidor. Ou seja, cada requisição é independente uma  da outra e deve conter toda informação necessária para a comunicação.  
+	\item \textbf{\textit{Cacheable}:} as respostas enviadas pelo servidor podem ser armazenadas em um cache no cliente. Assim, quando uma requisição semelhante é realizada o dado é acessado no cache do cliente, não sendo necessário receber uma nova resposta do servidor. 
+	\item \textbf{Interface Uniforme:} a interação entre o cliente e o servidor é realizada com a utilização de uma interface padronizada. Esta inferface deve identificar os recursos e manipula-los através de representações. Neste sentido o HTTP é o protocolo mais indicado para ser utilizado com o REST, pois possui uma interface uniforme com métodos bem definidos para realizar operações básicas.
+	\item \textbf{Multicamada:} a arquitetura REST preve a divisão das funcionalidades de um sistema em camadas. Cada uma delas tendo a possibilidade de se comunicar com a camada adjacente.
+	\item \textbf{\textit{Code On Demand}:}  esta característica que permite obter um código do servidor que será executa diretamente no lado do cliente. Um exemplo de uso é um código JavaScript que é baixado do servidor e executado por um navegador Web no cliente.           
+\end{itemize}  
 
 % ---
 %O que é o CMPAAS?
