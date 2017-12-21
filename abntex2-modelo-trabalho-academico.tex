@@ -98,7 +98,7 @@
 \titulo{CMPaaS: Edição  de Mapas  Conceituais em Ambientes Virtuais Moodle}
 \autor{Israel Henrique Silva de Lima}
 \local{Vitória}
-\data{2016}
+\data{2017}
 \orientador{Prof. M.Sc. Wagner de Andrade  Perin}
 \coorientador{Prof. Ph.D. Davidson Cury}
 \instituicao{
@@ -343,7 +343,7 @@ Este trabalho  apresenta a concepção e o desenvolvimento de um \textit{plugin}
 % resumo em inglês
 \begin{resumo}[Abstract]
   \begin{otherlanguage*}{english}
-    This work presents the design and development of a concept map editor in the form of a Moodle plugin. The created maps are saved by using a persistence service from CMPaaS, a platform that offers several concept map processing services. The processes and technologies used in the construction of the plugin are further detailed. We also explore the importance of making it available through Moodle (which is central to the infrastructure of a considerable number of Distance Education programs). The possibility of integrating Moodle to other platforms and services is also discussed. 
+    This work presents the design and development of a conceptual map editing plugin for the Moodle platform in order to favor the integration between this and the services platform of the CMPaaS project, which offers a variety of services for conceptual mapping. The objective is to favor CMPaaS integration with a consistent user base that may be potential sources of data for the tools and research developed in the context of the CMPaaS project. The architecture, processes and technologies used in the construction of the plugin are detailed. A proof of concepts is presented.
     \vspace{\onelineskip}
  
     \noindent 
@@ -606,7 +606,7 @@ Ele foi escolhido para ser utilizado neste trabalho pois é amplamente usado por
 
 O Moodle é composto por módulos instaláveis, configuráveis e estendíveis. Assim, é possível desenvolver \textit{plugins} e componentes que adicionam novas funcionalidades a plataforma, como é o caso do que está sendo desenvolvido neste trabalho.
 
-O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin} para o Moodle que permita ao usuário construir, armazenar e recuperar seus mapas dentro desta plataforma. Além disto, propomos uma arquitetura para integração do Moodle com o CMPaaS de modo a permitir que mapas produzidos dentro da Plataforma Moodle sejam sincronizados com a Nuvem oferecida pelo projeto CMPaaS.
+O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin} para o Moodle que permita ao usuário construir mapas dentro desta plataforma e utilizar o serviço de repositório de mapas oferecido pelo CMPaaS. Para isto será necessário conhecer as tecnologias que permitem a integração de sistemas modernos. Este tópico será abordado com maiores detalhes no próximo capítulo.  
 
 \begin{table}[htb]
 	\IBGEtab{%
@@ -818,7 +818,7 @@ A plataforma Moodle e seus \textit{plugins} são desenvolvidos em PHP, por isto 
 
 \section{Trabalhos correlatos}
 
-Existe um \textit{plugin} semelhante ao desenvolvido neste trabalho no repositório do Moodle. Este \textit{plugin} possibilita que estudantes respondam questionários com a elaboração de um mapa conceitual. As principais funcionalidades dele são a possibilidade de criar um número ilimitado de conceitos e relacionamentos, compatibilidade com padrões de internacionalização e persistência de mapas com a utilização de XML. Infelizmente a última versão dele foi lançada em fevereiro de 2015 e não é compatível com as versões mais atuais do Moodle. A \autoref{fig_outroplugin} mostra um mapa criado neste \textit{plugin}.
+Existe um \textit{plugin} semelhante ao desenvolvido neste trabalho no repositório do Moodle. Este \textit{plugin} possibilita que estudantes respondam a questionários com a elaboração de um mapa conceitual. A \autoref{fig_outroplugin} mostra um mapa criado neste \textit{plugin} cuja as principais funcionalidades são a possibilidade de criar um número ilimitado de conceitos e relacionamentos, compatibilidade com padrões de internacionalização e persistência de mapas com a utilização de XML. 
 
 \begin{figure}[htb]
 	\caption{\label{fig_outroplugin} Um plugin de elaboração de mapas conceituais}
@@ -827,6 +827,11 @@ Existe um \textit{plugin} semelhante ao desenvolvido neste trabalho no repositó
 	\end{center}
 	\legend{Fonte: \citeonline{MoodlePlugin2016}}
 \end{figure} 
+
+
+Infelizmente a última versão dele foi lançada em fevereiro de 2015 e não é compatível com as versões mais atuais do Moodle. Um problema que o \textit{plugin} proposto neste trabalho resolve, pois trata-se de uma interface que permite a utilização dos serviços do CMPaaS dentro do Moodle. Esta característica o torna mais independente dos recursos oferecidos pela plataforma, necessitando assim de menor manutenção a cada atualização do Moodle  
+
+
 
 \chapter{Desenvolvimento}
 
@@ -958,7 +963,7 @@ Os metadados do maps contidos neste JSON são a sua URI, o autor, o título, a q
 \begin{figure}[htb]
 	\caption{\label{fig_map_list} Lista de mapas de um usuário}
 	\begin{center}
-		\includegraphics[scale=0.6]{map_list.png}
+		\includegraphics[scale=0.2]{map_list.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
@@ -994,7 +999,7 @@ Quando o usuário aciona o botão de editar uma versão de um mapa a função lo
 \begin{figure}[htb]
 	\caption{\label{fig_editor} Editor de mapas}
 	\begin{center}
-		\includegraphics[scale=0.3]{editor.png}
+		\includegraphics[scale=0.2]{editor.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
@@ -1038,12 +1043,12 @@ Depois do \textit{plugin} ser instalado é necessário realizar a configuração
 \begin{figure}[htb]
 	\caption{\label{fig_editor2} Editor de mapas}
 	\begin{center}
-		\includegraphics[scale=0.3]{editor.png}
+		\includegraphics[scale=0.2]{editor.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-\section{Como usar}
+\section{Como utilizar}
 
 A utilização do \textit{plugin} é bem simples. Ao acessar uma tarefa o estudante deve clicar no botão de envio de tarefa e ao fazer isto será mostrada uma tela de login, onde o usuário deverar realizar autenticação no CMPaaS. Esta tela é mostrada na \autoref{fig_login}. Após o login ser realizado o usuário é redirecionado para a interface que contém a lista de mapas que ele possui armazenado no CMPaaS. Esta lista foi apresentada anteriormenta na \autoref{fig_map_list}. 
 
@@ -1098,11 +1103,11 @@ Já a persistencia no CMPaaS ocorre quando o estudante utiliza o botão Salvar M
 
 \section{Resultados}
 
-O objetivo deste trabalho foi a criação de uma ferramenta que permitisse a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle. Para realizar isto foi idealizado o desenvolvimento de um \textit{plugin} de envio de tarefa que oferecesse a possibilidade do estudante responder uma atividade com a elaboração de um mapa conceitual. O \textit{plugin} deveria prover também uma interface para um professor ou tutor visualizar o mapa criado pelo estudante e avaliar o mesmo. Adicionalmente ofereceria também uma interface de integração com o plataforma CMPaaS.
+O objetivo deste trabalho foi a criação de uma ferramenta que permitisse a utilização de mapas conceituais em cursos gerenciados pela plataforma Moodle. O \textit{plugin}  deveria também possuir integração com o CMPaaS. Para realizar isto foi idealizado o desenvolvimento de um \textit{plugin} de envio de tarefa que oferecesse a possibilidade do estudante responder uma atividade com a elaboração de um mapa conceitual.
 
 O protótipo desenvolvido neste trabalho alcançou o objetivo de oferecer uma ferramenta para o estudante responder uma tarefa com mapas conceituais. O \textit{plugin} desenvolvido possui um editor de mapas que permite a elaboração de diagramas e modificação de sua aparência, além de realizar a persistência dos mapas criados. 
 
-A integração com o CMPaaS também foi implementada, assim o estudante tem a possibilidade de sincronizar o mapa criado no editor com o serviço de armazenamento na Nuvem oferecido pela plataforma. Já a interface para que o mapa seja visualizado para avaliação não foi implementada no protótipo, porém o \textit{plugin} desenvolvido permite que este recurso seja adicionado em trabalhos futuros.  
+A integração com o CMPaaS também foi implementada, assim o estudante tem a possibilidade de armazenar o mapa criado no editor com o serviço de armazenamento na Nuvem oferecido pela plataforma. É possível também manipular mapas criados anteriormente. 
 
 
 
@@ -1113,11 +1118,13 @@ Neste trabalho foi apresentada a definição de mapas conceituais e a sua import
 Foi pensado então no projeto de uma ferramenta que proporcionasse a aplicação de mapas conceituais na Educação a Distância. Escolhemos o Moodle como a plataforma onde seria realizada a implementação deste projeto. Ele foi escolhido por ser um gerenciador de cursos open-source amplamente utilizado em todo o mundo e por ser facilmente extensível através de inclusão de novos módulos.
 
 Um \textit{plugin} que permite a aplicação de mapas conceituais em tarefas dos cursos do Moodle foi então desenvolvido. Este \textit{plugin} possibilita que os estudantes respondam tarefas com a elaboração de mapas conceituais e oferece a possibilidade de sincronização do mapa na plataforma CMPaaS. 
-
-O \textit{plugin} que foi criado neste trabalho trata-se de um protótipo, ou seja, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.         
+    
 
 \section{Trabalhos futuros}
 % ---
+
+
+O \textit{plugin} que foi criado neste trabalho trata-se de um protótipo, ou seja, não está totalmente funcional e carece de melhorias. No entanto serve como base para a criação de uma ferramenta que pode ser adicionada a lista de repositórios de \textit{plugin} do Moodle, ampliando assim a possibilidade do uso de mapas conceituais no ensino.     
 
 O protótipo desenvolvido neste trabalho teve foco na interface para o estudante criar mapas conceituais, não possuindo o recurso de apresentar o mapa elaborado nele para um avaliador. Assim, uma proposta de trabalho futuro é a criação de uma forma de o avaliador visualizar o mapa submetido pelo estudante.
 
