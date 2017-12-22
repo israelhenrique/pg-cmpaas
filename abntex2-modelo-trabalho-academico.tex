@@ -343,7 +343,11 @@ Este trabalho  apresenta a concepção e o desenvolvimento de um \textit{plugin}
 % resumo em inglês
 \begin{resumo}[Abstract]
   \begin{otherlanguage*}{english}
-    This work presents the design and development of a conceptual map editing plugin for the Moodle platform in order to favor the integration between this and the services platform of the CMPaaS project, which offers a variety of services for conceptual mapping. The objective is to favor CMPaaS integration with a consistent user base that may be potential sources of data for the tools and research developed in the context of the CMPaaS project. The architecture, processes and technologies used in the construction of the plugin are detailed. A proof of concepts is presented.
+    This work presents the design and development of a concept map editing plugin for the Moodle platform in order to aid the integration between this and the services provided by the platform of CMPaaS, a project that offers a variety of services for conceptual mapping. 
+    The objective is to aid CMPaaS integration with a consistent user base that may be potential
+    sources of data for the tools and research developed in the context of the CMPaaS project.
+    The architecture, processes and technologies used in the construction of the plugin are detailed. A proof of concepts is presented.
+    
     \vspace{\onelineskip}
  
     \noindent 
@@ -424,7 +428,7 @@ Nesta linha, este trabalho acredita que uma forma efetiva de ampliar as fontes d
 
 Assim, este projeto visa o desenvolvimento de um plugin para construção de mapas conceituais dentro do gerenciador de cursos Modular Objected-Oriented Dynamic Learning Environment (Moodle) que permita o compartilhamento dos mapas produzidos com a plataforma CMPaaS.
 
-Para alcançar esses objetivos, foi realizada uma revisão bibliográfica aprofundada sobre mapas conceituais e a sua importância para a educação; também um  estudo do funcionamento e arquitetura do Moodle para entender como podem ser desenvolvidos plugins para adicionar novos recursos à plataforma;  foi feito um estudo sobre soluções de integração de sistemas para entender como seria possível a realização da interoperabilidade entre o Moodle e o CMPaaS. Por fim, o trabalho apresenta uma arquitetura conceitual e uma prova de conceitos para explorar as funcionalidades do plugin após a sua implementação.
+Para alcançar esses objetivos, foi realizada uma revisão bibliográfica aprofundada sobre mapas conceituais e a sua importância para a educação; também um  estudo do funcionamento e arquitetura do Moodle para entender como podem ser desenvolvidos \textit{plugins} para adicionar novos recursos à plataforma;  foi feito um estudo sobre soluções de integração de sistemas para entender como seria possível a realização da interoperabilidade entre o Moodle e o CMPaaS. Por fim, o trabalho apresenta uma arquitetura conceitual e uma prova de conceitos para explorar as funcionalidades do plugin após a sua implementação.
 
 \section{Objetivo} 
  
@@ -682,7 +686,7 @@ A \autoref{fig_http_header} é uma captura de tela que mostra o cabeçalho de um
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure}
 
-Um cabeçalho de resposta HTTP pode ser visto na \autoref{fig_http_response}. Este cabeçalho possui um código que serve para identificar se a requisição foi concluida com sucesso. No cabeçalho deste exemplo, o código de resposta 200 indica que a requisição foi concluida com sucesso. Já um código 401 indicaria que URI acessada exige autenticação do usuário. O campo \textit{date} informa a data e hora em que a mensagem foi enviada. Já o campo \textit{server} contém o nome do servidor que respondeu a requisição. O cabeçalho informa em \textit{Content-type} o tipo de conteúdo da mensamge e em \textit{Allow} os métodos HTTP que são aceitos.
+Um cabeçalho de resposta HTTP pode ser visto na \autoref{fig_http_response}. Este cabeçalho possui um código que serve para identificar se a requisição foi concluida com sucesso. No cabeçalho deste exemplo, o código de resposta 200 indica que a requisição foi concluida com sucesso. Já um código 401 indicaria que URI acessada exige autenticação do usuário. O campo \textit{date} informa a data e hora em que a mensagem foi enviada. Já o campo \textit{server} contém o nome do servidor que respondeu a requisição. O cabeçalho informa em \textit{Content-type} o tipo de conteúdo da mensamgeme em \textit{Allow} os métodos HTTP que são aceitos.
 
 O HTTP é um protocolo stateless, ou seja, sem estado. Isto significa que ele não guarda informações entre requisiçoes diferentes. Caso seja necessário armazenar dados é preciso utilizar alguma outra tecnologia em conjunto com o HTTP, como cookies ou variáveis de sessão.
 
@@ -714,7 +718,7 @@ Apesar de não ser obrigatório o uso do protocolo HTTP, ele é o único protoco
 
 Ao se navegar na web todo documento acessível é chamado de recurso e isto não é diferente no REST. Este estilo de arquitetura é orientado a recursos, que são os conjuntos de dados que estarão disponível em uma aplicação web que implementa o REST. Cada recurso necessita de uma identificação única ou URI, que irá nomea-lo e fornecer um caminho para acessa-lo.
 
-A interação com as URIs é realizada através dos métodos HTTP. Esta interação é guiada por uma regra na qual as URIs são substantivos e os métodos são verbos. E portanto os metodos sao aqueles que realizam alteraçoes nos recusrsos identificados pelas URIs. O método GET, por exemplo, é utilizado para se obter dados de um recurso, já o método DELETE é tem como funcionalidade apagar um recurso. 
+A interação com as URIs é realizada através dos métodos HTTP. Esta interação é guiada por uma regra na qual as URIs são substantivos e os métodos são verbos. E portanto os metodos sao aqueles que realizam alteraçoõs nos recusrsos identificados pelas URIs. O método GET, por exemplo, é utilizado para se obter dados de um recurso, já o método DELETE é tem como funcionalidade apagar um recurso. 
 
 O REST também padroniza também o uso dos códigos de respostas do HTTP. Estes códigos são divididos em cinco grupos, e cada grupo possui um significado. Códigos 1xx são informacionais, códigos 2xx indicam sucesso, codigos 3xx informam um redirecionamento, 4xx indicam erros do cliente e 5xx erros de servidor.
 
@@ -749,6 +753,9 @@ Em sua tese de doutorado \citeonline{fielding2000rest} estabeleceu príncipios q
 
 %Josmar: só estar desatualizado é motivo suficiente para escrever um plugin do zero? Por que não apenas atualizar o plugin desatualizado? Faltou descrever aqui (talvez esse plugin desatualizado não é open source, ou então só mesmo atualizando ainda faltaria a integração com CMPaaS). Elabore melhor essa critica, pois ela aparentemente está tentando embasar a criação de um novo plugin (o seu).
 
+Neste capítulo será apresentada a arquitetura do \textit{plugin} que foi desenvolvido neste trabalho. Na primeira seção serão descritos os seus casos de uso e apresentados diagramas de sequência de suas funcionalidades.
+
+Na seção subsequente será feita uma breve descrição das tecnologias utilizadas neste trabalho e por fim será feita uma breve comparação do \textit{plugin} desenvolvido neste trabalho com um já existente e que possui funcionalidades similares.
 
 \section{Arquitetura}
 
@@ -772,31 +779,79 @@ O \textit{plugin} oferece as seguintes funcionalidades:
 \begin{enumerate}
 	\item Criar Mapa: permite a criação de um novo mapa conceitual. O novo mapa é também criado nos repositórios do CMPaaS
 	\item Salvar Mapa: persiste as alterações do  mapa  criado  nos  repositórios  do  CMPaaS.
-	\item  edição de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Editar Mapa.
-	\item visualização de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.
+	\item  Edição de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Editar Mapa.
+	\item Visualização de um mapa previamente salvo no repositório do CMPaaS. Esta funcionalidade é representada pelo caso de uso Visualizar Mapa.
+	\item Gerenciar os mapas e suas versões armazenados no CMPaaS.
 \end{enumerate}  
 
-Os atores que irão utilizar o \textit{plugin} são o Estudante, que irá criar e editar mapas conceituais que serão submetidos a avaliação, e um Avaliador, que irá visualizar os mapas criados pelos estudantes e avaliá-lo. Os atores e casos de uso são representados na \autoref{fig_casosuso}.
+\subsection{Listar mapas e suas versões}
 
-O caso de uso Salvar Mapa é apresentado na \autoref{fig_seq1}. Quando o estudante solicita que o mapa seja salvo a interface do \textit{plugin} chama a rotina da API do Moodle responsável por enviar os dados do formulário para serem armazenados. Após esta rotina ser executada e o mapa ser armazenado um sumário do envio é apresentado ao estudante.
-
-\begin{figure}[htb]
-	\caption{\label{fig_seq1} Diagrama de Sequencia do Caso de Uso Salvar Mapa}
-	\begin{center}
-		\includegraphics[scale=0.5]{SeqDiagramPlugin.png}
-	\end{center}
-	\legend{Fonte: Elaborado pelo autor}
-\end{figure} 
+O diagrama da \autoref{fig_seqlistar} mostra o processo de autenticação e de listagem dos mapas que o estudante possui no CMPaaS. 
 
 \begin{figure}[htb]
-	\caption{\label{fig_seq2} Diagrama de Sequencia do Caso de Uso Sincronizar Mapa}
+	\caption{\label{fig_seqlistar} Listar mapas}
 	\begin{center}
-		\includegraphics[scale=0.5]{SeqDiagramCmpaas.png}
+		\includegraphics[scale=0.4]{seqlistar.png}
 	\end{center}
 	\legend{Fonte: Elaborado pelo autor}
-\end{figure} 
+\end{figure}
 
-O caso de uso Sincronizar Mapa é apresentado na \autoref{fig_seq2}. É este caso de uso que realiza a integração do \textit{plugin} com a plataforma CMPaaS. Quando o estudante executa a ação de sincronização do mapa a interface do \textit{plugin} chama uma rotina para que seja feita autenticação no portal. Depois que o estudante é autenticado no CMPaaS os dados do mapa são enviados para serem armazenados na plataforma.
+Quando o estudante acessa a atividade uma interface de autenticação é apresentada. O estudante deve então entrar com seus dados de acesso e então efetuar autenticação. Após o estudante ser autenticado a interface solicita ao CMPaaS a lista de mapas que o usuário possui e então uma listagem de mapas é mostrada ao estudante.  
+
+Após a lista de mapas ser apresentada é possível que o estudante visualize as versões que cada mapa possui. O diagrama da \autoref{fig_seqver} mostra o processo de listagem das versões dos mapas existentes no CMPaaS. Para realizar este procedimento o estudante solicita a interface que mostre as versões de um mapa presente em sua lista de mapas conceituais. A interface então faz uma requisição para o CMPaaS solicitando as versões do mapa. Por fim o CMPaaS responde com a lista de versões que então é mostrada ao estudante.   
+
+\begin{figure}[htb]
+	\caption{\label{fig_seqver} Listar versões}
+	\begin{center}
+		\includegraphics[scale=0.4]{seqver.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
+
+
+
+\subsection{Criar e editar mapas}
+
+Quando o estudante executa a funcionalidade de criação de mapas um um editor de mapas conceituais é carregado na interface do \textit{plugin}. Neste editor o estudante cria o mapa desejado e então o armazena no repositório do CMPaaS. Esta sequência de eventos é ilustrada na \autoref{fig_seqcriar}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_seqcriar} Criar mapa}
+	\begin{center}
+		\includegraphics[scale=0.4]{seqcriar.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
+
+A funcionalidade de edição de mapas funciona de forma semelhante a de criação. A diferença consiste no fato de que, ao editar e salvar o mapa, uma nova versão do mapa que está sendo editado é criado no CMPaaS. Esta sequência de eventos é similar a de criar um mapa e é ilustrada na \autoref{fig_seqeditar}. 
+
+\begin{figure}[htb]
+	\caption{\label{fig_seqeditar} Editar mapa}
+	\begin{center}
+		\includegraphics[scale=0.4]{seqeditar.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
+
+\subsection{Apagar mapas e suas versões}
+
+Existem duas funcionalidades quer permitem ao estudante apagar de forma definitiva um mapa existente em seu repositório. A primeira, que esta demonstrada na \autoref{fig_apagarver}, consiste em apagar uma única versão de um mapa. Neste caso apenas uma versão é apagada, sendo mantido no repositório o mapa e suas outras versões.
+A outra forma é a apagar todas as versões de um mapa, eliminando todo o histórico do mapa do repositório. A sequencia de eventos desta funcionalidade é mostrada na \autoref{fig_apagarmap}.  
+
+\begin{figure}[htb]
+	\caption{\label{fig_apagarver} Apagar versão}
+	\begin{center}
+		\includegraphics[scale=0.4]{apagarver.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
+
+\begin{figure}[htb]
+	\caption{\label{fig_apagarmap} Apagar mapa}
+	\begin{center}
+		\includegraphics[scale=0.4]{apagarmap.png}
+	\end{center}
+	\legend{Fonte: Elaborado pelo autor}
+\end{figure}
 
 \section{Tecnologias utilizadas}
 
@@ -958,7 +1013,7 @@ A partir deste JSON o plugin elabora novas requests que serão enviadas para a A
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-Os metadados do maps contidos neste JSON são a sua URI, o autor, o título, a questão e a sua descrição. Com estas informações é criada a interface que mostra a listagem de mapas do usuário, conforme \autoref{fig_map_list}. Nesta interface o usuário pode visualizar as versões de um mapa listado ou apagar este mapa.
+Os metadados do mapa contidos neste JSON são a sua URI, o autor, o título, a questão e a sua descrição. Com estas informações é criada a interface que mostra a listagem de mapas do usuário, conforme \autoref{fig_map_list}. Nesta interface o usuário pode visualizar as versões de um mapa listado ou apagar este mapa.
 
 \begin{figure}[htb]
 	\caption{\label{fig_map_list} Lista de mapas de um usuário}
@@ -1076,7 +1131,7 @@ Nesta seção será apresentada a utilização de todas as funcionalidades ofere
 
 Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções.
 
-Já a persistência do diagrama pode ser dividida em duas etapas: a gravação do mapa no Moodle e a persistencia dos mapas no repositório do CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Ao fazer isto, o Json so mapa que está sendo editado é salvo no banco de dados do Moodle.
+Já a persistência do diagrama pode ser dividida em duas etapas: a gravação do mapa no Moodle e a persistencia dos mapas no repositório do CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Ao fazer isto, o Json do mapa que está sendo editado é salvo no banco de dados do Moodle.
  
 Já a persistencia no CMPaaS ocorre quando o estudante utiliza o botão Salvar Mapa Conceitual, que pode ser visto na cor azul na \autoref{fig_mapa}.
 
