@@ -335,7 +335,7 @@ minha formação acadêmica e pessoal.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
-Este trabalho  apresenta a concepção e o desenvolvimento de um \textit{plugin} de edição de mapas conceituais para a plataforma Moodle de modo a favorecer a integração  entre este e a plataforma  de serviços do projeto CMPaaS,  que oferece uma diversidade de serviços para processamento  de mapas conceituais. O objetivo é favorecer ao CMPaaS a integração à uma base de usuários consistente que podem ser potenciais fontes de dados para as ferramentas  e pesquisas desenvolvidas no contexto do projeto CMPaaS. São detalhados a arquitetura, os processos e as tecnologias utilizadas na construção do \textit{plugin}. Uma prova de conceitos é apresentada.
+Este trabalho  apresenta a concepção e o desenvolvimento de um \textit{plugin} de edição de mapas conceituais para a plataforma Modular Objected-Oriented Dynamic Learning Environment (Moodle) de modo a possibilitar a integração  entre este e a plataforma  de serviços do projeto CMPaaS,  que oferece uma diversidade de serviços para processamento  de mapas conceituais. O objetivo é favorecer ao CMPaaS a integração à uma base de usuários consistente que podem ser potenciais fontes de dados para as ferramentas  e pesquisas desenvolvidas no contexto do projeto CMPaaS. São detalhados a arquitetura, os processos e as tecnologias utilizadas na construção do \textit{plugin}. Uma prova de conceitos é apresentada.
 	
  \textbf{Palavras-chave}: Mapas Conceituais. Moodle. CMPaaS.
 \end{resumo}
@@ -422,15 +422,15 @@ Pensando nisso, pesquisadores da Universidade Federal do Espírito Santo especif
 
 O CMPaaS concentra diversas ferramentas de mapas conceituais desenvolvidas em projetos do laboratório de educação da UFES, e muitas delas necessitam levantar dados para comprovação de hipóteses. Um exemplo de ferramenta é o iMap, que foi desenvolvido por \citeonline{Perin2014} em sua dissertação de mestrado.  
 
-O iMap é uma ferramenta utiliza inteligência computacional para fornecer uma camada de abstração entre um mapa conceitual e um avaliador. Assim é possível a um avaliador examinar um mapa conceitual através de perguntas e respostas em linguagem natural, sem haver a necessidade de um exame visual dos conceitos e relacionamentos presentes no mapa. No entanto a real capacidade desta ferramenta não pode ser efetivamente comprovada devido a escassez de utilizadores e de dados de entrada.
+O iMap é uma ferramenta que utiliza inteligência computacional para fornecer uma camada de abstração entre um mapa conceitual e um avaliador. Assim é possível a um avaliador examinar um mapa conceitual através de perguntas em linguagem natural, sem haver a necessidade de um exame visual dos conceitos e relacionamentos presentes no mapa. No entanto a real capacidade desta ferramenta não pode ser efetivamente comprovada devido a escassez de utilizadores e de dados de entrada.
 
 Nesta linha, este trabalho acredita que uma forma efetiva de ampliar as fontes de dados para a plataforma do CMPaaS é favorecer a integração com sistemas que já possuam base de usuários consolidadas. Assim, propõe-se a criação de uma ferramenta que permita o uso dos mapas nas plataformas utilizadas no ensino a distância, já que estes são nichos grandes e, a julgar pelos avanços na utilização de recursos computacionais na educação, tendem a se ampliar nos próximos anos \cite{ribeiro2012}.
 
-Assim, este projeto visa o desenvolvimento de um plugin para construção de mapas conceituais dentro do gerenciador de cursos Modular Objected-Oriented Dynamic Learning Environment (Moodle) que permita o compartilhamento dos mapas produzidos com a plataforma CMPaaS.
+Assim, este projeto visa o desenvolvimento de um plugin para construção de mapas conceituais dentro do gerenciador de cursos Moodle que permita o compartilhamento dos mapas produzidos com a plataforma CMPaaS.
 
 Para alcançar esses objetivos, foi realizada uma revisão bibliográfica aprofundada sobre mapas conceituais e a sua importância para a educação; também um  estudo do funcionamento e arquitetura do Moodle para entender como podem ser desenvolvidos \textit{plugins} para adicionar novos recursos à plataforma;  foi feito um estudo sobre soluções de integração de sistemas para entender como seria possível a realização da interoperabilidade entre o Moodle e o CMPaaS. Por fim, o trabalho apresenta uma arquitetura conceitual e uma prova de conceitos para explorar as funcionalidades do plugin após a sua implementação.
 
-\section{Objetivo} 
+\section{Motivação} 
  
 O CMPaaS é uma plataforma baseada em serviços web que agrega diversas ferramentas de manipulação de mapas conceituais. Ferramentas estas que carecem de uma base de usuários consolidada para geração de conteúdo.
 
@@ -438,9 +438,9 @@ A motivação para esse projeto de graduação é portanto, buscar uma forma de 
 
 Sendo assim este trabalho propõe a adoção de uma solução de integração de sistemas que leve a interoperabilidade entre o CMPaaS e uma plataforma que possua uma grande base de usuários.
 
-\section{Objetivo Específico}
+\section{Metodologia de trabalho}
 
-Com o objetivo geral deste trabalho definido, para alcança-lo foram estipulados os seguintes objetivos específicos:
+Com o objetivo geral deste trabalho definido, para alcança-lo foram estipulados os seguintes passos:
 
 \begin{itemize}
 	\item Estudar o que são mapas conceituais e suas aplicações na educação.
@@ -478,11 +478,15 @@ O resultado esperado deste trabalho é demonstrar a possibilidade de integraçã
 % ---
 %O que são? Quem criou? Quando surgiu? Quais os benefícios para a educação?
 % ---
+
+Este capítulo apresenta a origem e a definição de mapas conceituais e também a sua importância para a educação. E como a tecnologia da informação pode contribuir para melhorar a usabilidade dos mapas conceituais. e será apresentado o CMPaaS, uma plataforma online que oferece serviços para mapas conceituais. Fala também sobre a plataforma CMPaaS, que oferece serviços para mapas conceituais, e os benefícios de sua integração com o Moodle.
+
+
 \section{Origem e definição de mapas conceituais}
 % ---
-O mapas conceituais foram criados na década de 70 durante um estudo de Novak que buscava entender como crianças aprendiam conceitos científicos \cite{Novak2005}. Durante seu estudo, Novak observou uma evolução nas proposições utilizadas pelas crianças, porém teve dificuldade de entender como esta mudança cognitiva ocorreu. Para compreender tal mudança, Novak desenvolveu um método baseado nas três ideias de Ausubel sobre a teoria da aprendizagem \cite{ausubel1963}. A primeira ideia é que novos significados são criados a partir de conceitos e proposições previamente conhecidos pelo aprendiz. A segunda, é que a estrutura cognitiva do indivíduo é organizada hierarquicamente, com conceitos mais gerais ocupando posições superiores, acima dos conceitos mais específicos e complexos. Já a terceira ideia é que durante o processo de aprendizagem os conceitos vão se tornando mais específicos e precisos.
+Os mapas conceituais constituem uma ferramenta para a representação do conhecimento. Foram criados na década de 70 durante um estudo de Novak que buscava entender como crianças aprendiam conceitos científicos \cite{Novak2005}. Durante seu estudo, Novak observou uma evolução nas proposições utilizadas pelas crianças, porém teve dificuldade de entender como esta mudança cognitiva ocorreu. Para compreender tal mudança, Novak desenvolveu um método baseado nas três ideias de Ausubel sobre a teoria da aprendizagem \cite{ausubel1963}. A primeira ideia é que novos significados são criados a partir de conceitos e proposições previamente conhecidos pelo aprendiz. A segunda, é que a estrutura cognitiva do indivíduo é organizada hierarquicamente, com conceitos mais gerais ocupando posições superiores, acima dos conceitos mais específicos. Já a terceira ideia é que durante o processo de aprendizagem os conceitos vão se tornando mais específicos e precisos.
 
-Assim foi criada essa ferramenta gráfica, que tem como objetivo fazer uma representação do conhecimento. Um mapa conceitual é constituído por interligações entre dois ou mais conceitos através de uma palavra de forma a gerar um significado. Ele é construído ligando-se um conceito a outro, através de um arco que contém uma palavra descritiva, que é usada para criar uma relação significativa entre os conceitos. Além disso, os conceitos mais gerais estão dispostos no topo do mapa e os mais específicos na parte inferior dele. A \autoref{fig_mapconceitual} mostra um exemplo de mapa conceitual.
+Um mapa conceitual é constituído por interligações entre dois ou mais conceitos através de uma palavra de forma a gerar um significado. Ele é construído ligando-se um conceito a outro, através de um arco que contém uma palavra descritiva, que é usada para criar uma relação significativa entre os conceitos. Além disso, os conceitos mais gerais estão dispostos no topo do mapa e os mais específicos na parte inferior dele. A \autoref{fig_mapconceitual} mostra um exemplo de mapa conceitual.
 \begin{figure}[htb]
 	\caption{\label{fig_mapconceitual}Um exemplo de mapa conceitual}
 	\begin{center}
@@ -494,7 +498,7 @@ Assim foi criada essa ferramenta gráfica, que tem como objetivo fazer uma repre
 
 Os mapas conceituais podem ter diversas aplicações na educação. Podem por exemplo ser utilizados para representar o conhecimento adquirido em uma aula, ou então o conteúdo de um capítulo de um livro. Por se tratar de uma representação que é alimentada com novos conceitos conforme eles são adquiridos, pode ser utilizado pelo professor para acompanhar a aprendizagem de um estudante durante todo o período de um curso. Ademais, como os mapas conseguem representar a estrutura cognitiva de um indivíduo, eles podem ser utilizados também como método de avaliação de aprendizagem \cite{Perin2014}.
 
-A confiabilidade da avaliação da aprendizagem tradicional, como textos dissertativos e questões de múltipla escolha, tem sido questionada por pesquisadores e educadores. Nestes tipos de teste apenas os acertos são contabilizados e os erros são descartados, implicando em importantes informações para a avaliação serem desprezadas.
+A confiabilidade da avaliação da aprendizagem tradicional, como textos dissertativos e questões de múltipla escolha, tem sido questionada por pesquisadores e educadores. Nestes tipos de teste apenas os acertos são contabilizados e os erros são descartados, implicando em importantes informações para a avaliação da aprendizagem serem desprezadas.
 As provas tradicionais não proporcionam a possibilidade do estudante apresentar como construiu o seu aprendizado. Elas conseguem avaliar somente a aprendizagem mecânica, não mostrando como que o aprendiz alterou suas estruturas cognitivas.
 Os mapas conceituais tem se destacado como alternativa a avaliação tradicional, pois conseguem demonstrar com facilidade as modificações cognitivas que ocorrem durante o processo de aprendizagem do estudante \cite{Dutra2002}.
 
@@ -508,7 +512,7 @@ Os primeiros programas de computadores criados com este objetivo se limitavam a 
 
 Na seção 2.3 de sua dissertação de mestrado, \citeonline{Perin2014} realizou uma pesquisa sobre o estado da prática em mapas conceituais. Nela foi feito um levantamento sobre softwares que permitem a criação de mapas conceituais e quais são as funcionalidades oferecidas por eles. Nesta pesquisa foram avaliadas 16 ferramentas de edição de mapas, das quais apenas o CMapTools foi desenvolvido com o objetivo de oferecer suporte específico para mapas conceituais.
 
-Percebendo esta carência, um grupo de pesquisadores do laboratório de Informática na Educação da Universidade Federal do Espírito Santo (Ufes) propôs uma plataforma de serviços para mapas conceituais, conhecida por CMPaaS \cite{Perin2016} cujo objetivo é fornecer serviços avançados para facilitar os processos e as aplicações dos mapas conceituais, tanto no ensino quanto no mercado. Neste trabalho, interessa-nos a criação de uma ferramenta integrada ao CMPaaS que proporcione a aplicação dos mapas conceituais na Educação a Distância. 
+Percebendo esta carência, um grupo de pesquisadores do Laboratório de Informática na Educação da Universidade Federal do Espírito Santo (LIED-DI-UFES) propôs uma plataforma de serviços para mapas conceituais, conhecida por CMPaaS \cite{Perin2016} cujo objetivo é fornecer serviços avançados para facilitar os processos e as aplicações dos mapas conceituais, tanto no ensino quanto no mercado. Neste trabalho, interessa-nos a criação de uma ferramenta integrada ao CMPaaS que proporcione a aplicação dos mapas conceituais na Educação a Distância. 
 
 \subsection{CMPaaS}
 
@@ -579,7 +583,7 @@ Atualmente a plataforma CMPaaS oferece os seguintes serviços:
 %O Moodle
 %Mapas conceituais e educação a distância.
 % ---
-\section{Moodle e Educação à Distância (EaD)}\label{cap-ead}
+\section{Moodle e Educação a Distância (EaD)}\label{cap-ead}
 
 Segundo \citeonline{chaves1999} EaD é um ensino que ocorre quando há uma separação física entre mestre e aprendiz, sendo utilizadas tecnologias de transmissão de voz, dados e imagens para a comunicação entre ambos. A EaD também é definida no Decreto nº 5.622 de 19 de dezembro de 2005 \cite{BRASIL2005}.
  \begin{citacao}
@@ -654,7 +658,7 @@ O que propomos neste projeto é, portanto, a criação de um novo \textit{plugin
 % segundo capitulo de Resultados
 % ---
 
-\chapter{Integração de Sistemas}
+\chapter{Tecnologias para Integração de Sistemas}
 
 Nos últimos anos muitas organizações têm utilizado aplicações para dar suporte aos seus negócios e por esse motivo sistemas de informação têm se tornado um de seus pilares de funcionamento \cite{martins2006integraccao}. O aumento do uso da tecnologia de informação juntamente com a busca pelo controle e flexibilização de informações fez crescer a demanda por soluções que viabilizassem a partilha de informações e de funcionalidades de aplicações \cite{edwards2000application}. Aplicações estas, que em grande parte dos casos, foram desenvolvidas de forma customizada e sem a capacidade de integração com outros sistemas. Neste contexto, as organizações seguiram diversas abordagens para a integração dos seus sistemas de informação, criando então soluções sem nenhuma norma técnica, devido a inexistência das mesmas. 
 
@@ -759,7 +763,7 @@ Na seção subsequente será feita uma breve descrição das tecnologias utiliza
 
 \section{Arquitetura}
 
-O \textit{plugin} proposto consite de três partes: configurações, sumário de envio e formulário de envio. Nas configurações é onde será definido o comportamento do \textit{plugin}. O sumário de envio será visto pelo estudante e avaliadores na tela inicial da tarefam, e contém um resumo da tarefa. Já o formulário de envio, que é onde o estudante responde a tarefa.
+O \textit{plugin} proposto consite de três partes: configurações, sumário de envio e formulário de envio. Nas configurações é onde será definido o comportamento do \textit{plugin}. O sumário de envio será visto pelo estudante e avaliadores na tela inicial da tarefa, e contém um resumo da tarefa. Já o formulário de envio, que é onde o estudante responde a tarefa.
 
 %O plugin desenvolvido neste trabalho permite que o estudante crie um mapa conceitual, modifique sua aparência e envie para avaliação. O estudante poderá também editar um mapa que já foi enviado, além de ter a possibilidade de salva-lo na plataforma CMPaaS. A \autoref{fig_casosuso} apresenta os casos de uso do plugin.
 %
@@ -891,6 +895,8 @@ Infelizmente a última versão dele foi lançada em fevereiro de 2015 e não é 
 
 
 \chapter{Desenvolvimento}
+
+Neste capítulo será descrita a implementação da arquitetura que foi proposta no capítulo anterior. Inicialmente serão apresentadas as modificações feitas no editor de mapas presente no CMPaaS com o objetivo de adicionar funcionalidades de formação dos mapas conceituais. Também será descrito como o editor de mapas foi integrado ao \textit{plugin} de envio de tarefas do Moodle, para proporcionar ao estudante a possibilidade de responder a uma tarefa com um mapa conceitual. E por fim será apresentado como foi realizada a integração do \textit{plugin} com o CMPaaS. 
 
 \section{Serviço de Edição de Mapas}
 O serviço de edição de mapas foi implementado com a utilização do editor de mapas conceituais disponível no CMPaaS. Ele foi desenvolvido utilizando GoJS, que é uma biblioteca em JavaScript para criação de diagramas para navegadores \textit{Web}.
@@ -1172,7 +1178,7 @@ A integração com o CMPaaS também foi implementada, assim o estudante tem a po
 
 Neste trabalho foi apresentada a definição de mapas conceituais e a sua importância para a educação. Neste contexto foi discutido como eles podem ser utilizados no ensino e foi levantado quais são as ferramentas disponíveis para criação e manipulação de mapas. Neste levantamento foi identificada uma carência de aplicações computacionais que proporcionam suporte a criação de mapas conceituais e a necessidade do desenvolvimento de novas ferramentas com esta finalidade.
 
-Foi pensado então no projeto de uma ferramenta que proporcionasse a aplicação de mapas conceituais na Educação a Distância. Escolhemos o Moodle como a plataforma onde seria realizada a implementação deste projeto. Ele foi escolhido por ser um gerenciador de cursos open-source amplamente utilizado em todo o mundo e por ser facilmente extensível através de inclusão de novos módulos.
+Foi pensado então o projeto de uma ferramenta que proporcionasse a aplicação de mapas conceituais na Educação a Distância. Escolhemos o Moodle como a plataforma onde seria realizada a implementação deste projeto. Ele foi escolhido por ser um gerenciador de cursos open-source amplamente utilizado em todo o mundo e por ser facilmente extensível através de inclusão de novos módulos.
 
 Um \textit{plugin} que permite a aplicação de mapas conceituais em tarefas dos cursos do Moodle foi então desenvolvido. Este \textit{plugin} possibilita que os estudantes respondam tarefas com a elaboração de mapas conceituais e oferece a possibilidade de sincronização do mapa na plataforma CMPaaS. 
     
