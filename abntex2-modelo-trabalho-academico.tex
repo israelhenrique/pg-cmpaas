@@ -431,28 +431,44 @@ Assim, este projeto visa o desenvolvimento de um plugin para construção de map
 Para alcançar esses objetivos, foi realizada uma revisão bibliográfica aprofundada sobre mapas conceituais e a sua importância para a educação; também um  estudo do funcionamento e arquitetura do Moodle para entender como podem ser desenvolvidos \textit{plugins} para adicionar novos recursos à plataforma;  foi feito um estudo sobre soluções de integração de sistemas para entender como seria possível a realização da interoperabilidade entre o Moodle e o CMPaaS. Por fim, o trabalho apresenta uma arquitetura conceitual e uma prova de conceitos para explorar as funcionalidades do plugin após a sua implementação.
 
 \section{Motivação} 
- 
-O CMPaaS é uma plataforma baseada em serviços web que agrega diversas ferramentas de manipulação de mapas conceituais. Ferramentas estas que carecem de uma base de usuários consolidada para geração de conteúdo.
 
-A motivação para esse projeto de graduação é portanto, buscar uma forma de trazer para o CMPaaS uma base de usuários que possa alimenta-lo com conteúdo a ser consumido pelas ferramentas que integram a plataforma.
+Os mapas conceituais podem ser utilizados para representar a estrutura cognitiva de um indivíduo e conseguem demonstrar com facilidade as modificações cognitivas que ocorrem durante o processo de aprendizagem do estudante. Por isso é muito interessante utilizá-los como método avaliativo especialmente na educação a distância, onde o acompanhamento do aprendizado do aluno pode ser prejudicado pela distância. Essa foi a motivação inicial da criação desse \textit{plugin}, que leva o mapa conceitual às mãos dos muitos alunos que hoje utilizam a plataforma Moodle ao redor do mundo.
 
-Sendo assim este trabalho propõe a adoção de uma solução de integração de sistemas que leve a interoperabilidade entre o CMPaaS e uma plataforma que possua uma grande base de usuários.
+Por outro lado, o CMPaaS é uma plataforma baseada em serviços web que agrega diversas ferramentas de manipulação de mapas conceituais. Ferramentas estas que carecem de uma base de usuários consolidada para geração de conteúdo. Integrá-lo ao Moodle é uma forma de trazer para o CMPaaS uma base de usuários que possa alimentá-lo com conteúdo a ser consumido pelas ferramentas que integram a plataforma.
+
+Sendo assim este trabalho propõe além da possibilidade de levar os mapas conceituais a um ambiente virtual de aprendizagem de alta utilização, a integração de sistemas que leve a interoperabilidade entre o CMPaaS e Moodle que será capaz de alimentar o CMPaaS com conteúdo.
+
+\section{Objetivo} 
+
+O objetivo de deste trabalho é criar uma ferramenta que permite a utilização de mapas conceituais como método de avaliação em cursos gerenciados pela plataforma Moodle.
+
+\section{Objetivos específicos} 
+
+Com o objetivo geral deste trabalho definido, foram estipulados os seguintes objetivos específicos:
+
+\begin{itemize}
+	\item Estudar o que são mapas conceituais e suas aplicações.
+	\item Estudar a arquitetura do Moodle e seus \textit{plugins}.
+	\item Estudar a arquitetura do CMPaaS.
+	\item Estudar tecnologias de integração de sistemas.
+	\item Desenvolver um novo \textit{plugin} para o Moodle segundo a arquitetura da plataforma.   
+\end{itemize} 
+
 
 \section{Metodologia de trabalho}
 
-Com o objetivo geral deste trabalho definido, para alcança-lo foram estipulados os seguintes passos:
+Para alcançar os objetivos deste trabalho foram estipulados os seguintes passos:
 
 \begin{itemize}
-	\item Estudar o que são mapas conceituais e suas aplicações na educação.
-	\item Estudar a arquitetura do Moodle e seus \textit{plugins}.
-	\item Estudar técnicas e arquiteturas de integração de sistemas.
+	\item Realizar uma revisão bibliográfica afim de entender tecnologias diferentes e definir como utiliza-las no projeto.
+	\item Analizar a arquitetura do Moodle com objetivo de investigar como desenvolver um novo \textit{plugin} para a plataforma.
 	\item Analisar a arquitetura da plataforma CMPaaS a fim de entender como realizar a integração dela com outras plataformas.
-	\item Desenvolver um novo \textit{plugin} para o Moodle segundo a arquitetura da plataforma.   
+	\item Utilizar linguagens de programação para desenvolver um novo \textit{plugin} para o Moodle que possui integração com o CMPaaS.   
 \end{itemize} 
  
 \section{Resultados Esperados}
 
-O resultado esperado deste trabalho é demonstrar a possibilidade de integração dos serviços providos pelo CMPaaS com outras plataformas. E com isto aumentar o uso das ferramentas presentes na plataforma e o conteúdo existente na mesma. 
+O resultado esperado deste trabalho é a criação de um \textit{plugin} para o Moodle integrado com a plataforma CMPaaS que permita que mapas conceituais sejam utilizados como método de avaliação.
 
 % ----------------------------------------------------------
 % PARTE
@@ -773,7 +789,7 @@ Para o desenvolvimento do \textit{plugin} foi elaborado um diagrama de casos de 
 \begin{figure}[!h]
 	\caption{\label{fig_casosuso} Casos de Uso}
 	\begin{center}
-		\includegraphics[scale=0.7]{casosuso.png}
+		\includegraphics[scale=0.5]{casosuso.png}
 	\end{center}
 	\legend{Fonte: Elaborado pelo autor}
 \end{figure} 
@@ -1133,24 +1149,29 @@ O estudante então pode criar um novo mapa ou então editar mapas já existentes
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
-\section{Provas de Conceitos}
+\section{Teste}
 
-Nesta seção será apresentada a utilização de todas as funcionalidades oferecidas pelo \textit{plugin}. Elas podem ser dividas em dois grupos: recursos para elaboração e edição dos mapas e persistência dos diagramas.
-
-Os recursos para edição de mapas são as funções de formatação da aparência do diagrama disponíveis na barra de ferramentas. Elas permitem alterar a cor de preenchimento dos nós e o estilo da fonte de cada conceito. A \autoref{fig_mapa} mostra um mapa no qual foi aplicado estas funções.
-
-Já a persistência do diagrama pode ser dividida em duas etapas: a gravação do mapa no Moodle e a persistencia dos mapas no repositório do CMPaaS. A primeira ocorre quando o usuário clica no botão Salvar Alterações, que foi apresentado na \autoref{fig_editor}. Ao fazer isto, o Json do mapa que está sendo editado é salvo no banco de dados do Moodle.
- 
-Já a persistencia no CMPaaS ocorre quando o estudante utiliza o botão Salvar Mapa Conceitual, que pode ser visto na cor azul na \autoref{fig_mapa}.
+O \textit{plugin} foi testado em uma disciplina de um curso a distância de Moodle para Professores e Tutores oferecido pela  Secretaria de Educação a Distância da Ufes. Uma tarefa de recuperação foi configurada para utilizar o \textit{plugin} desenvolvido neste trabalho e deveria ser respondida com a elaboração de um mapa conceitual, conforme pode ser visto na \autoref{fig_teste1}.
 
 \begin{figure}[htb]
-	\caption{\label{fig_mapa} Mapa que utiliza os recursos de formação}
+	\caption{\label{fig_teste1} Tarefa com elaboração de mapa conceitual}
 	\begin{center}
-		\includegraphics[scale=0.3]{mapa.png}
+		\includegraphics[scale=0.3]{teste1.png}
 	\end{center}
 	\legend{Fonte: Elaborada pelo autor}
 \end{figure}
 
+A atividade foi realizada por nove estudantes e nela foi possível observar o funcionamento do \textit{plugin} e o que precisa ser melhorado nele. O editor de mapas funcionou sem nenhum problema e os estudantes puderam elaborar os mapas conceituais corretamente, como pode ser visto na \autoref{fig_teste2}. Porém por não apresentar uma interface onde o avaliador pode ver o mapa criado pelo estudante o processo de avaliação se torna complexo. Para o avaliador visualizar um mapa que foi enviado é necessário que ele acesse a sala através do perfil do estudante que realizou a tarefa. E este procedimento deve ser realizado para cada estudante que respondeu a atividade. 
+
+\begin{figure}[htb]
+	\caption{\label{fig_teste2} Mapa conceitual elaborado pelo estudante}
+	\begin{center}
+		\includegraphics[scale=0.3]{teste2.png}
+	\end{center}
+	\legend{Fonte: Elaborada pelo autor}
+\end{figure}
+
+Então é possível concluir com este teste que, apesar do \textit{plugin} permitir que estudantes elaborem mapas conceituais como tarefa avaliativa, é necessário o desenvolvimento de um trabalho futuro de forma a permitir que o processo avaliativo seja mais prático. 
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
